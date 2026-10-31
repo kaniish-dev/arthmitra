@@ -1,0 +1,21 @@
+{
+  "name": "arthmitra",
+  "private": true,
+  "description": "ArthMitra — Har kharch ka hisaab, har sapne ka plan.",
+  "packageManager": "npm@11.19.1",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "seed"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w web",
+    "build": "npm run build -w web",
+    "test": "npm test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint -w web"
+  }
+}

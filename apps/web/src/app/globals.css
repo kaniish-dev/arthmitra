@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/* Material Design 3 colour roles, Google blue scheme (the look of Google's payment and banking apps). */
+@theme {
+  --color-primary: #0b57d0;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #d3e3fd;
+  --color-on-primary-container: #041e49;
+  --color-secondary: #00639b;
+  --color-secondary-container: #c2e7ff;
+  --color-on-secondary-container: #001d35;
+  --color-tertiary: #146c2e;
+  --color-tertiary-container: #c4eed0;
+  --color-on-tertiary-container: #072711;
+  /* Money in, on track, done. */
+  --color-success: #146c2e;
+  --color-success-container: #c4eed0;
+  --color-on-success-container: #072711;
+  --color-error: #b3261e;
+  --color-error-container: #f9dedc;
+  --color-on-error-container: #410e0b;
+  --color-warning: #7a5900;
+  --color-warning-container: #ffdf99;
+  --color-on-warning-container: #261a00;
+  --color-surface: #f8fafd;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafd;
+  --color-surface-container: #f0f4f9;
+  --color-surface-container-high: #e9eef6;
+  --color-surface-container-highest: #dde3ea;
+  --color-on-surface: #1f1f1f;
+  --color-on-surface-variant: #444746;
+  --color-outline: #747775;
+  --color-outline-variant: #c4c7c5;
+
+  --font-sans: var(--font-google-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-float: float 4s ease-in-out infinite;
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+}
+
+/* Visible keyboard focus everywhere (accessibility requirement). */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.material-symbols-rounded {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  user-select: none;
+}
+.material-symbols-rounded.filled {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* Amount inputs: no spinners. */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
