@@ -1,4 +1,4 @@
-import type { CoachIntent, CoachLang } from "./coach";
+import type { CoachIntent, CoachLang, CoachSnapshot } from "./coach";
 
 /**
  * How the Gemini coach is taught: a system instruction, a few worked examples, and an eval
@@ -9,7 +9,7 @@ import type { CoachIntent, CoachLang } from "./coach";
  */
 
 export const COACH_SYSTEM_INSTRUCTION = `You are ArthMitra Coach, a calm, practical money coach for young earners in India.
-You help people run their money as one structure: bills, an emergency cushion, money lent to others, one savings goal, budgets, and what to do in an emergency.
+You help people run their money as one structure: bills, an emergency cushion, money lent to others, savings goals and investment plans, budgets, and what to do in an emergency.
 
 You receive JSON with the user's question, the reply language ("en" or "hi"), and a snapshot the app computed:
 - structure: bank balance, monthly essentials and extras, bills due in 10 days, goal saving and gap, money owed to the user;
@@ -17,17 +17,19 @@ You receive JSON with the user's question, the reply language ("en" or "hi"), an
 - steps: the engine's next steps, most urgent first;
 - flow: this month's four habits (sorted, budgets, saved, lent), score, perfect-month streak and level;
 - emergency: free money after bills, months of essentials covered, what can pause or be called back, investments free now or locked.
+- plans: the realistic monthly saving read from past months, how much already goes to goal plans, what is free, each plan (monthly amount, value today, on track), portfolio value and estimated passive income, and the Crisis Cushion;
+- ask: a goal read from the question ("a 40k trip in March") already sized as a monthly amount — compare its monthlyPaise with plans.freePaise and say whether it fits. The app shows a button to turn it into a savings goal.
 
 Rules you must always follow:
 1. Use only rupee figures that appear in the snapshot, written exactly as given (for example "₹2,500"). Never add, subtract, split or round a figure yourself; the plan and the emergency numbers are already worked out.
 2. When money comes back, follow lent.lastReturn.plan in its order: bills due, then the emergency cushion (3 months of essentials), then the goal, then the user's own share. Never change the order or the amounts.
-3. Never name or hint at a specific fund, stock, insurance policy, bank, app or platform, and never mention or promise returns. For investing, point to the Goal page's general options or a SEBI-registered investment adviser.
+3. Never name or hint at a specific fund, stock, insurance policy, bank, app or platform, and never mention or promise returns. For investing, talk only in categories (FDs, RDs, government bonds, index funds, equity funds) and point to the Plan page or a SEBI-registered investment adviser.
 4. ArthMitra never moves money and never contacts anyone. Say "move it in your bank app" or "send a reminder yourself"; never offer to pay, collect or message.
 5. Safety: never ask for or repeat a PIN, OTP, password or account number. Remind the user that a PIN is never needed to receive money. For money taken by fraud, the number is 1930; for a medical or safety emergency, 112.
 6. Never diagnose or give medical, legal or tax advice. Rewards are points and levels with no money value; the real reward is the goal date, taken from the snapshot.
 7. Be kind and non-judgemental about spending and about lending to family and friends. In an emergency, lead with calm, ordered steps.
 8. Reply in the requested language. Hindi means simple Devanagari Hindi; English words like "budget" are fine. 2 to 5 short sentences, under 110 words.
-9. Choose up to 3 buttons by id from: emergency, lent, goal, bills, inbox, insights, rewards, accounts. Do not add a disclaimer; the app adds it.
+9. Choose up to 3 buttons by id from: emergency, lent, goal, explore, portfolio, cushion, learn, bills, inbox, insights, rewards, accounts. Do not add a disclaimer; the app adds it.
 
 Return only JSON: {"answer": string, "figuresUsed": string[], "actionIds": string[], "disclaimer": ""}. List every rupee figure you used in "figuresUsed".`;
 
@@ -77,6 +79,40 @@ export const COACH_EXAMPLES: Array<{ input: Record<string, unknown>; output: { a
     },
   },
 ];
+
+/** Crisis, medical and product questions are answered by templates and never sent to the model. */
+export function usesModel(intent: CoachIntent): boolean {
+  return intent !== "crisis" && intent !== "medical" && intent !== "product";
+}
+
+/**
+ * Swaps the names of people the user lent to for "Person 1", "Person 2"… so Gemini never sees a
+ * name. Pass the question through `redact` too; `restore` puts the full names back into the answer.
+ */
+export function redactNames(s: CoachSnapshot): { snapshot: CoachSnapshot; redact: (text: string) => string; restore: (text: string) => string } {
+  const full = [...new Set([...s.lent.people.map((p) => p.person), ...(s.lent.lastReturn ? [s.lent.lastReturn.person] : [])])];
+  // Longest first so "Ramesh Kumar" is replaced before "Ramesh".
+  const swaps = full
+    .flatMap((name, i) => {
+      const alias = `Person ${i + 1}`;
+      const first = name.split(/\s+/)[0];
+      return first && first !== name ? [{ from: name, alias }, { from: first, alias }] : [{ from: name, alias }];
+    })
+    .sort((a, b) => b.from.length - a.from.length);
+  const swap = (text: string) => swaps.reduce((t, { from, alias }) => t.split(from).join(alias), text);
+  const aliases = full.map((name, i) => ({ alias: `Person ${i + 1}`, name }));
+  return {
+    snapshot: JSON.parse(swap(JSON.stringify(s))) as CoachSnapshot,
+    redact: swap,
+    // Highest number first so "Person 1" never eats the start of "Person 12".
+    restore: (text) => [...aliases].reverse().reduce((t, { alias, name }) => t.split(alias).join(name), text),
+  };
+}
+
+/** The user turn sent to Gemini: the question, the reply language and the redacted snapshot. */
+export function coachModelInput(question: string, lang: CoachLang, snapshot: CoachSnapshot): string {
+  return JSON.stringify({ question: question.trim().slice(0, 300), lang, ...snapshot });
+}
 
 export interface CoachEvalCase {
   id: string;

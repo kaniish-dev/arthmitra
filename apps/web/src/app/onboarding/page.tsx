@@ -1,8 +1,6 @@
-import type { Metadata } from "next";
-import { OnboardingScreen } from "@/screens/onboarding";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = { title: "Set up" };
-
+/** Sign-up is now basic details → KYC → bank link at /setup. */
 export default function OnboardingPage() {
-  return <OnboardingScreen />;
+  redirect("/setup");
 }

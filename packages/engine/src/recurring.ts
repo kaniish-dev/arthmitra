@@ -5,7 +5,7 @@ import { addMonths, daysBetween, monthKey } from "./dates";
  * Categories whose repeats are bills or subscriptions. Food and travel repeat too,
  * but two Swiggy orders a month are a habit, not a bill.
  */
-export const RECURRING_CATEGORIES = ["rent", "bills", "emi", "education", "entertainment", "investment"];
+export const RECURRING_CATEGORIES = ["rent", "bills", "emi", "subscriptions", "education", "entertainment", "investment"];
 
 export interface RecurringPayment {
   merchantKey: string;

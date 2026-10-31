@@ -30,15 +30,15 @@ export function Icon({ name, filled, className }: { name: string; filled?: boole
 type Variant = "filled" | "tonal" | "outlined" | "text" | "danger";
 
 const VARIANTS: Record<Variant, string> = {
-  filled: "bg-primary text-on-primary hover:bg-primary/90 disabled:bg-on-surface/12 disabled:text-on-surface/40",
+  filled: "bg-primary text-on-primary shadow-sm shadow-primary/25 hover:bg-[#0a4fbe] hover:shadow-md hover:shadow-primary/25 disabled:bg-on-surface/12 disabled:text-on-surface/40 disabled:shadow-none",
   tonal: "bg-secondary-container text-on-secondary-container hover:bg-secondary-container/80 disabled:opacity-50",
-  outlined: "border border-outline text-primary hover:bg-primary/8 disabled:opacity-50",
+  outlined: "border border-outline-variant bg-surface-container-lowest text-primary hover:border-primary/40 hover:bg-primary/5 disabled:opacity-50",
   text: "text-primary hover:bg-primary/8 disabled:opacity-50",
   danger: "bg-error text-white hover:bg-error/90 disabled:opacity-50",
 };
 
 const buttonBase =
-  "inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed";
+  "inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-[background-color,box-shadow,border-color,transform] duration-150 active:scale-[0.98] disabled:cursor-not-allowed disabled:active:scale-100";
 
 export function Button({
   variant = "filled",
@@ -77,7 +77,7 @@ export function LinkButton({
 }
 
 export function Card({ className, children, as: As = "section" }: { className?: string; children: ReactNode; as?: "section" | "div" | "article" }) {
-  return <As className={cx("rounded-3xl bg-surface-container-lowest p-5 ring-1 ring-outline-variant/40", className)}>{children}</As>;
+  return <As className={cx("surface-card rounded-3xl p-5 sm:p-6", className)}>{children}</As>;
 }
 
 /**
@@ -136,7 +136,7 @@ export function Tabs<T extends string>({
 export function SectionTitle({ children, href, linkLabel }: { children: ReactNode; href?: string; linkLabel?: string }) {
   return (
     <div className="mb-3 flex items-center justify-between gap-3">
-      <h2 className="text-base font-semibold text-on-surface">{children}</h2>
+      <h2 className="text-[15px] font-semibold tracking-tight text-on-surface">{children}</h2>
       {href && (
         <Link href={href} className="text-sm font-semibold text-primary hover:underline">
           {linkLabel ?? "See all"}
@@ -248,8 +248,8 @@ export function IconButton({ icon, label, onClick, href, disabled }: { icon: str
 /** A titled group of ListRows, like a settings screen section. */
 export function ListSection({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className="rounded-3xl bg-surface-container-lowest p-2 ring-1 ring-outline-variant/40 sm:p-3">
-      <h2 className="px-2 pt-2 pb-1 text-sm font-semibold text-on-surface-variant">{title}</h2>
+    <section className="surface-card rounded-3xl p-2 sm:p-3">
+      <h2 className="px-2 pt-2 pb-1 text-xs font-semibold tracking-wide text-on-surface-variant uppercase">{title}</h2>
       {children}
     </section>
   );
@@ -328,7 +328,7 @@ const TONES: Record<Tone, string> = {
 
 export function Badge({ tone = "neutral", icon, children }: { tone?: Tone; icon?: string; children: ReactNode }) {
   return (
-    <span className={cx("inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold", TONES[tone])}>
+    <span className={cx("inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap ring-1 ring-black/5 ring-inset", TONES[tone])}>
       {icon && <Icon name={icon} className="text-[14px]" />}
       {children}
     </span>
@@ -336,7 +336,7 @@ export function Badge({ tone = "neutral", icon, children }: { tone?: Tone; icon?
 }
 
 export const fieldClass =
-  "w-full rounded-xl border border-outline bg-surface-container-lowest px-3.5 py-2.5 text-base text-on-surface placeholder:text-on-surface-variant/60 focus:border-primary focus:outline-none";
+  "w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-3.5 py-2.5 text-base text-on-surface shadow-[0_1px_1px_rgb(15_23_42/0.03)] transition-[border-color,box-shadow] placeholder:text-on-surface-variant/55 hover:border-outline focus:border-primary focus:shadow-[0_0_0_4px_rgb(11_87_208/0.12)] focus:outline-none disabled:bg-surface-container";
 
 export function Field({ label, hint, children, htmlFor }: { label: string; hint?: ReactNode; children: ReactNode; htmlFor: string }) {
   return (
@@ -511,10 +511,11 @@ export function EmptyState({ icon, title, children }: { icon: string; title: str
   );
 }
 
-export function Disclaimer({ text = DISCLAIMER }: { text?: string }) {
+/** The one disclaimer component: plans, suggestion cards, projections, portfolio returns, Coach and articles. */
+export function Disclaimer({ text = DISCLAIMER, className }: { text?: string; className?: string }) {
   return (
-    <p className="flex items-center gap-1.5 text-xs text-on-surface-variant">
-      <Icon name="info" className="text-[16px]" />
+    <p role="note" className={cx("flex items-start gap-1.5 text-xs text-on-surface-variant", className)}>
+      <Icon name="info" className="mt-px text-[16px]" />
       {text}
     </p>
   );
@@ -584,5 +585,44 @@ export function Loading() {
       <Icon name="progress_activity" className="animate-spin text-3xl" />
       <span className="sr-only">Loading</span>
     </div>
+  );
+}
+
+/** Grey placeholder block shown while something loads. */
+export function Skeleton({ className }: { className?: string }) {
+  return <div aria-hidden className={cx("animate-pulse rounded-2xl bg-surface-container-high", className)} />;
+}
+
+/** Small pill marking a mocked integration (KYC, AA, portfolio API, partner app). */
+export function DemoBadge({ label = "Demo mode" }: { label?: string }) {
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full bg-warning-container px-2 py-0.5 text-[11px] font-semibold text-on-warning-container">
+      <Icon name="science" className="text-[14px]" />
+      {label}
+    </span>
+  );
+}
+
+/** A compliance or "how this works live" note, shown on screen rather than hidden in code. */
+export function Note({ icon = "verified_user", children }: { icon?: string; children: ReactNode }) {
+  return (
+    <p role="note" className="flex items-start gap-2 rounded-2xl bg-surface-container px-3 py-2.5 text-xs text-on-surface-variant">
+      <Icon name={icon} className="mt-px text-[16px] text-primary" />
+      <span>{children}</span>
+    </p>
+  );
+}
+
+/** Demo helper: fills the form on screen with the demo persona's fictional values. */
+export function AutofillButton({ onClick, label = "Autofill demo values" }: { onClick: () => void; label?: string }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="inline-flex w-fit items-center gap-1.5 rounded-full border border-dashed border-tertiary px-3 py-1.5 text-xs font-semibold text-tertiary hover:bg-tertiary/8"
+    >
+      <Icon name="auto_fix_high" className="text-[16px]" />
+      {label}
+    </button>
   );
 }

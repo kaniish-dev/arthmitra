@@ -28,7 +28,7 @@ export function EmergencyScreen() {
       link: "Bills",
     },
   ];
-  if (e.pauseGoalPaise > 0) steps.push({ title: "Pause goal saving", text: `Frees ${formatINR(e.pauseGoalPaise)} a month until things settle.`, href: "/goal", link: "Goal plan" });
+  if (e.pauseGoalPaise > 0) steps.push({ title: "Pause goal saving", text: `Frees ${formatINR(e.pauseGoalPaise)} a month until things settle.`, href: "/plan", link: "My plans" });
   if (e.extrasPaise > 0) steps.push({ title: "Stop the extras", text: `Eating out, travel, shopping and fun: up to ${formatINR(e.extrasPaise)} a month.`, href: "/insights", link: "Budgets" });
   if (e.owedToYouPaise > 0) steps.push({ title: "Call back money owed to you", text: `${formatINR(e.owedToYouPaise)} is lent out or owed from split bills.`, href: "/lent", link: "Lent and split" });
   if (e.freeNowPaise > 0 || e.lockedPaise > 0) {

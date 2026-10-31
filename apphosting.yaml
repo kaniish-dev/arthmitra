@@ -1,0 +1,43 @@
+# Firebase App Hosting. The backend's root directory is the repo root ("/"): npm installs the
+# workspaces from the root lock file, the root "build" script builds apps/web, and the web
+# workspace's "start" runs next start on the PORT App Hosting gives it.
+runConfig:
+  minInstances: 0
+  maxInstances: 2
+
+scripts:
+  buildCommand: npm run build
+  runCommand: npm run start -w web
+
+env:
+  # Firebase web config: public by design (Firestore rules protect the data). Needed at build
+  # time because Next.js puts NEXT_PUBLIC_ values into the browser code.
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: "AIzaSyD1y-jS1GBRZnGg97Fkkj1Tc87-M0V8H5s"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: "arthmitra-d4a22.firebaseapp.com"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: "arthmitra-d4a22"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: "arthmitra-d4a22.firebasestorage.app"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: "365698409003"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: "1:365698409003:web:4940967c79cd95fd5f406e"
+    availability: [BUILD, RUNTIME]
+
+  # Secrets live in Cloud Secret Manager (firebase apphosting:secrets:set), never in git.
+  - variable: GEMINI_API_KEY
+    secret: geminiApiKey
+    availability: [RUNTIME]
+  - variable: NEXT_PUBLIC_DEMO_EMAIL
+    secret: demoEmail
+    availability: [BUILD]
+  - variable: NEXT_PUBLIC_DEMO_PASSWORD
+    secret: demoPassword
+    availability: [BUILD]

@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useCallback, useContext, useRef, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { startAuth } from "@/lib/auth";
 import { Icon } from "./ui";
 
 interface Toast {
@@ -15,6 +16,9 @@ const ToastContext = createContext<(toast: Omit<Toast, "id">) => void>(() => {})
 export function Providers({ children }: { children: ReactNode }) {
   const [toast, setToast] = useState<Toast | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Decides whose data the store shows: the signed-in user's, or the demo.
+  useEffect(startAuth, []);
 
   const show = useCallback((t: Omit<Toast, "id">) => {
     if (timer.current) clearTimeout(timer.current);

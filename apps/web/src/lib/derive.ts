@@ -40,6 +40,7 @@ import {
 } from "@arthmitra/engine";
 import type { AppData, Goal, Loan, LoanReturn } from "@arthmitra/schema";
 import { dueLabel, dueLabelHi, merchantLabel } from "./format";
+import { cushionGoal, goalProgress, planGoals, savingsInsight, wealthSummary } from "./insights";
 
 export interface Overview {
   today: string;
@@ -63,8 +64,12 @@ export function overview(d: AppData, today: string): Overview {
   const balancePaise =
     d.accounts.filter((a) => activeAccounts.has(a.id)).reduce((s, a) => s + a.openingBalancePaise, 0) +
     d.transactions.filter((t) => t.accountId && activeAccounts.has(t.accountId)).reduce((s, t) => s + t.amountPaise, 0);
-  const goal = d.goals.find((g) => g.status === "active") ?? d.goals[0] ?? null;
-  const savedPaise = goal ? savedForGoal(d.investments, goal.id) : 0;
+  // The main goal is the newest planned one; the Crisis Cushion has its own screen.
+  const planned = d.goals.filter((g) => g.path !== "crisisCushion");
+  const goal = planned.find((g) => g.status === "active") ?? planned[0] ?? null;
+  const savedPaise = goal
+    ? savedForGoal(d.investments, goal.id) + d.holdings.filter((h) => h.goalId === goal.id).reduce((s, h) => s + h.currentValuePaise, 0)
+    : 0;
   const status = goal ? goalStatus({ goal, savedPaise, capacityPaise, today }) : null;
   const cuts = d.profile
     ? topCutCategories({
@@ -277,6 +282,28 @@ export function coachSnapshot(d: AppData, o: Overview): CoachSnapshot {
     steps: stepsFor(d, o),
     flow: flowFor(d, o.today),
     emergency: { ...emergencyFor(d, o), mode: d.settings.emergencyMode },
+    plans: plansFor(d, o.today),
+  };
+}
+
+/** Realistic saving, goal plans, portfolio and cushion for the coach — totals only. */
+function plansFor(d: AppData, today: string): NonNullable<CoachSnapshot["plans"]> {
+  const insight = savingsInsight(d, today);
+  const w = wealthSummary(d);
+  const cushion = cushionGoal(d);
+  return {
+    realisticPaise: insight.saving.monthlyPaise,
+    committedPaise: insight.committedPaise,
+    freePaise: insight.freePaise,
+    goals: planGoals(d)
+      .filter((g) => g.status === "active" && g.plan)
+      .map((g) => {
+        const p = goalProgress(d, g, today);
+        return { name: g.name, monthlyPaise: g.plan!.monthlyPaise, valuePaise: p.valuePaise, targetPaise: g.targetPaise, onTrack: p.onTrack, targetDateLabel: formatDate(g.targetDate) };
+      }),
+    portfolioValuePaise: w.valuePaise,
+    passiveIncomePaise: w.passiveIncomePaise,
+    cushion: cushion ? { targetPaise: cushion.targetPaise, savedPaise: cushion.cushionSavedPaise ?? 0 } : null,
   };
 }
 

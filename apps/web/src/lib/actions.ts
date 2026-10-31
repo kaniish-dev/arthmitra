@@ -4,6 +4,7 @@ import {
   budgetLevel,
   categoriseByRules,
   categoryIdFromName,
+  categoryName,
   consentRequest,
   decide,
   dedupeKey,
@@ -15,10 +16,15 @@ import {
   monthKey,
   normalizeMerchant,
   outstandingPaise,
+  predictSorter,
   readDepositData,
   savedForGoal,
+  sortExamples,
   splitEqually,
   todayIso,
+  trainSorter,
+  unusualPayment,
+  withSortPrediction,
   type StatementRow,
 } from "@arthmitra/engine";
 import type {
@@ -30,13 +36,21 @@ import type {
   ConsentPurpose,
   FixedExpense,
   Goal,
+  GoalFunding,
+  GoalPath,
+  GoalPlan,
+  Guardian,
+  Holding,
   InstrumentType,
   Investment,
+  InvestmentAccount,
   Loan,
   LoanReturn,
   Profile,
+  Registration,
   RiskComfort,
   Split,
+  Timeline,
   Transaction,
   TxnSource,
 } from "@arthmitra/schema";
@@ -49,7 +63,13 @@ import {
   demoFiData,
   demoOnboarded,
   emptyData,
+  linkedAccount,
+  personaData,
+  profileFromHistory,
+  type PersonaId,
 } from "@arthmitra/seed";
+import { ALLOCATION_CONFIG } from "@/config/plan";
+import { shortId } from "./ids";
 import { clearData, getData, setData, update } from "./store";
 
 /**
@@ -57,14 +77,14 @@ import { clearData, getData, setData, update } from "./store";
  * workflow, so the Firebase version can replace them one by one.
  */
 
-export const newId = (prefix: string) => `${prefix}-${crypto.randomUUID().slice(0, 8)}`;
+export const newId = (prefix: string) => `${prefix}-${shortId()}`;
 const now = () => new Date().toISOString();
 const today = () => todayIso();
 
 const POINTS_PER_SORT = 10;
 
-function notify(d: AppData, type: AppNotification["type"], message: string): AppData {
-  const n: AppNotification = { id: newId("n"), type, message, read: false, createdAt: now() };
+function notify(d: AppData, type: AppNotification["type"], message: string, txnId?: string): AppData {
+  const n: AppNotification = { id: newId("n"), type, message, read: false, createdAt: now(), ...(txnId ? { txnId } : {}) };
   return { ...d, notifications: [n, ...d.notifications].slice(0, 50) };
 }
 
@@ -132,7 +152,8 @@ export function completeOnboarding(input: OnboardingInput) {
   update((d) => {
     const profile: Profile = {
       name: input.name,
-      is18Plus: true,
+      // Under-18 accounts stay under-18 when they edit their plan.
+      is18Plus: d.profile?.is18Plus ?? true,
       monthlyIncomePaise: input.monthlyIncomePaise,
       otherIncomePaise: input.otherIncomePaise,
       fixedExpenses: input.fixedExpenses.filter((f) => f.amountPaise > 0),
@@ -163,6 +184,92 @@ export function completeOnboarding(input: OnboardingInput) {
       settings: { ...d.settings, aiEnabled: input.aiConsent },
     };
   });
+}
+
+// ---------- Sign-up (basic details → KYC → bank link) ----------
+
+export interface SignupInput {
+  name: string;
+  dob: string;
+  email: string | null;
+  /** 10 digits, without +91. */
+  mobile: string;
+  isMinor: boolean;
+  /** Masked already: the raw PAN and Aadhaar never reach the store. */
+  kyc: { panMasked: string; aadhaarLast4: string };
+  guardian: { name: string; relation: Guardian["relation"] } | null;
+  bank: { holderName: string; accountLast4: string; ifsc: string; bankName: string; branch: string };
+  history: { source: "aa"; txns: Transaction[]; consent: AaConsent["detail"] } | { source: "statement"; rows: StatementRow[] };
+}
+
+/**
+ * Ends sign-up: saves the registration (only masked IDs), the bank account, its history from
+ * the AA or the uploaded statement, and a profile read from that history.
+ */
+export function completeSignup(input: SignupInput): ImportSummary {
+  const summary: ImportSummary = { added: 0, duplicates: 0, toInbox: 0 };
+  update((current) => {
+    const at = now();
+    const accountId = `acc-${input.bank.accountLast4}-${input.bank.ifsc.slice(0, 4).toLowerCase()}`;
+    const aaConsentId = input.history.source === "aa" ? newId("aac") : null;
+    const account: Account = {
+      ...linkedAccount({ id: accountId, bankName: input.bank.bankName, last4: input.bank.accountLast4, holderName: input.bank.holderName, openingBalancePaise: 0 }),
+      source: input.history.source === "aa" ? "simulated" : "csv",
+      aaConsentId,
+      consentExpiry: input.history.source === "aa" ? input.history.consent.consentExpiry.slice(0, 10) : null,
+    };
+    const registration: Registration = {
+      name: input.name,
+      dob: input.dob,
+      email: input.email,
+      mobile: `+91${input.mobile}`,
+      isMinor: input.isMinor,
+      kycStatus: "verified",
+      panMasked: input.isMinor ? null : input.kyc.panMasked,
+      aadhaarLast4: input.isMinor ? null : input.kyc.aadhaarLast4,
+      guardian: input.guardian ? { ...input.guardian, panMasked: input.kyc.panMasked, aadhaarLast4: input.kyc.aadhaarLast4, consentedAt: at } : null,
+      bank: { ...input.bank, historySource: input.history.source, accountId },
+      kycProvider: "demo",
+      completedAt: at,
+    };
+    let d: AppData = {
+      ...current,
+      registration,
+      accounts: [...current.accounts.filter((a) => a.id !== accountId), account],
+      consents: [...current.consents, { id: newId("consent"), purpose: "bank_data", granted: true, noticeVersion: NOTICE_VERSION, createdAt: at }],
+      // No AI profiling of children's spending (DPDP Act, section 9).
+      settings: input.isMinor ? { ...current.settings, aiEnabled: false } : current.settings,
+    };
+    if (input.history.source === "aa") {
+      const existing = new Set(d.transactions.map((t) => t.dedupeKey));
+      // The AA fetch ran before the account id existed; file its rows under it.
+      const fresh = input.history.txns
+        .map((t) => ({ ...t, id: `${accountId}-${t.id}`, accountId, dedupeKey: `${accountId}|${t.dedupeKey}` }))
+        .filter((t) => !existing.has(t.dedupeKey));
+      summary.added = fresh.length;
+      d = {
+        ...d,
+        transactions: [...d.transactions, ...fresh].sort(byNewest),
+        aaConsents: [
+          ...d.aaConsents,
+          { id: aaConsentId!, aaName: DEMO_AA_NAME, status: "active", detail: input.history.consent, accountIds: [accountId], lastFetchedAt: at, createdAt: at },
+        ],
+      };
+    } else {
+      d = ingestRows(d, accountId, input.history.rows, "csv", summary);
+    }
+    // A balance that makes sense: what the history leaves plus a little.
+    const net = d.transactions.filter((t) => t.accountId === accountId).reduce((s, t) => s + t.amountPaise, 0);
+    d = { ...d, accounts: d.accounts.map((a) => (a.id === accountId ? { ...a, openingBalancePaise: Math.max(0, 1_000_000 - net) } : a)) };
+    const profile = profileFromHistory({ name: input.name, isMinor: input.isMinor, txns: d.transactions, today: today(), nowIso: at });
+    return { ...d, profile: d.profile ? { ...profile, points: d.profile.points, badges: d.profile.badges, streak: d.profile.streak } : profile };
+  });
+  return summary;
+}
+
+/** One-tap demo login: a fully onboarded persona (salaried 24-year-old, or 16-year-old with a guardian). */
+export function startPersona(id: PersonaId) {
+  setData(personaData(id, today(), now(), ALLOCATION_CONFIG.returnsPct));
 }
 
 export function updateProfile(patch: Partial<Profile>) {
@@ -226,6 +333,40 @@ export function linkDemoAa(accountIds: string[]): AaConsent | null {
   return consent;
 }
 
+/**
+ * Removes a bank account and the payments that came from it. Splits of those payments go
+ * too; loans and investments keep their record but lose the link to the payment. An AA
+ * account also leaves its consent, and a consent with no accounts left is revoked.
+ */
+export function removeAccount(accountId: string) {
+  update((d) => {
+    const account = d.accounts.find((a) => a.id === accountId);
+    if (!account) return d;
+    const gone = new Set(d.transactions.filter((t) => t.accountId === accountId).map((t) => t.id));
+    const unlink = (id: string | null) => (id && gone.has(id) ? null : id);
+    const aaConsents = d.aaConsents.map((c) => {
+      if (!c.accountIds.includes(accountId)) return c;
+      const accountIds = c.accountIds.filter((id) => id !== accountId);
+      return { ...c, accountIds, status: accountIds.length ? c.status : ("revoked" as const) };
+    });
+    const hadBankData = d.aaConsents.some((c) => c.status === "active" || c.status === "paused");
+    const hasBankData = aaConsents.some((c) => c.status === "active" || c.status === "paused");
+    return {
+      ...d,
+      accounts: d.accounts.filter((a) => a.id !== accountId),
+      transactions: d.transactions.filter((t) => !gone.has(t.id)),
+      splits: d.splits.filter((sp) => !gone.has(sp.txnId)),
+      loans: d.loans.map((l) => ({ ...l, txnId: unlink(l.txnId), returns: l.returns.map((r) => ({ ...r, txnId: unlink(r.txnId) })) })),
+      investments: d.investments.map((i) => ({ ...i, matchedTxnId: unlink(i.matchedTxnId) })),
+      aaConsents,
+      consents:
+        hadBankData && !hasBankData
+          ? [...d.consents, { id: newId("consent"), purpose: "bank_data", granted: false, noticeVersion: NOTICE_VERSION, createdAt: now() }]
+          : d.consents,
+    };
+  });
+}
+
 /** Pausing stops fetches until resumed; revoking ends the consent and disconnects its accounts. */
 export function setAaConsentStatus(consentId: string, status: "active" | "paused" | "revoked") {
   update((d) => {
@@ -279,14 +420,20 @@ function ingest(d: AppData, input: NewTxn): { data: AppData; txn: Transaction | 
 
   const merchantKey = normalizeMerchant(input.merchantRaw);
   const threshold = d.settings.confidenceThreshold;
-  const result = input.category
+  const known = d.categories.map((c) => c.id);
+  const rules = input.category
     ? decide(input.category, 1, [], threshold, "user_rule")
     : categoriseByRules(merchantKey, input.amountPaise, {
         userRules: Object.fromEntries(d.merchantRules.map((r) => [r.merchantKey, r.category])),
         cache: d.merchantCache,
         threshold,
-        known: d.categories.map((c) => c.id),
+        known,
       });
+  // Smart sorting retrains on the user's sorted payments each time; a few hundred shops take milliseconds.
+  const result =
+    rules.via === "none" && input.amountPaise < 0
+      ? withSortPrediction(rules, predictSorter(trainSorter(sortExamples(d.transactions, known), known), merchantKey), threshold)
+      : rules;
 
   let txn: Transaction = {
     id: newId("t"),
@@ -349,6 +496,15 @@ function ingest(d: AppData, input: NewTxn): { data: AppData; txn: Transaction | 
 
   if (txn.status === "uncategorised") {
     next = notify(next, "uncategorised", `${formatINR(Math.abs(txn.amountPaise))} at "${input.merchantRaw}" needs a category.`);
+  }
+  const odd = unusualPayment(txn, next.transactions);
+  if (odd) {
+    next = notify(
+      next,
+      "unusual",
+      `Was this you? ${formatINR(-txn.amountPaise)} at "${input.merchantRaw}" is about ${odd.times}× your usual ${categoryName(next.categories, txn.category)} payment of ${formatINR(odd.usualPaise)}. A party or a big day is fine — tap "This was me". If you didn't make it, call 1930 now.`,
+      txn.id,
+    );
   }
   next = budgetAlert(next, txn);
 
@@ -431,29 +587,37 @@ export function simulatePayment(scriptId: string): Transaction | null {
   return getData().transactions.find((t) => !known.has(t.id)) ?? null;
 }
 
+/**
+ * Adds an uploaded statement's rows to the account with the same last 4 digits (an account
+ * added by hand before becomes a statement account), or to a new statement account.
+ * AA-linked accounts are left alone: their payments come from the AA.
+ */
 export function importStatement(args: { bankName: string; last4: string; rows: StatementRow[] }): ImportSummary {
   const summary: ImportSummary = { added: 0, duplicates: 0, toInbox: 0 };
   update((d) => {
-    const accountId = `acc-csv-${args.last4}`;
-    const next: AppData = d.accounts.some((a) => a.id === accountId)
-      ? d
-      : {
-          ...d,
-          accounts: [
-            ...d.accounts,
-            {
-              id: accountId,
-              bankName: args.bankName,
-              type: "savings",
-              last4: args.last4,
-              source: "csv",
-              aaConsentId: null,
-              consentExpiry: null,
-              openingBalancePaise: 0,
-              status: "active",
-            },
-          ],
-        };
+    const existing = d.accounts.find((a) => a.status === "active" && a.last4 === args.last4 && (a.source === "manual" || a.source === "csv"));
+    const accountId = existing?.id ?? `acc-csv-${args.last4}`;
+    const next: AppData = existing
+      ? { ...d, accounts: d.accounts.map((a) => (a.id === existing.id ? { ...a, source: "csv" as const } : a)) }
+      : d.accounts.some((a) => a.id === accountId)
+        ? d
+        : {
+            ...d,
+            accounts: [
+              ...d.accounts,
+              {
+                id: accountId,
+                bankName: args.bankName,
+                type: "savings",
+                last4: args.last4,
+                source: "csv",
+                aaConsentId: null,
+                consentExpiry: null,
+                openingBalancePaise: 0,
+                status: "active",
+              },
+            ],
+          };
     return ingestRows(next, accountId, args.rows, "csv", summary);
   });
   return summary;
@@ -869,4 +1033,134 @@ export function addPartner(name: string, url: string) {
 
 export function removePartner(id: string) {
   update((d) => ({ ...d, partners: d.partners.filter((p) => p.id !== id) }));
+}
+
+// ---------- Explore → plan (Big Day, Wealth Generator, Crisis Cushion, coach goals) ----------
+
+export interface PlannedGoalInput {
+  id?: string;
+  name: string;
+  kind: Goal["kind"];
+  path: GoalPath;
+  targetPaise: number;
+  targetDate: string;
+  risk: RiskComfort;
+  timeline: Timeline;
+  monthlyExpensesPaise?: number;
+  funding?: GoalFunding;
+  plan: GoalPlan | null;
+}
+
+/** Saves (or updates) a goal with its timeline, risk appetite and investment plan. */
+export function savePlannedGoal(input: PlannedGoalInput): string {
+  const id = input.id ?? newId("goal");
+  update((d) => {
+    const before = d.goals.find((g) => g.id === id);
+    const goal: Goal = {
+      ...(before ?? { status: "active" as const, createdAt: now() }),
+      id,
+      name: input.name,
+      kind: input.kind,
+      path: input.path,
+      targetPaise: input.targetPaise,
+      targetDate: input.targetDate,
+      risk: input.risk,
+      timeline: input.timeline,
+      monthlyExpensesPaise: input.monthlyExpensesPaise,
+      funding: input.funding ?? before?.funding,
+      plan: input.plan,
+      monthlyContributionPaise: input.plan?.monthlyPaise ?? null,
+    };
+    // Wealth Generator is one goal only: a new one replaces the old.
+    const others = d.goals.filter((g) => g.id !== id && !(input.path === "wealth" && g.path === "wealth"));
+    return { ...d, goals: [goal, ...others] };
+  });
+  return id;
+}
+
+export function deleteGoal(id: string) {
+  update((d) => ({
+    ...d,
+    goals: d.goals.filter((g) => g.id !== id),
+    holdings: d.holdings.map((h) => (h.goalId === id ? { ...h, goalId: null } : h)),
+  }));
+}
+
+/** A small savings goal from a Coach chat ("a fridge in 3 months"), without an investment plan yet. */
+export function addCoachGoal(name: string, targetPaise: number, targetDate: string): string {
+  return savePlannedGoal({ name, kind: "custom", path: "custom", targetPaise, targetDate, risk: "low", timeline: "short", plan: null });
+}
+
+/** Crisis Cushion: N months of expenses, what is set aside so far, and the monthly top-up. */
+export function saveCushion(input: { months: number; savedPaise: number; targetPaise: number; monthlyPaise: number; targetDate: string }) {
+  update((d) => {
+    const before = d.goals.find((g) => g.path === "crisisCushion");
+    const goal: Goal = {
+      id: before?.id ?? newId("goal"),
+      name: "Crisis Cushion",
+      kind: "emergency",
+      path: "crisisCushion",
+      targetPaise: Math.max(1, input.targetPaise),
+      targetDate: input.targetDate,
+      monthlyContributionPaise: input.monthlyPaise,
+      risk: "low",
+      cushionMonths: input.months,
+      cushionSavedPaise: input.savedPaise,
+      status: input.savedPaise >= input.targetPaise ? "achieved" : "active",
+      createdAt: before?.createdAt ?? now(),
+    };
+    return { ...d, goals: [...d.goals.filter((g) => g.id !== goal.id), goal] };
+  });
+}
+
+// ---------- Portfolio tracking ----------
+
+export function addInvestmentAccount(account: InvestmentAccount) {
+  update((d) => ({ ...d, investmentAccounts: [...d.investmentAccounts.filter((a) => a.id !== account.id), account] }));
+}
+
+/** Replaces an account's holdings with what the portfolio-tracking API returned. */
+export function storeHoldings(accountId: string, holdings: Holding[]) {
+  update((d) => ({
+    ...d,
+    holdings: [...d.holdings.filter((h) => h.accountId !== accountId), ...holdings],
+    investmentAccounts: d.investmentAccounts.map((a) => (a.id === accountId ? { ...a, lastSyncedAt: now() } : a)),
+  }));
+}
+
+export function disconnectInvestmentAccount(accountId: string) {
+  update((d) => ({
+    ...d,
+    investmentAccounts: d.investmentAccounts.filter((a) => a.id !== accountId),
+    holdings: d.holdings.filter((h) => h.accountId !== accountId),
+  }));
+}
+
+
+// ---------- Unusual payments: "Was this you?" ----------
+
+/**
+ * The user confirms an unusual payment was theirs (a party, a birthday, a big day). The alert
+ * clears, and the payment counts as normal from now on, so a similar one won't alert again.
+ */
+export function confirmUnusual(txnId: string) {
+  update((d) => ({
+    ...d,
+    transactions: d.transactions.map((t) => (t.id === txnId ? { ...t, unusualCheck: "confirmed" as const } : t)),
+    notifications: d.notifications.filter((n) => !(n.type === "unusual" && n.txnId === txnId)),
+  }));
+}
+
+/** The user didn't make it: kept on the list, with what to do next on the bell. */
+export function reportUnusual(txnId: string) {
+  update((d) => {
+    const t = d.transactions.find((x) => x.id === txnId);
+    if (!t) return d;
+    const marked = { ...d, transactions: d.transactions.map((x) => (x.id === txnId ? { ...x, unusualCheck: "reported" as const } : x)) };
+    return notify(
+      { ...marked, notifications: marked.notifications.filter((n) => !(n.type === "unusual" && n.txnId === txnId)) },
+      "unusual",
+      `You reported ${formatINR(-t.amountPaise)} at "${t.merchantRaw}" as not yours. Call 1930 (cyber fraud helpline) now and tell your bank to block the card or UPI.`,
+    );
+  });
 }

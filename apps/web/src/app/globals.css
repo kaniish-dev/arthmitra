@@ -22,7 +22,7 @@
   --color-warning: #7a5900;
   --color-warning-container: #ffdf99;
   --color-on-warning-container: #261a00;
-  --color-surface: #f8fafd;
+  --color-surface: #f5f7fb;
   --color-surface-container-lowest: #ffffff;
   --color-surface-container-low: #f8fafd;
   --color-surface-container: #f0f4f9;
@@ -31,7 +31,7 @@
   --color-on-surface: #1f1f1f;
   --color-on-surface-variant: #444746;
   --color-outline: #747775;
-  --color-outline-variant: #c4c7c5;
+  --color-outline-variant: #d3d8df;
 
   --font-sans: var(--font-google-sans), ui-sans-serif, system-ui, sans-serif;
 
@@ -54,6 +54,45 @@
 body {
   background: var(--color-surface);
   color: var(--color-on-surface);
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+}
+
+/* Thin, quiet scrollbars. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-outline-variant) transparent;
+}
+
+/* Raised white surface used by cards and list sections. */
+.surface-card {
+  background: var(--color-surface-container-lowest);
+  border: 1px solid rgb(211 216 223 / 0.7);
+  box-shadow:
+    0 1px 2px rgb(15 23 42 / 0.04),
+    0 8px 24px -16px rgb(15 23 42 / 0.12);
+}
+
+/* Blue headline panels (Home, Portfolio, login): gradient with a soft light in the corner. The
+   elements also carry a plain Tailwind gradient underneath, which this overrides. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background-image:
+    radial-gradient(120% 90% at 100% 0%, rgb(255 255 255 / 0.18), transparent 55%),
+    radial-gradient(80% 60% at 0% 100%, rgb(124 172 248 / 0.25), transparent 60%),
+    linear-gradient(135deg, #0b57d0 0%, #0842a0 55%, #062e6f 100%);
+  box-shadow: 0 16px 40px -20px rgb(11 87 208 / 0.6);
 }
 
 /* Visible keyboard focus everywhere (accessibility requirement). */

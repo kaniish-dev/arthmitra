@@ -4,10 +4,12 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { formatDate } from "@arthmitra/engine";
 import type { ConsentPurpose } from "@arthmitra/schema";
-import { addPartner, deleteEverything, exportJson, removePartner, setConsent, setSettings, startDemo } from "@/lib/actions";
+import { PARTNER } from "@/config/partner";
+import { deleteEverything, exportJson, setConsent, setSettings, startPersona } from "@/lib/actions";
+import { useAuth } from "@/lib/auth";
 import { downloadFile } from "@/lib/files";
 import { useAppData } from "@/lib/store";
-import { Badge, Button, Card, CardTitle, Icon, ListRow, Modal, PageHeader, TextInput, Toggle } from "@/components/ui";
+import { Badge, Button, Card, CardTitle, ListRow, Modal, PageHeader, TextInput, Toggle } from "@/components/ui";
 
 const CONSENT_LABEL: Record<ConsentPurpose, { title: string; text: string }> = {
   bank_data: { title: "Bank data", text: "Balance and transactions through your Account Aggregator. Withdrawing revokes every AA consent." },
@@ -17,16 +19,14 @@ const CONSENT_LABEL: Record<ConsentPurpose, { title: string; text: string }> = {
 export function SettingsScreen() {
   const data = useAppData()!;
   const router = useRouter();
+  const signedIn = useAuth().status === "signedIn";
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [typed, setTyped] = useState("");
-  const [partnerName, setPartnerName] = useState("");
-  const [partnerUrl, setPartnerUrl] = useState("");
 
   const latest = (purpose: ConsentPurpose) => [...data.consents].reverse().find((c) => c.purpose === purpose);
 
   const download = () => downloadFile(`arthmitra-export-${new Date().toISOString().slice(0, 10)}.json`, exportJson(), "application/json");
 
-  const validUrl = /^https:\/\/[^\s]+\.[^\s]+$/.test(partnerUrl.trim());
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -90,36 +90,12 @@ export function SettingsScreen() {
         </Card>
 
         <Card>
-          <CardTitle icon="open_in_new">“Invest now” links</CardTitle>
-          <ul className="mb-4 divide-y divide-outline-variant/50">
-            {data.partners.map((p) => (
-              <li key={p.id} className="flex items-center gap-2 py-2 text-sm">
-                <span className="min-w-0 flex-1">
-                  {p.name} <span className="break-all text-on-surface-variant">· {p.url}</span>
-                </span>
-                <button type="button" aria-label={`Remove ${p.name}`} onClick={() => removePartner(p.id)} className="rounded-full p-1 hover:bg-on-surface/8">
-                  <Icon name="close" className="text-[18px]" />
-                </button>
-              </li>
-            ))}
-          </ul>
-          <form
-            className="grid grid-cols-1 gap-3 sm:grid-cols-[1fr_1.4fr_auto] sm:items-end"
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (partnerName.trim() && validUrl) {
-                addPartner(partnerName, partnerUrl);
-                setPartnerName("");
-                setPartnerUrl("");
-              }
-            }}
-          >
-            <TextInput label="Name" value={partnerName} onChange={(e) => setPartnerName(e.target.value)} placeholder="My bank's FD page" />
-            <TextInput label="Link (https)" value={partnerUrl} onChange={(e) => setPartnerUrl(e.target.value)} placeholder="https://" />
-            <Button type="submit" variant="tonal" icon="add" disabled={!partnerName.trim() || !validUrl}>
-              Add
-            </Button>
-          </form>
+          <CardTitle icon="open_in_new">Third-party investment app</CardTitle>
+          <p className="text-sm">
+            &ldquo;Invest&rdquo; buttons open <strong>{PARTNER.name}</strong> <span className="break-all text-on-surface-variant">({PARTNER.url})</span> in a new tab. ArthMitra never buys,
+            sells or holds money.
+          </p>
+          <p className="mt-2 text-xs text-on-surface-variant">Set in config (NEXT_PUBLIC_PARTNER_NAME and NEXT_PUBLIC_PARTNER_URL), so a partner can be plugged in later. No broker is named in this prototype.</p>
         </Card>
 
         <Card>
@@ -128,16 +104,18 @@ export function SettingsScreen() {
             <Button variant="outlined" icon="download" onClick={download}>
               Export everything (JSON)
             </Button>
-            <Button
-              variant="outlined"
-              icon="restart_alt"
-              onClick={() => {
-                startDemo();
-                router.push("/link-bank");
-              }}
-            >
-              Reset demo
-            </Button>
+            {!signedIn && (
+              <Button
+                variant="outlined"
+                icon="restart_alt"
+                onClick={() => {
+                  startPersona(data.registration?.isMinor ? "minor" : "adult");
+                  router.push("/dashboard");
+                }}
+              >
+                Reset demo
+              </Button>
+            )}
             <Button variant="danger" icon="delete_forever" onClick={() => setConfirmOpen(true)}>
               Delete everything
             </Button>
@@ -155,7 +133,7 @@ export function SettingsScreen() {
             router.push("/");
           }}
         >
-          <p className="text-sm">This removes your profile, transactions, goals, investments and consent log from this device. It cannot be undone.</p>
+          <p className="text-sm">This removes your profile, transactions, goals, investments and consent log from {signedIn ? "your account and this device" : "this device"}. It cannot be undone.</p>
           <TextInput label='Type DELETE to confirm' value={typed} onChange={(e) => setTyped(e.target.value)} autoComplete="off" />
           <button type="submit" disabled={typed !== "DELETE"} className="rounded-full bg-error px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40">
             Delete everything

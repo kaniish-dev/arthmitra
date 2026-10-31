@@ -1,6 +1,6 @@
 # Context for Gemini CLI and Antigravity agents
 
-ArthMitra: track every payment, sort it, and plan one savings goal. Next.js 16 + Firebase + Gemini (Vertex AI via Genkit). npm workspaces.
+ArthMitra: track every payment, sort it, and plan one savings goal. Next.js 16 + Firebase (Spark plan) + Gemini API free tier. npm workspaces. Free-tier services only: no Blaze plan, no Cloud Functions — server code is Next.js route handlers.
 
 ## Rules that must never break
 
@@ -19,9 +19,10 @@ ArthMitra: track every payment, sort it, and plan one savings goal. Next.js 16 +
 ## Where things live
 
 - `packages/schema` — Zod types; add a field here first.
-- `packages/engine` — pure functions with Vitest tests next to them; every PRD formula has a test.
+- `packages/engine` — pure functions with Vitest tests next to them; every PRD formula has a test. `ml.ts` holds the on-device models (smart sorting, month-end forecast, unusual payments); they train on the user's data in the browser and never send it anywhere.
 - `seed` — fictional demo data; its tests pin the demo-script numbers.
-- `apps/web/src/lib/actions.ts` — demo-mode versions of the Cloud Functions.
+- `apps/web/src/lib/actions.ts` — demo-mode versions of the server steps.
+- `apps/web/src/app/api` — server routes; `coach/route.ts` calls Gemini with `GEMINI_API_KEY` (AI Studio) and names redacted by `redactNames()`.
 - `apps/web/src/screens` — one client component per screen; `src/app` holds thin route files.
 
 Run `npm test`, `npm run typecheck` and `npm run lint` before proposing a change.

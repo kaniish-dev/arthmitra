@@ -14,7 +14,7 @@ import {
   type CoachIntent,
   type CoachSnapshot,
 } from "./coach";
-import { COACH_EVALS, COACH_EXAMPLES, COACH_SYSTEM_INSTRUCTION } from "./coach-prompt";
+import { COACH_EVALS, COACH_EXAMPLES, COACH_SYSTEM_INSTRUCTION, coachModelInput, redactNames, usesModel } from "./coach-prompt";
 import { flowChecks } from "./flow";
 import { INSTRUMENTS } from "./instruments";
 import { emergencyPlan, nextSteps, planForMoney, type MoneyStructure } from "./plan";
@@ -204,5 +204,20 @@ describe("coach training pack", () => {
       expect([...new Set(used)].sort()).toEqual([...new Set(ex.output.figuresUsed)].sort());
     }
     expect(COACH_SYSTEM_INSTRUCTION).toContain("1930");
+  });
+});
+
+describe("coach model input", () => {
+  it("keeps crisis, medical and product questions away from the model", () => {
+    expect(ALL_INTENTS.filter((i) => !usesModel(i))).toEqual(["crisis", "medical", "product"]);
+  });
+
+  it("sends no names and puts them back in the answer", () => {
+    const { snapshot: redacted, redact, restore } = redactNames(snapshot);
+    const sent = coachModelInput(redact("Did Ramesh pay me back?"), "en", redacted);
+    expect(sent).not.toMatch(/Priya|Ramesh|Kumar/);
+    expect(sent).toContain("Person 1");
+    expect(restore("Person 2 paid back; Person 1 still owes ₹1,500.")).toBe("Ramesh Kumar paid back; Priya still owes ₹1,500.");
+    expect(snapshotFigures(redacted)).toEqual(snapshotFigures(snapshot));
   });
 });

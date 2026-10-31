@@ -24,6 +24,9 @@ export type CoachIntent =
   | "reach_goal"
   | "how_much_save"
   | "where_money"
+  | "afford"
+  | "new_goal"
+  | "invest"
   | "unknown";
 export type CoachLang = "en" | "hi";
 
@@ -38,7 +41,11 @@ export const CYBER_HELPLINE = "1930";
 export const COACH_ACTIONS = {
   emergency: { href: "/emergency", icon: "emergency_home", en: "Emergency plan", hi: "इमरजेंसी प्लान" },
   lent: { href: "/lent", icon: "handshake", en: "Lent money", hi: "उधार" },
-  goal: { href: "/goal", icon: "flag", en: "Goal plan", hi: "लक्ष्य योजना" },
+  goal: { href: "/plan", icon: "flag", en: "My plans", hi: "मेरी योजनाएँ" },
+  explore: { href: "/explore", icon: "rocket_launch", en: "Plan something", hi: "नई योजना" },
+  portfolio: { href: "/portfolio", icon: "account_balance_wallet", en: "Portfolio", hi: "पोर्टफोलियो" },
+  cushion: { href: "/cushion", icon: "health_and_safety", en: "Crisis Cushion", hi: "क्राइसिस कुशन" },
+  learn: { href: "/learn", icon: "school", en: "Finance First Class", hi: "फ़ाइनेंस फ़र्स्ट क्लास" },
   bills: { href: "/bills", icon: "event_repeat", en: "Bills", hi: "बिल" },
   inbox: { href: "/inbox", icon: "inbox", en: "Inbox", hi: "इनबॉक्स" },
   insights: { href: "/insights", icon: "insights", en: "Budgets", hi: "बजट" },
@@ -79,6 +86,18 @@ export interface CoachSnapshot {
   steps: NextStep[];
   flow: { checks: FlowCheck[]; score: number; streak: number; level: string; nextLevel: string | null; monthsToNext: number };
   emergency: EmergencyPlan & { mode: boolean };
+  /** Realistic saving from past months, the goal plans and the portfolio (optional for older callers). */
+  plans?: {
+    realisticPaise: number;
+    committedPaise: number;
+    freePaise: number;
+    goals: Array<{ name: string; monthlyPaise: number; valuePaise: number; targetPaise: number; onTrack: boolean; targetDateLabel: string }>;
+    portfolioValuePaise: number;
+    passiveIncomePaise: number;
+    cushion: { targetPaise: number; savedPaise: number } | null;
+  };
+  /** A goal read from the question ("a 40k trip in March"), sized by the app. */
+  ask?: { name: string; amountPaise: number; months: number; monthlyPaise: number; targetDateLabel: string } | null;
 }
 
 export type CoachReply = CoachAnswer & { intent: CoachIntent };
@@ -87,6 +106,9 @@ type Suggested = { intent: CoachIntent; text: string; group: "plan" | "money" };
 export const SUGGESTED_QUESTIONS: Record<CoachLang, Suggested[]> = {
   en: [
     { intent: "next_steps", text: "What should I do now?", group: "plan" },
+    { intent: "afford", text: "Can I afford a 40k trip in March?", group: "money" },
+    { intent: "new_goal", text: "I want to buy a refrigerator worth 30k in the next 3 months", group: "money" },
+    { intent: "invest", text: "Where should my savings go?", group: "money" },
     { intent: "money_back", text: "Money came back — where should it go?", group: "plan" },
     { intent: "lent", text: "Who still owes me money?", group: "plan" },
     { intent: "safety", text: "Am I safe if something goes wrong?", group: "plan" },
@@ -99,6 +121,9 @@ export const SUGGESTED_QUESTIONS: Record<CoachLang, Suggested[]> = {
   ],
   hi: [
     { intent: "next_steps", text: "अब मुझे क्या करना चाहिए?", group: "plan" },
+    { intent: "afford", text: "क्या मार्च में 40k की ट्रिप afford कर सकता हूँ?", group: "money" },
+    { intent: "new_goal", text: "अगले 3 महीने में 30k का फ्रिज लेना है", group: "money" },
+    { intent: "invest", text: "मेरी बचत कहाँ लगाऊँ?", group: "money" },
     { intent: "money_back", text: "पैसे वापस आए — इनका क्या करूँ?", group: "plan" },
     { intent: "lent", text: "मेरे पैसे किस-किस पर बाकी हैं?", group: "plan" },
     { intent: "safety", text: "कुछ गलत हुआ तो क्या मैं सुरक्षित हूँ?", group: "plan" },
@@ -121,6 +146,9 @@ const PRODUCT =
 
 const INTENT_PATTERNS: Array<[CoachIntent, RegExp]> = [
   ["emergency", /emergenc(?!y\s+fund)|urgent|lost my job|job loss|hospital|इमरजेंसी|आपात|achanak|अचानक|naukri chali|job chali|job gayi|नौकरी चली/i],
+  ["afford", /afford|can i (buy|go|take|get)|le sakta|kar sakta|खरीद सकता|ले सकता/i],
+  ["new_goal", /\b(i (want|wish|plan|need) to (buy|take|get|save for|go))|\b(want|wish) (a|to)\b|lena hai|लेना है|खरीदना है/i],
+  ["invest", /\binvest|\bsip\b|mutual fund|where should (my )?(savings|money) go|kahan lagaun|कहाँ लगाऊँ|निवेश/i],
   ["money_back", /came back|\bgot\b.{0,25}\bback\b|returned|paid me back|money back|वापस|wapas|lauta|लौटा/i],
   ["lent", /\bowes?\b|\blent\b|\blend|udhaa?r|उधार|बाकी|baaki|borrow/i],
   ["rewards", /reward|points?\b|badge|perfect month|good month|level|इनाम|पॉइंट|क्या मिलेगा/i],
@@ -471,6 +499,14 @@ export function templateAnswer(intent: CoachIntent, s: CoachSnapshot, lang: Coac
       actionIds = ["insights"];
       break;
     case "how_much_save":
+      if (s.plans) {
+        figures.push(inr(s.plans.realisticPaise), inr(s.plans.freePaise));
+        answer = hi
+          ? `पिछले महीनों के हिसाब से आप हर महीने ${inr(s.plans.realisticPaise)} आराम से बचा सकते हैं। योजनाओं के बाद ${inr(s.plans.freePaise)} अभी खाली है।`
+          : `From your past months, ${inr(s.plans.realisticPaise)} a month is a realistic saving. After your plans, ${inr(s.plans.freePaise)} is still free.`;
+        actionIds = ["explore", "goal"];
+        break;
+      }
       figures.push(inr(s.capacityPaise));
       answer = hi
         ? `आपकी आय, तय खर्च और अनुमानित खर्च के हिसाब से आप हर महीने लगभग ${inr(s.capacityPaise)} बचा सकते हैं।`
@@ -507,6 +543,43 @@ export function templateAnswer(intent: CoachIntent, s: CoachSnapshot, lang: Coac
       answer = hi
         ? `सबसे ज़्यादा गुंजाइश यहाँ है: ${cutList} — कुल ${inr(s.cutsTotalPaise)} हर महीने।`
         : `The most room is in ${cutList} — ${inr(s.cutsTotalPaise)} a month in all.`;
+      break;
+    }
+    case "afford":
+    case "new_goal": {
+      const a = s.ask;
+      const free = s.plans?.freePaise ?? Math.max(0, s.capacityPaise);
+      if (!a) {
+        answer = hi
+          ? "रकम और समय बताइए, जैसे “मार्च तक 40k की ट्रिप” — मैं बताऊँगा कि आपकी बचत में फिट होता है या नहीं।"
+          : "Tell me the amount and when, like “a 40k trip by March” — I'll check it against what you can save.";
+        actionIds = ["explore"];
+        break;
+      }
+      figures.push(inr(a.amountPaise), inr(a.monthlyPaise), inr(free));
+      const fits = a.monthlyPaise <= free;
+      const short = Math.max(0, a.monthlyPaise - free);
+      if (!fits) figures.push(inr(short));
+      answer = hi
+        ? `${a.name} के लिए ${inr(a.amountPaise)} ${a.targetDateLabel} तक = ${a.months} महीने तक हर महीने ${inr(a.monthlyPaise)}। आपकी मौजूदा योजनाओं के बाद हर महीने ${inr(free)} खाली है, तो ${fits ? "हाँ, यह फिट होता है।" : `यह ${inr(short)} कम पड़ता है — तारीख थोड़ी आगे करें या खर्च में कटौती करें।`} नीचे बटन से इसे बचत लक्ष्य बना सकते हैं।`
+        : `${a.name} for ${inr(a.amountPaise)} by ${a.targetDateLabel} means ${inr(a.monthlyPaise)} a month for ${a.months} months. After your current plans you have ${inr(free)} a month free, so ${fits ? "yes — it fits." : `you'd be ${inr(short)} a month short — push the date a little or trim a variable spend.`} Want it as a savings goal? Tap below.`;
+      actionIds = fits ? ["goal"] : ["insights", "goal"];
+      break;
+    }
+    case "invest": {
+      const p = s.plans;
+      if (p && p.goals.length) {
+        const lines = p.goals.slice(0, 3).map((g) => `${g.name} ${inr(g.monthlyPaise)}`);
+        figures.push(...p.goals.slice(0, 3).map((g) => inr(g.monthlyPaise)));
+        answer = hi
+          ? `आपकी योजनाएँ पहले से बताती हैं: ${lines.join(", ")} हर महीने। कम समय वाले लक्ष्य FD/RD जैसे सुरक्षित विकल्पों में, 7+ साल वाले index या equity fund जैसी श्रेणियों में। पहले क्राइसिस कुशन बनाएँ।`
+          : `Your plans already say where: ${lines.join(", ")} a month. Goals under 3 years sit in safe options like FDs and RDs; 7+ year goals can use categories like index or equity funds. Build your Crisis Cushion first.`;
+      } else {
+        answer = hi
+          ? "पहले क्राइसिस कुशन (कुछ महीनों का खर्च) बनाएँ। फिर लक्ष्य चुनें: 3 साल से कम के लिए FD, RD, सरकारी बॉन्ड; 7+ साल के लिए index fund जैसी श्रेणियाँ। “नई योजना” से आपका मिश्रण बनेगा।"
+          : "Start with a Crisis Cushion — a few months of expenses kept safe. Then pick a goal: under 3 years suits FDs, RDs and government bonds; 7+ years can use categories like index funds. “Plan something” builds your mix.";
+      }
+      actionIds = ["explore", "cushion", "learn"];
       break;
     }
     default:
@@ -557,6 +630,18 @@ export function snapshotFigures(s: CoachSnapshot): Set<string> {
     e.owedToYouPaise,
     e.freeNowPaise,
     e.lockedPaise,
+    ...(s.plans
+      ? [
+          s.plans.realisticPaise,
+          s.plans.committedPaise,
+          s.plans.freePaise,
+          s.plans.portfolioValuePaise,
+          s.plans.passiveIncomePaise,
+          ...s.plans.goals.flatMap((g) => [g.monthlyPaise, g.valuePaise, g.targetPaise]),
+          ...(s.plans.cushion ? [s.plans.cushion.targetPaise, s.plans.cushion.savedPaise] : []),
+        ]
+      : []),
+    ...(s.ask ? [s.ask.amountPaise, s.ask.monthlyPaise, Math.max(0, s.ask.monthlyPaise - (s.plans?.freePaise ?? 0))] : []),
   ];
   return new Set([...paise.flatMap((p) => [inr(p), inr(Math.abs(p))]), ...s.steps.flatMap((st) => st.figures)]);
 }

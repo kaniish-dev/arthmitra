@@ -1,0 +1,82 @@
+[
+  {
+    "id": "what-is-sip",
+    "title": "SIP: the gym membership for your money",
+    "tag": "Investing basics",
+    "kind": "explainer",
+    "readTime": 3,
+    "body": "A SIP (Systematic Investment Plan) puts a fixed amount into a mutual fund every month, automatically.\n\nWhy it works: you never have to 'time the market'. When prices fall, the same ₹2,000 buys more units; when they rise, you already own more. Over years this evens out.\n\nThe real superpower is habit. Set it for the day after salary day, and you save before you get a chance to spend.\n\nStart small — even ₹500 a month — and raise it by 10% every time your income goes up."
+  },
+  {
+    "id": "compounding",
+    "title": "Compounding: why 22 beats 32",
+    "tag": "Investing basics",
+    "kind": "explainer",
+    "readTime": 3,
+    "body": "Compounding means your returns start earning returns of their own.\n\nSay two friends each invest ₹5,000 a month at an assumed 11% a year. Riya starts at 22 and stops at 32 — ten years. Karan starts at 32 and keeps going till 60. By 60, Riya's ten early years can end up close to Karan's twenty-eight.\n\nThe lesson isn't 'invest a lot'. It's 'start early, save early'. Time does the heavy lifting."
+  },
+  {
+    "id": "emergency-fund",
+    "title": "Your Crisis Cushion comes first",
+    "tag": "Safety net",
+    "kind": "explainer",
+    "readTime": 2,
+    "body": "Before chasing high returns, park 3 to 6 months of expenses somewhere boring and easy to reach — a separate savings account, a sweep-in FD or a liquid fund.\n\nWhy? Life happens: a job switch gap, a medical bill, a laptop that dies before an exam. Without a cushion, you either borrow at high interest or sell investments at a bad time.\n\nBuild it slowly. ₹2,000 a month is a start."
+  },
+  {
+    "id": "fd-vs-rd",
+    "title": "FD vs RD in 60 seconds",
+    "tag": "Safe options",
+    "kind": "explainer",
+    "readTime": 2,
+    "body": "Fixed deposit (FD): you put a lump sum in once, for a fixed time, at a fixed rate.\n\nRecurring deposit (RD): you add the same amount every month, like a SIP but with a bank's fixed rate.\n\nBoth are low risk and great for goals under 3 years — a trip, a laptop, a bike. Breaking them early usually costs a small penalty, so match the term to your goal date."
+  },
+  {
+    "id": "index-funds",
+    "title": "Index funds: owning a slice of India Inc.",
+    "tag": "Investing basics",
+    "kind": "explainer",
+    "readTime": 3,
+    "body": "An index fund simply copies a market index like the Nifty 50 — the 50 big companies on the National Stock Exchange.\n\nNo star fund manager picking stocks, so costs are low. You get roughly the market's return, minus a small fee.\n\nThe catch: some years it falls 20% or more. That's why it suits goals 7+ years away, where bad years have time to recover."
+  },
+  {
+    "id": "50-30-20",
+    "title": "The 50-30-20 rule, Gen Z remix",
+    "tag": "Budgeting",
+    "kind": "explainer",
+    "readTime": 2,
+    "body": "Split take-home pay into: 50% needs (rent, bills, EMIs, groceries), 30% wants (food delivery, shopping, trips), 20% savings and investing.\n\nLiving with parents? Flip it — try saving 40% while expenses are low. It's the cheapest time of your life to build a base.\n\nArthMitra's Home screen shows your real fixed vs variable split, so you can see where you actually stand."
+  },
+  {
+    "id": "retired-at-29",
+    "title": "How Neha retired at 29 (and what 'retired' really meant)",
+    "tag": "Stories",
+    "kind": "story",
+    "readTime": 4,
+    "body": "Neha (name changed) started working at 21 as a designer in Pune earning ₹35,000 a month. She lived with two flatmates, cooked most meals and put 50% of every raise into SIPs.\n\nBy 29 her portfolio's passive income — at a careful 4% a year — covered her simple monthly expenses. She didn't stop working; she stopped needing to. She now takes freelance projects she loves and spends three months a year in the hills.\n\nWhat made the difference wasn't a lucky stock. It was a high savings rate, boring index funds, and eight years of not touching them.\n\nThat's the idea behind Befikar Mode: a Freedom Date you can see coming."
+  },
+  {
+    "id": "first-salary",
+    "title": "First salary? Do these 5 things",
+    "tag": "Stories",
+    "kind": "story",
+    "readTime": 3,
+    "body": "Arjun got his first salary of ₹28,000 in Jaipur. Here's what he did in week one:\n\n1. Treated his parents to dinner — guilt-free, it was budgeted.\n2. Set up a ₹3,000 SIP the day after payday.\n3. Opened a separate account for his Crisis Cushion with ₹2,000 a month.\n4. Read what his work health insurance actually covers.\n5. Turned off saved cards on two shopping apps.\n\nA year later he had ₹60,000 saved without ever feeling broke."
+  },
+  {
+    "id": "lending-friends",
+    "title": "Lending to friends without losing them",
+    "tag": "Money and people",
+    "kind": "explainer",
+    "readTime": 2,
+    "body": "Lending to friends is normal — just keep it clean.\n\nOnly lend what you could survive never getting back. Agree on a date, out loud. Note it down (ArthMitra's Lend tracker does this). Send one friendly reminder, not ten.\n\nAnd never borrow to lend. Your Crisis Cushion is for your emergencies, not someone else's shopping."
+  },
+  {
+    "id": "scams",
+    "title": "3 money scams hitting Gen Z right now",
+    "tag": "Safety net",
+    "kind": "explainer",
+    "readTime": 3,
+    "body": "1. 'Guaranteed 3x returns' Telegram groups — no real investment guarantees returns. If it's guaranteed and huge, it's a scam.\n\n2. 'Receive money' UPI requests — you never need a PIN to receive money. Entering your PIN sends money.\n\n3. Fake job offers asking for a 'registration fee' — real employers don't charge you.\n\nIf you're cheated, call 1930 (National Cyber Crime Helpline) immediately — speed matters."
+  }
+]

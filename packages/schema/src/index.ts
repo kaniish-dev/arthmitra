@@ -36,7 +36,8 @@ export type FixedExpense = z.infer<typeof FixedExpense>;
 
 export const Profile = z.object({
   name: z.string().min(1).max(60),
-  is18Plus: z.literal(true),
+  /** False for under-18 accounts, which are supervised by a guardian (see Registration). */
+  is18Plus: z.boolean(),
   monthlyIncomePaise: Paise.nonnegative(),
   otherIncomePaise: Paise.nonnegative(),
   fixedExpenses: z.array(FixedExpense),
@@ -51,7 +52,7 @@ export const Profile = z.object({
 });
 export type Profile = z.infer<typeof Profile>;
 
-export const AccountSource = z.enum(["aa", "simulated", "csv"]);
+export const AccountSource = z.enum(["aa", "simulated", "csv", "manual"]);
 export const Account = z.object({
   id: z.string(),
   bankName: z.string(),
@@ -62,6 +63,8 @@ export const Account = z.object({
   consentExpiry: IsoDate.nullable(),
   openingBalancePaise: Paise,
   status: z.enum(["active", "revoked"]),
+  /** Name on the account, for accounts added by hand. */
+  holderName: z.string().max(80).nullable().optional(),
 });
 export type Account = z.infer<typeof Account>;
 
@@ -90,6 +93,11 @@ export const Transaction = z.object({
   billId: z.string().nullable(),
   note: z.string().nullable(),
   dedupeKey: z.string(),
+  /**
+   * The user's answer to an unusual-payment alert: "confirmed" (it was them — a party, a big
+   * day) or "reported" (it wasn't). Missing until they answer.
+   */
+  unusualCheck: z.enum(["confirmed", "reported"]).optional(),
   createdAt: IsoDateTime,
 });
 export type Transaction = z.infer<typeof Transaction>;
@@ -101,20 +109,7 @@ export const MerchantRule = z.object({
 });
 export type MerchantRule = z.infer<typeof MerchantRule>;
 
-export const Goal = z.object({
-  id: z.string(),
-  name: z.string().min(1).max(60),
-  kind: z.enum(["car", "wedding", "trip", "emergency", "home", "education", "custom"]),
-  targetPaise: Paise.positive(),
-  targetDate: IsoDate,
-  /** Committed monthly contribution; null means "use savings capacity". */
-  monthlyContributionPaise: Paise.nonnegative().nullable(),
-  risk: RiskComfort,
-  status: z.enum(["active", "achieved"]),
-  createdAt: IsoDateTime,
-});
-export type Goal = z.infer<typeof Goal>;
-
+/** Instrument categories. Plans split money at this level; category research (engine research.ts) lists funds that meet published criteria, never individual stocks. */
 export const InstrumentType = z.enum([
   "savings",
   "fd",
@@ -124,8 +119,82 @@ export const InstrumentType = z.enum([
   "debt",
   "index",
   "gold",
+  "bonds",
+  "gsec",
+  "tbill",
+  "hybrid",
+  "equity",
+  "stocks",
 ]);
 export type InstrumentType = z.infer<typeof InstrumentType>;
+
+/** Short (under 3 years), medium (3–7) or long (over 7): how aggressive the user is on the goal. */
+export const Timeline = z.enum(["short", "medium", "long"]);
+export type Timeline = z.infer<typeof Timeline>;
+
+/** Which path a goal came from: Save for a Big Day, Wealth Generator, Crisis Cushion, or a coach goal. */
+export const GoalPath = z.enum(["bigDay", "wealth", "crisisCushion", "custom"]);
+export type GoalPath = z.infer<typeof GoalPath>;
+
+export const AllocationLine = z.object({
+  type: InstrumentType,
+  /** Share of the monthly amount, 0–100. */
+  pct: z.number().min(0).max(100),
+});
+export type AllocationLine = z.infer<typeof AllocationLine>;
+
+/** The investment plan saved with a goal (category level only). */
+export const GoalPlan = z.object({
+  allocation: z.array(AllocationLine),
+  /** What the user chose to put in each month. */
+  monthlyPaise: Paise.nonnegative(),
+  /** Monthly amount needed to reach the target on time at the assumed returns. */
+  requiredPaise: Paise.nonnegative(),
+  /** Value at the target date if monthlyPaise goes in every month. */
+  projectedPaise: Paise.nonnegative(),
+  /** Weighted assumed annual return of the mix, in percent. */
+  expectedReturnPct: z.number(),
+  createdAt: IsoDateTime,
+});
+export type GoalPlan = z.infer<typeof GoalPlan>;
+
+/** How the user will fund a goal: money available today, regular saving, and liquidity needs. */
+export const GoalFunding = z.object({
+  /** Available today for this goal (not the target). */
+  lumpSumPaise: Paise.nonnegative(),
+  /** Saved each period. */
+  recurringPaise: Paise.nonnegative(),
+  frequency: z.enum(["monthly", "weekly", "quarterly", "irregular", "none"]),
+  needsEarlyAccess: z.enum(["yes", "no", "unsure"]),
+  /** Can keep to a fixed deposit schedule. */
+  canCommit: z.boolean(),
+});
+export type GoalFunding = z.infer<typeof GoalFunding>;
+
+export const Goal = z.object({
+  id: z.string(),
+  name: z.string().min(1).max(60),
+  kind: z.enum(["car", "wedding", "trip", "emergency", "home", "education", "custom"]),
+  /** Missing on goals saved before paths existed; read as "bigDay". */
+  path: GoalPath.optional(),
+  /** Missing on older goals; read as "monthly saving of the plan amount". */
+  funding: GoalFunding.optional(),
+  timeline: Timeline.optional(),
+  plan: GoalPlan.nullable().optional(),
+  /** Wealth Generator: monthly fixed + variable expenses that passive income must cover. */
+  monthlyExpensesPaise: Paise.nonnegative().optional(),
+  /** Crisis Cushion: months of expenses to keep, and what is already set aside. */
+  cushionMonths: z.number().int().min(1).max(24).optional(),
+  cushionSavedPaise: Paise.nonnegative().optional(),
+  targetPaise: Paise.positive(),
+  targetDate: IsoDate,
+  /** Committed monthly contribution; null means "use savings capacity". */
+  monthlyContributionPaise: Paise.nonnegative().nullable(),
+  risk: RiskComfort,
+  status: z.enum(["active", "achieved"]),
+  createdAt: IsoDateTime,
+});
+export type Goal = z.infer<typeof Goal>;
 
 /** The user's own plan: types they picked and the return range THEY entered. */
 export const Plan = z.object({
@@ -169,12 +238,16 @@ export const NotificationType = z.enum([
   "badge",
   "budget",
   "loan",
+  /** A payment far above the user's usual amount in its category (ml.ts). */
+  "unusual",
 ]);
 export const AppNotification = z.object({
   id: z.string(),
   type: NotificationType,
   message: z.string(),
   read: z.boolean(),
+  /** The payment an alert is about, so it can be answered from the bell. */
+  txnId: z.string().optional(),
   createdAt: IsoDateTime,
 });
 export type AppNotification = z.infer<typeof AppNotification>;
@@ -316,8 +389,90 @@ export const AaDepositData = z.object({
 });
 export type AaDepositData = z.infer<typeof AaDepositData>;
 
+// ---------- Registration (sign-up: basic details, KYC, bank link) ----------
+
+export const AgeGroup = z.enum(["under18", "adult"]);
+export type AgeGroup = z.infer<typeof AgeGroup>;
+
+/** Only the last 4 Aadhaar digits are ever stored, shown as XXXX-XXXX-1234. */
+export const AadhaarLast4 = z.string().regex(/^\d{4}$/);
+
+/** Parent or legal guardian who completes KYC for an under-18 account; the account is linked to them. */
+export const Guardian = z.object({
+  name: z.string().min(1).max(60),
+  relation: z.enum(["mother", "father", "legal_guardian"]),
+  /** e.g. XXXXX1234X */
+  panMasked: z.string(),
+  aadhaarLast4: AadhaarLast4,
+  consentedAt: IsoDateTime,
+});
+export type Guardian = z.infer<typeof Guardian>;
+
+/** Bank account linked at sign-up. Only the last 4 digits of the account number are kept. */
+export const BankLink = z.object({
+  holderName: z.string().min(1).max(80),
+  accountLast4: z.string().regex(/^\d{4}$/),
+  ifsc: z.string().regex(/^[A-Z]{4}0[A-Z0-9]{6}$/),
+  bankName: z.string(),
+  branch: z.string(),
+  historySource: z.enum(["aa", "statement"]),
+  /** The Account record its transactions belong to. */
+  accountId: z.string(),
+});
+export type BankLink = z.infer<typeof BankLink>;
+
+export const Registration = z.object({
+  name: z.string().min(1).max(60),
+  dob: IsoDate,
+  email: z.string().email().nullable(),
+  mobile: z.string().regex(/^\+91[6-9]\d{9}$/),
+  /** Worked out from the date of birth; decides the KYC path. */
+  isMinor: z.boolean(),
+  kycStatus: z.enum(["pending", "verified"]),
+  /** The user's own PAN and Aadhaar (18+); null for minors, whose guardian completes KYC. */
+  panMasked: z.string().nullable(),
+  aadhaarLast4: AadhaarLast4.nullable(),
+  guardian: Guardian.nullable(),
+  bank: BankLink.nullable(),
+  /** "demo" while KYC and OTPs are mocked on screen. */
+  kycProvider: z.enum(["demo", "live"]),
+  completedAt: IsoDateTime,
+});
+export type Registration = z.infer<typeof Registration>;
+
+// ---------- Portfolio tracking ----------
+
+/** An account on a third-party investment app, connected for read-only holdings sync. */
+export const InvestmentAccount = z.object({
+  id: z.string(),
+  /** Generic provider label from config; never a broker brand. */
+  provider: z.string(),
+  /** Whose account: the user's, or (for a minor) the guardian's. */
+  owner: z.enum(["self", "guardian"]),
+  status: z.enum(["connected", "disconnected"]),
+  consentAt: IsoDateTime,
+  lastSyncedAt: IsoDateTime.nullable(),
+});
+export type InvestmentAccount = z.infer<typeof InvestmentAccount>;
+
+export const Holding = z.object({
+  id: z.string(),
+  accountId: z.string(),
+  goalId: z.string().nullable(),
+  instrumentType: InstrumentType,
+  /** Category-level label, e.g. "Nifty 50 index fund". */
+  name: z.string(),
+  amountInvestedPaise: Paise.nonnegative(),
+  currentValuePaise: Paise.nonnegative(),
+  units: z.number().nonnegative(),
+  syncedAt: IsoDateTime,
+});
+export type Holding = z.infer<typeof Holding>;
+
 /** Everything stored for one user — mirrors the Firestore tree under users/{uid}. */
 export interface AppData {
+  /** Sign-up details (basic details, KYC, bank link); null until those steps are done. */
+  registration: Registration | null;
   profile: Profile | null;
   accounts: Account[];
   transactions: Transaction[];
@@ -332,6 +487,8 @@ export interface AppData {
   splits: Split[];
   aaConsents: AaConsent[];
   loans: Loan[];
+  investmentAccounts: InvestmentAccount[];
+  holdings: Holding[];
   merchantCache: Record<string, { category: string; confidence: number }>;
   settings: AppSettings;
 }
@@ -371,5 +528,5 @@ export const CoachAnswer = z.object({
 });
 export type CoachAnswer = z.infer<typeof CoachAnswer>;
 
-export const DISCLAIMER = "Educational guidance, not financial advice.";
+export const DISCLAIMER = "Educational guidance, not investment advice. Returns are not guaranteed.";
 export const CARE_NOTE = "ArthMitra is not a medical or emergency service.";

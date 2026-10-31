@@ -1,4 +1,4 @@
-/** Rule-based categorisation: user rules → keyword rules → merchant cache. Gemini comes after these. */
+/** Rule-based categorisation: user rules → keyword rules → merchant cache. Smart sorting (ml.ts) and Gemini come after these. */
 
 /** Words that wrap the merchant name in Indian bank narrations. */
 const NARRATION_WORDS = new Set([
@@ -29,7 +29,8 @@ export const SPEND_KEYWORDS: Record<string, string[]> = {
   travel: ["uber", "ola", "rapido", "irctc", "metro", "indigo", "air india", "makemytrip", "redbus", "fuel", "petrol", "hpcl", "iocl", "bpcl", "fastag", "parking"],
   shopping: ["amazon", "flipkart", "myntra", "ajio", "nykaa", "meesho", "decathlon", "croma", "reliance digital"],
   bills: ["electricity", "bescom", "msedcl", "tneb", "airtel", "jio", "vodafone", "bsnl", "broadband", "dth", "tata play", "recharge", "water bill", "gas bill", "indane", "bharat gas"],
-  entertainment: ["netflix", "hotstar", "jiohotstar", "prime video", "spotify", "bookmyshow", "pvr", "inox", "sonyliv", "zee", "youtube premium"],
+  subscriptions: ["netflix", "hotstar", "jiohotstar", "prime video", "spotify", "sonyliv", "zee5", "youtube premium", "subscription", "icloud", "google one"],
+  entertainment: ["bookmyshow", "pvr", "inox", "zee", "gaming", "steam"],
   health: ["apollo", "pharmeasy", "netmeds", "medplus", "pharmacy", "chemist", "hospital", "clinic", "diagnostics", "lab"],
   education: ["school", "college", "tuition", "fees", "coaching", "coursera", "udemy", "unacademy"],
   rent: ["rent", "nobroker", "landlord"],
@@ -63,7 +64,7 @@ function longestKeywordMatch(text: string, table: Record<string, string[]>): str
   return best?.category ?? null;
 }
 
-export type CategoriseVia = "user_rule" | "keyword" | "cache" | "ai" | "none";
+export type CategoriseVia = "user_rule" | "keyword" | "cache" | "ml" | "ai" | "none";
 
 export interface CategoriseResult {
   category: string | null;

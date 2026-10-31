@@ -1,36 +1,50 @@
 "use client";
 
 import { useState } from "react";
-import { detectColumns, formatDate, formatINR, parseCsv, statementRows, type StatementRow } from "@arthmitra/engine";
+import { formatDate, formatINR, type StatementRow } from "@arthmitra/engine";
 import { importStatement, type ImportSummary } from "@/lib/actions";
-import { Button, Card, CardTitle, Icon, LinkButton, PageHeader, TextInput } from "@/components/ui";
+import { readStatementFile, STATEMENT_ACCEPT } from "@/lib/statement-file";
+import { useAppData } from "@/lib/store";
+import { Button, Card, CardTitle, Chip, Icon, LinkButton, PageHeader, TextInput } from "@/components/ui";
 
-/** Statement import (F20): CSV with duplicate detection, the fallback to bank linking. */
+/** Statement upload (F20): CSV, Excel or PDF with duplicate detection, the fallback to bank linking. */
 export function ImportScreen() {
-  const [fileName, setFileName] = useState("");
+  const [file, setFile] = useState<File | null>(null);
+  const [reading, setReading] = useState(false);
+  const [needsPassword, setNeedsPassword] = useState(false);
+  const [password, setPassword] = useState("");
   const [rows, setRows] = useState<StatementRow[] | null>(null);
   const [skipped, setSkipped] = useState(0);
   const [error, setError] = useState("");
   const [bank, setBank] = useState("");
   const [last4, setLast4] = useState("");
   const [summary, setSummary] = useState<ImportSummary | null>(null);
+  const data = useAppData();
+  // Accounts a statement can go to; AA-linked ones get their payments from the AA.
+  const uploadable = data?.accounts.filter((a) => a.status === "active" && (a.source === "manual" || a.source === "csv")) ?? [];
 
-  const read = async (file: File) => {
+  const read = async (next: File, pdfPassword?: string) => {
     setSummary(null);
     setError("");
     setRows(null);
-    setFileName(file.name);
-    if (!file.name.toLowerCase().endsWith(".csv")) {
-      setError("Please choose a .csv file. Most banks offer CSV under “Download statement”. XLSX support comes with the server import.");
+    setFile(next);
+    if (pdfPassword === undefined) {
+      setNeedsPassword(false);
+      setPassword("");
+    }
+    setReading(true);
+    const result = await readStatementFile(next, pdfPassword);
+    setReading(false);
+    if (!result.ok) {
+      setError(result.error);
+      if (result.needsPassword) setNeedsPassword(true);
       return;
     }
-    const table = parseCsv(await file.text());
-    const headerIndex = table.findIndex((r) => detectColumns(r) !== null);
-    if (headerIndex === -1) {
-      setError("Couldn't find Date, Description and Amount (or Debit/Credit) columns in this file.");
+    setNeedsPassword(false);
+    if (result.rows.length === 0) {
+      setError("No transactions found in this statement.");
       return;
     }
-    const result = statementRows(table.slice(headerIndex + 1), detectColumns(table[headerIndex]!)!);
     setRows(result.rows);
     setSkipped(result.skipped);
   };
@@ -38,7 +52,7 @@ export function ImportScreen() {
   return (
     <div className="mx-auto max-w-3xl">
       <PageHeader
-        title="Upload a CSV statement"
+        title="Upload a bank statement"
         subtitle="For a bank not on the Account Aggregator network yet."
         action={
           <LinkButton href="/link-bank" variant="outlined" icon="link">
@@ -49,10 +63,35 @@ export function ImportScreen() {
       <Card className="mb-6">
         <label className="flex cursor-pointer flex-col items-center gap-2 rounded-2xl border-2 border-dashed border-outline-variant p-8 text-center hover:bg-primary/5">
           <Icon name="upload_file" className="text-4xl text-primary" />
-          <span className="font-medium">{fileName || "Choose a CSV statement"}</span>
-          <span className="text-xs text-on-surface-variant">Columns like Date, Narration, Withdrawal, Deposit · duplicates are skipped</span>
-          <input type="file" accept=".csv,text/csv" className="sr-only" onChange={(e) => e.target.files?.[0] && read(e.target.files[0])} />
+          <span className="font-medium">{reading ? "Reading the statement…" : file?.name || "Choose a statement"}</span>
+          <span className="text-xs text-on-surface-variant">
+            CSV, Excel (.xls, .xlsx) or PDF from your net banking · read on this device · duplicates are skipped
+          </span>
+          <input type="file" accept={STATEMENT_ACCEPT} className="sr-only" onChange={(e) => e.target.files?.[0] && read(e.target.files[0])} />
         </label>
+        {needsPassword && file && (
+          <form
+            className="mt-4 flex flex-wrap items-end gap-3"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (password) void read(file, password);
+            }}
+          >
+            <div className="min-w-0 flex-1 basis-56">
+              <TextInput
+                label="PDF password"
+                type="password"
+                autoComplete="off"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                hint="Your bank's email says how it's made, often from your date of birth or customer ID. It isn't stored."
+              />
+            </div>
+            <Button type="submit" icon="lock_open" disabled={!password || reading}>
+              Open
+            </Button>
+          </form>
+        )}
         {error && (
           <p role="alert" className="mt-3 text-sm text-error">
             {error}
@@ -85,6 +124,23 @@ export function ImportScreen() {
               </tbody>
             </table>
           </div>
+          {uploadable.length > 0 && (
+            <div className="mb-3 flex flex-wrap items-center gap-2">
+              <span className="text-sm text-on-surface-variant">Statement of:</span>
+              {uploadable.map((a) => (
+                <Chip
+                  key={a.id}
+                  selected={bank === a.bankName && last4 === a.last4}
+                  onClick={() => {
+                    setBank(a.bankName);
+                    setLast4(a.last4);
+                  }}
+                >
+                  {a.bankName} ••{a.last4}
+                </Chip>
+              ))}
+            </div>
+          )}
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <TextInput label="Bank name" value={bank} onChange={(e) => setBank(e.target.value)} placeholder="e.g. My salary bank" />
             <TextInput

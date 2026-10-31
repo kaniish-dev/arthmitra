@@ -99,7 +99,7 @@ export function RewardsScreen() {
 const FLOW_TEXT: Record<FlowCheckId, { title: string; how: string; href: string }> = {
   sorted: { title: "Every payment sorted", how: "Nothing waiting in the inbox", href: "/inbox" },
   budgets: { title: "Every budget kept", how: "No category over its limit", href: "/insights" },
-  saved: { title: "Saved for your goal", how: "An investment confirmed this month", href: "/goal" },
+  saved: { title: "Saved for your goal", how: "An investment confirmed this month", href: "/plan" },
   lent: { title: "Lent money on time", how: "Nothing past the date you agreed", href: "/lent" },
 };
 

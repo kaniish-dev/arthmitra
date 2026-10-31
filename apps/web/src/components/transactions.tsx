@@ -6,6 +6,7 @@ import type { AppData, Transaction } from "@arthmitra/schema";
 import { useState } from "react";
 import { rememberMerchant, setCategory, setNote } from "@/lib/actions";
 import { amountText, merchantLabel } from "@/lib/format";
+import { copyText } from "@/lib/ids";
 import { useToast } from "./providers";
 import { LendForm } from "./lend-form";
 import { SplitForm } from "./split-form";
@@ -198,10 +199,7 @@ function SheetContent({ data, t, onClose }: { data: AppData; t: Transaction; onC
     const text = `${t.amountPaise > 0 ? "Received" : "Paid"} ${formatINR(Math.abs(t.amountPaise))} ${t.amountPaise > 0 ? "from" : "to"} ${name} on ${formatDate(t.date)}${category ? ` · ${category}` : ""}`;
     try {
       if (navigator.share) await navigator.share({ title: "Payment", text });
-      else {
-        await navigator.clipboard.writeText(text);
-        toast({ message: "Payment details copied." });
-      }
+      else toast({ message: (await copyText(text)) ? "Payment details copied." : text });
     } catch {
       // Share sheet closed, or clipboard blocked: nothing to do.
     }

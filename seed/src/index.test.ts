@@ -9,11 +9,15 @@ import {
   loanState,
   matchLoanReturn,
   normalizeMerchant,
+  predictSorter,
   previousMonthKey,
   readDepositData,
   savedForGoal,
+  sortExamples,
   summariseMonth,
   topCutCategories,
+  trainSorter,
+  unusualPayment,
 } from "@arthmitra/engine";
 import { DEMO_ACCOUNTS, DEMO_GOAL_ID, SCRIPTED_PAYMENTS, demoBankHistory, demoFiData, demoLoans, demoOnboarded } from "./index";
 
@@ -75,6 +79,28 @@ describe("demo seed matches the demo script", () => {
     const [swiggy, rk] = SCRIPTED_PAYMENTS;
     expect(categoriseByRules("swiggy", swiggy!.amountPaise, ctx).category).toBe("food");
     expect(categoriseByRules("rk traders", rk!.amountPaise, ctx).status).toBe("uncategorised");
+  });
+
+  it("smart sorting: RK Traders stays in the inbox; once it is sorted, Shree RK Traders sorts itself", () => {
+    const known = defaultCategories().map((c) => c.id);
+    const before = trainSorter(sortExamples(history.transactions, known), known);
+    expect(predictSorter(before, "rk traders").confidence).toBeLessThan(0.8);
+    const again = SCRIPTED_PAYMENTS.find((p) => p.id === "rk-traders-again")!;
+    const key = normalizeMerchant(again.merchantRaw);
+    expect(key).toBe("shree rk traders");
+    expect(predictSorter(before, key).confidence).toBeLessThan(0.8);
+
+    const sortedRk = { ...history.transactions[0]!, id: "rk", merchantKey: "rk traders", category: "groceries", amountPaise: R(-1_200) };
+    const after = predictSorter(trainSorter(sortExamples([...history.transactions, sortedRk], known), known), key);
+    expect(after.category).toBe("groceries");
+    expect(after.confidence).toBeGreaterThanOrEqual(0.8);
+  });
+
+  it("the ₹6,500 Spice Route dinner is flagged as unusual; a normal Swiggy order is not", () => {
+    const dinner = SCRIPTED_PAYMENTS.find((p) => p.id === "big-dinner")!;
+    const base = { ...history.transactions[0]!, id: "x", date: "2026-10-29", category: "food", merchantKey: normalizeMerchant(dinner.merchantRaw) };
+    expect(unusualPayment({ ...base, amountPaise: dinner.amountPaise }, history.transactions)?.times).toBeGreaterThanOrEqual(10);
+    expect(unusualPayment({ ...base, amountPaise: SCRIPTED_PAYMENTS[0]!.amountPaise }, history.transactions)).toBeNull();
   });
 });
 

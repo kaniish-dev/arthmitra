@@ -9,13 +9,21 @@ import {
   SUGGESTED_QUESTIONS,
   TELE_MANAS,
   detectIntent,
+  formatDate,
+  formatINR,
+  goalAsk,
   passesAdviceCheck,
   templateAnswer,
   todayIso,
+  usesModel,
   type CoachActionId,
   type CoachIntent,
   type CoachLang,
+  type GoalAsk,
 } from "@arthmitra/engine";
+import { addCoachGoal } from "@/lib/actions";
+import { FEATURES } from "@/lib/constants";
+import { useToast } from "@/components/providers";
 import { DISCLAIMER } from "@arthmitra/schema";
 import { coachSnapshot, overview, stepsFor } from "@/lib/derive";
 import { useAppData } from "@/lib/store";
@@ -30,18 +38,35 @@ interface Message {
   intent?: CoachIntent;
   actionIds?: string[];
   disclaimer?: string;
+  /** Who wrote the answer: Gemini, or the engine's templates. */
+  source?: "gemini" | "template";
+  /** A goal read from the question, offered as "Make it a savings goal". */
+  ask?: GoalAsk | null;
+}
+
+/** Asks the Gemini route; null means use the template answer (AI off, no key, rate limit, failed check). */
+async function askGemini(question: string, lang: CoachLang, snapshot: unknown): Promise<{ answer: string; actionIds: string[] } | null> {
+  try {
+    const res = await fetch("/api/coach", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ question, lang, snapshot }) });
+    return res.ok ? ((await res.json()) as { answer: string; actionIds: string[] }) : null;
+  } catch {
+    return null;
+  }
 }
 
 /**
  * Money coach (F19). Works from the whole structure — balance, bills, cushion, money lent, goal,
- * monthly flow and the emergency plan. In demo mode answers come from engine templates; with
- * Vertex AI connected the same snapshot and the instruction in coach-prompt.ts go to Gemini.
+ * monthly flow and the emergency plan. With AI on, the snapshot and the instruction in
+ * coach-prompt.ts go to Gemini (free API tier, via /api/coach); templates answer safety
+ * questions and stand in whenever Gemini is unavailable.
  */
 export function CoachScreen() {
   const data = useAppData()!;
   const [lang, setLang] = useState<CoachLang>("en");
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
+  const [thinking, setThinking] = useState(false);
+  const nextId = useRef(0);
   const end = useRef<HTMLDivElement>(null);
   const hi = lang === "hi";
   const steps = stepsFor(data, overview(data, todayIso()));
@@ -51,17 +76,29 @@ export function CoachScreen() {
     end.current?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages]);
 
-  const ask = (question: string) => {
-    if (!question.trim()) return;
-    const snapshot = coachSnapshot(data, overview(data, todayIso()));
-    const answer = templateAnswer(detectIntent(question), snapshot, lang, question);
-    const safe = passesAdviceCheck(answer.answer) ? answer : templateAnswer("unknown", snapshot, lang);
-    setMessages((m) => [
-      ...m,
-      { id: Date.now(), role: "user", lang, text: question.trim() },
-      { id: Date.now() + 1, role: "coach", lang, text: safe.answer, intent: safe.intent, actionIds: safe.actionIds, disclaimer: safe.disclaimer },
-    ]);
+  const ask = async (question: string) => {
+    if (!question.trim() || thinking) return;
+    const askedIn = lang;
+    const intent = detectIntent(question);
+    // "A 40k trip in March", "a fridge worth 30k in 3 months": sized here, so every figure is the app's.
+    const ask = intent === "afford" || intent === "new_goal" ? goalAsk(question, todayIso()) : null;
+    const snapshot = {
+      ...coachSnapshot(data, overview(data, todayIso())),
+      ask: ask ? { name: ask.name, amountPaise: ask.amountPaise, months: ask.months, monthlyPaise: ask.monthlyPaise, targetDateLabel: formatDate(ask.targetDate) } : null,
+    };
+    const answer = templateAnswer(intent, snapshot, askedIn, question);
+    const safe = passesAdviceCheck(answer.answer) ? answer : templateAnswer("unknown", snapshot, askedIn);
+    setMessages((m) => [...m, { id: nextId.current++, role: "user", lang: askedIn, text: question.trim() }]);
     setInput("");
+
+    let reply: Message = { id: nextId.current++, role: "coach", lang: askedIn, text: safe.answer, intent: safe.intent, actionIds: safe.actionIds, disclaimer: safe.disclaimer, source: "template", ask };
+    if (data.settings.aiEnabled && usesModel(intent)) {
+      setThinking(true);
+      const ai = await askGemini(question, askedIn, snapshot);
+      setThinking(false);
+      if (ai) reply = { ...reply, text: ai.answer, actionIds: ai.actionIds, disclaimer: askedIn === "hi" ? DISCLAIMER_HI : DISCLAIMER, source: "gemini" };
+    }
+    setMessages((m) => [...m, reply]);
   };
 
   const groups = [
@@ -72,8 +109,8 @@ export function CoachScreen() {
   return (
     <div className="mx-auto flex max-w-3xl flex-col">
       <PageHeader
-        title={hi ? "कोच" : "Coach"}
-        subtitle={hi ? "आपके पूरे पैसे के ढाँचे के हिसाब से सलाह।" : "Advice from your whole money picture."}
+        title={FEATURES.coach.name}
+        subtitle={hi ? "आपका AI पैसे वाला दोस्त — खर्च, योजनाएँ और पोर्टफोलियो जानता है।" : "Your AI money buddy — knows your spending, plans and portfolio. Ask anything."}
         action={
           <div className="flex gap-2" role="group" aria-label="Language">
             <Chip selected={lang === "en"} onClick={() => setLang("en")}>
@@ -137,6 +174,11 @@ export function CoachScreen() {
               <CoachBubble key={m.id} message={m} />
             ),
           )}
+          {thinking && (
+            <p className="self-start rounded-3xl bg-surface-container px-4 py-3 text-sm text-on-surface-variant" role="status">
+              {hi ? "सोच रहा हूँ…" : "Thinking…"}
+            </p>
+          )}
           <div ref={end} />
         </div>
       </Card>
@@ -170,12 +212,12 @@ export function CoachScreen() {
           className="min-w-0 flex-1 rounded-full border border-outline bg-surface-container-lowest px-5 py-3 text-base focus:border-primary focus:outline-none"
           maxLength={300}
         />
-        <Button type="submit" icon="send" disabled={!input.trim()} aria-label="Send" className="shrink-0 px-4 sm:px-5">
+        <Button type="submit" icon="send" disabled={!input.trim() || thinking} aria-label="Send" className="shrink-0 px-4 sm:px-5">
           <span className="hidden sm:inline">{hi ? "भेजें" : "Send"}</span>
         </Button>
       </form>
       <p className="mt-3 text-center text-xs text-on-surface-variant">
-        {data.settings.aiEnabled ? (hi ? "डेमो जवाब · Gemini जुड़ने पर" : "Demo answers · Gemini when connected") : hi ? "AI बंद · तय जवाब" : "AI off · set answers"} ·{" "}
+        {data.settings.aiEnabled ? (hi ? "Gemini जवाब · न मिलें तो तय जवाब" : "Gemini answers · set answers as backup") : hi ? "AI बंद · तय जवाब" : "AI off · set answers"} ·{" "}
         {hi ? DISCLAIMER_HI : DISCLAIMER}
       </p>
     </div>
@@ -226,12 +268,40 @@ function CoachBubble({ message: m }: { message: Message }) {
           ))}
         </div>
       )}
+      {m.ask && <MakeGoal ask={m.ask} hi={hi} />}
       {m.disclaimer && (
         <p className={cx("mt-2 flex items-center gap-1 text-xs", m.intent === "crisis" ? "text-on-error-container/80" : "text-on-surface-variant")}>
           <Icon name="info" className="text-[14px]" />
           {m.disclaimer}
+          {m.source === "gemini" && " · Gemini"}
         </p>
       )}
     </div>
+  );
+}
+
+/** Turns a goal from the chat into a small savings goal (no investment plan yet). */
+function MakeGoal({ ask, hi }: { ask: GoalAsk; hi: boolean }) {
+  const toast = useToast();
+  const [id, setId] = useState<string | null>(null);
+  if (id)
+    return (
+      <Link href={`/plan/view?id=${id}`} className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-success">
+        <Icon name="check_circle" className="text-[18px]" />
+        {hi ? "लक्ष्य बन गया — योजना देखें" : "Goal added — open it to pick a plan"}
+      </Link>
+    );
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        setId(addCoachGoal(ask.name, ask.amountPaise, ask.targetDate));
+        toast({ message: `${ask.name}: ${formatINR(ask.amountPaise)} by ${formatDate(ask.targetDate)} added to your plans.` });
+      }}
+      className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-on-primary hover:bg-primary/90"
+    >
+      <Icon name="add_task" className="text-[18px]" />
+      {hi ? `${ask.name} को बचत लक्ष्य बनाएँ (${formatINR(ask.monthlyPaise)}/महीना)` : `Make "${ask.name}" a savings goal · ${formatINR(ask.monthlyPaise)}/mo`}
+    </button>
   );
 }

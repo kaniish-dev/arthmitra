@@ -20,6 +20,8 @@ import { latestReturn, overview, planForReturn, splitOwedPaise } from "@/lib/der
 import { amountText, merchantLabel } from "@/lib/format";
 import { useAppData } from "@/lib/store";
 import { useToast } from "@/components/providers";
+import { FEATURES } from "@/lib/constants";
+import { copyText } from "@/lib/ids";
 import { AmountInput, Avatar, Badge, Button, Card, EmptyState, Icon, Modal, PageHeader, ProgressBar, Select, Tabs, TextInput } from "@/components/ui";
 import { LendForm } from "@/components/lend-form";
 import { SplitPanel } from "@/screens/split";
@@ -41,7 +43,7 @@ export function LentScreen({ initialTab = "lent" }: { initialTab?: "lent" | "spl
 
   return (
     <div className="mx-auto max-w-2xl">
-      <PageHeader title="Lent and split" subtitle="Money people owe you." />
+      <PageHeader title={FEATURES.lend.name} subtitle="Money you lent to friends and family — who, how much, and when it is due back." back="/more" />
       <Card className="mb-6 flex items-center gap-4 bg-success-container/50">
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-success-container text-on-success-container">
           <Icon name="handshake" />
@@ -104,7 +106,7 @@ function LentPanel() {
             <LoanCard key={l.id} loan={l} today={today} />
           ))}
           {closed.length > 0 && (
-            <details className="group rounded-3xl bg-surface-container-lowest p-4 ring-1 ring-outline-variant/40">
+            <details className="group rounded-3xl surface-card p-4">
               <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-semibold">
                 Settled ({closed.length})
                 <Icon name="expand_more" className="transition-transform group-open:rotate-180" />
@@ -196,10 +198,7 @@ function LoanCard({ loan, today }: { loan: Loan; today: string }) {
     const text = `Hi ${firstName}, a gentle reminder about the ${formatINR(owed)} from ${formatDate(loan.date)}. Could you send it back${loan.dueDate ? ` by ${formatDate(loan.dueDate)}` : " when you can"}? Thanks!`;
     try {
       if (navigator.share) await navigator.share({ text });
-      else {
-        await navigator.clipboard.writeText(text);
-        toast({ message: "Reminder copied — paste it in your chat app." });
-      }
+      else toast({ message: (await copyText(text)) ? "Reminder copied — paste it in your chat app." : `Copy this reminder: ${text}` });
     } catch {
       // Share sheet closed, or clipboard blocked.
     }
@@ -229,11 +228,21 @@ function LoanCard({ loan, today }: { loan: Loan; today: string }) {
         </div>
       )}
       <div className="mt-3 flex flex-wrap items-center gap-2">
-        <Button variant="tonal" icon="savings" className="px-4 py-2" onClick={() => setReturning(true)}>
-          Got money back
+        <Button
+          icon="task_alt"
+          className="px-4 py-2"
+          onClick={() => {
+            recordReturn(loan.id, owed, today, null);
+            toast({ message: `Marked ${formatINR(owed)} from ${loan.person} as repaid.` });
+          }}
+        >
+          Mark repaid
         </Button>
-        <Button variant="text" icon="share" className="px-3 py-2" onClick={remind}>
-          Reminder
+        <Button variant="tonal" icon="savings" className="px-4 py-2" onClick={() => setReturning(true)}>
+          Part payment
+        </Button>
+        <Button variant="text" icon="content_copy" className="px-3 py-2" onClick={remind}>
+          Copy reminder
         </Button>
         <span className="ml-auto flex gap-1">
           <button type="button" className="rounded-full px-3 py-2 text-xs font-medium text-on-surface-variant hover:bg-on-surface/8" onClick={() => setLoanForgiven(loan.id, true)}>

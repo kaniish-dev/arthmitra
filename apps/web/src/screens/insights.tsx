@@ -1,15 +1,28 @@
 "use client";
 
-import { categoryName, formatINR, formatMonth, isSpending, monthKey, previousMonthKey, savingsRate, summariseMonth, todayIso } from "@arthmitra/engine";
+import {
+  CYBER_HELPLINE,
+  categoryName,
+  formatINR,
+  formatMonth,
+  isSpending,
+  monthKey,
+  previousMonthKey,
+  savingsRate,
+  summariseMonth,
+  todayIso,
+  unusualPayment,
+} from "@arthmitra/engine";
 import { useState } from "react";
 import { budgetsFor } from "@/lib/derive";
 import { amountText, merchantLabel } from "@/lib/format";
 import { useAppData } from "@/lib/store";
 import { CategoryDonut } from "@/components/charts";
+import { UnusualAnswer } from "@/components/unusual-answer";
 import { categoryIcon } from "@/components/transactions";
 import { Avatar, Badge, Card, CardTitle, Icon, IconButton, PageHeader, ProgressBar, Stat, cx } from "@/components/ui";
 
-/** Month in review: totals, change from the month before, categories against budgets, top shops. */
+/** Month in review: totals, change from the month before, categories against budgets, top shops, unusual payments. */
 export function InsightsScreen() {
   const data = useAppData()!;
   const today = todayIso();
@@ -35,6 +48,10 @@ export function InsightsScreen() {
   }
   const topShops = [...shops].sort((a, b) => b[1].paise - a[1].paise).slice(0, 5);
   const biggest = [...spends].sort((a, b) => a.amountPaise - b.amountPaise)[0];
+  const unusual = spends.flatMap((t) => {
+    const u = unusualPayment(t, data.transactions);
+    return u ? [{ t, u }] : [];
+  });
 
   return (
     <div className="mx-auto max-w-4xl">
@@ -66,6 +83,7 @@ export function InsightsScreen() {
             <Stat label="Savings rate" value={rate === null ? "—" : `${Math.round(rate * 100)}%`} sub={m.investedPaise ? `${formatINR(m.investedPaise)} invested` : undefined} />
           </div>
         </Card>
+
 
         <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
           <Card>
@@ -134,6 +152,34 @@ export function InsightsScreen() {
               )}
             </Card>
 
+            {unusual.length > 0 && (
+              <Card>
+                <CardTitle icon="gpp_maybe">Unusual payments · was this you?</CardTitle>
+                <ul className="flex flex-col gap-1">
+                  {unusual.map(({ t, u }) => (
+                    <li key={t.id} className="flex flex-col gap-2 py-2">
+                      <div className="flex items-center gap-3">
+                        <Avatar name={merchantLabel(t.merchantKey)} />
+                        <span className="min-w-0 flex-1">
+                          <span className="block truncate text-sm font-medium">{merchantLabel(t.merchantKey)}</span>
+                          <span className="text-xs text-on-surface-variant">
+                            About {u.times}× your usual {categoryName(data.categories, t.category)} payment of {formatINR(u.usualPaise)}
+                          </span>
+                        </span>
+                        <span className="text-sm font-semibold tabular-nums">{amountText(t.amountPaise)}</span>
+                      </div>
+                      <div className="pl-14">
+                        <UnusualAnswer txn={t} />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-2 text-xs text-on-surface-variant">
+                  Payments far above your usual amount. A party or a big day is fine — tap &ldquo;This was me&rdquo; and similar payments won&apos;t be flagged again. Didn&apos;t make one? Call {CYBER_HELPLINE}, the cyber fraud helpline, right away.
+                </p>
+              </Card>
+            )}
+
             {biggest && (
               <Card>
                 <CardTitle icon="trending_up">Biggest payment</CardTitle>
@@ -153,3 +199,4 @@ export function InsightsScreen() {
     </div>
   );
 }
+

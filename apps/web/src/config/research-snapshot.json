@@ -1,0 +1,5335 @@
+{
+ "builtAt": "2026-10-31T13:17:12.959Z",
+ "navAsOf": "2026-10-30",
+ "terAsOf": "2026-10-31",
+ "categories": {
+  "index": [
+   {
+    "code": 115512,
+    "name": "Aditya Birla Sun Life Nifty 50 ETF",
+    "amc": "Aditya Birla Sun Life",
+    "kind": "ETF",
+    "terPct": 0.06,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -10,
+     "cagr3y": 7.58,
+     "cagr5y": -32.69,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.4,
+     "historyYears": 15.3,
+     "nav": 27.0671,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119648,
+    "name": "Aditya Birla Sun Life Nifty 50 Index Fund",
+    "amc": "Aditya Birla Sun Life",
+    "kind": "Index fund",
+    "terPct": 0.23,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -10.15,
+     "cagr3y": 7.38,
+     "cagr5y": 6.41,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 13.8,
+     "nav": 240.9724,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153531,
+    "name": "ANGEL ONE NIFTY 50 ETF",
+    "amc": "Angel One",
+    "kind": "ETF",
+    "terPct": 0.18,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.04,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 12.6,
+     "maxDrawdownPct": 15.1,
+     "historyYears": 1.4,
+     "nav": 9.5356,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153529,
+    "name": "ANGEL ONE NIFTY 50 INDEX FUND",
+    "amc": "Angel One",
+    "kind": "Index fund",
+    "terPct": 0.25,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.23,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 12.5,
+     "maxDrawdownPct": 15.1,
+     "historyYears": 1.4,
+     "nav": 9.504,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 141545,
+    "name": "Axis Nifty 50 ETF",
+    "amc": "Axis",
+    "kind": "ETF",
+    "terPct": 0.16,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -10.04,
+     "cagr3y": 7.55,
+     "cagr5y": 6.64,
+     "volatilityPct": 13.3,
+     "maxDrawdownPct": 15.4,
+     "historyYears": 9.3,
+     "nav": 255.5479,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149373,
+    "name": "Axis Nifty 50 Index Fund",
+    "amc": "Axis",
+    "kind": "Index fund",
+    "terPct": 0.17,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -10.11,
+     "cagr3y": 7.42,
+     "cagr5y": null,
+     "volatilityPct": 13.3,
+     "maxDrawdownPct": 15.4,
+     "historyYears": 4.9,
+     "nav": 14.0342,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152356,
+    "name": "Bajaj Finserv Nifty 50 ETF",
+    "amc": "Bajaj Finserv",
+    "kind": "ETF",
+    "terPct": 0.08,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.06,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 13.5,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 2.8,
+     "nav": 237.6347,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153506,
+    "name": "Bajaj Finserv Nifty 50 Index Fund",
+    "amc": "Bajaj Finserv",
+    "kind": "Index fund",
+    "terPct": 0.33,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.47,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 12.4,
+     "maxDrawdownPct": 14.9,
+     "historyYears": 1.4,
+     "nav": 9.4253,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118482,
+    "name": "BANDHAN Nifty 50 Index Fund",
+    "amc": "Bandhan",
+    "kind": "Index fund",
+    "terPct": 0.16,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -10.14,
+     "cagr3y": 7.4,
+     "cagr5y": 6.54,
+     "volatilityPct": 13.3,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 13.8,
+     "nav": 51.6726,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152329,
+    "name": "Baroda BNP Paribas Nifty 50 Index Fund",
+    "amc": "Baroda BNP Paribas",
+    "kind": "Index fund",
+    "terPct": 0.48,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.21,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 13.5,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 2.7,
+     "nav": 10.8954,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154301,
+    "name": "Choice Nifty 50 Index Fund",
+    "amc": "Choice",
+    "kind": "Index fund",
+    "terPct": 0.68,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 12,
+     "maxDrawdownPct": 10.3,
+     "historyYears": 0.6,
+     "nav": 9.98,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149392,
+    "name": "DSP Nifty 50 ETF",
+    "amc": "DSP",
+    "kind": "ETF",
+    "terPct": 0.08,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -9.99,
+     "cagr3y": 7.57,
+     "cagr5y": null,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.4,
+     "historyYears": 4.9,
+     "nav": 243.3023,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 146376,
+    "name": "DSP Nifty 50 Index Fund",
+    "amc": "DSP",
+    "kind": "Index fund",
+    "terPct": 0.22,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.12,
+     "cagr3y": 7.41,
+     "cagr5y": 6.46,
+     "volatilityPct": 13.3,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 7.7,
+     "nav": 22.7857,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153966,
+    "name": "Edelweiss Nifty 50 ETF",
+    "amc": "Edelweiss",
+    "kind": "ETF",
+    "terPct": 0.12,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 14.2,
+     "maxDrawdownPct": 15,
+     "historyYears": 0.9,
+     "nav": 23.3117,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149250,
+    "name": "Edelweiss Nifty 50 Index Fund",
+    "amc": "Edelweiss",
+    "kind": "Index fund",
+    "terPct": 0.14,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -9.97,
+     "cagr3y": 7.43,
+     "cagr5y": 6.42,
+     "volatilityPct": 13.3,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 5.1,
+     "nav": 13.6986,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118581,
+    "name": "Franklin India NSE Nifty 50 Index Fund",
+    "amc": "Franklin Templeton",
+    "kind": "Index fund",
+    "terPct": 0.31,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.16,
+     "cagr3y": 7.37,
+     "cagr5y": 6.41,
+     "volatilityPct": 13.3,
+     "maxDrawdownPct": 15.4,
+     "historyYears": 13.8,
+     "nav": 197.4035,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153704,
+    "name": "Groww Nifty 50 Index Fund",
+    "amc": "Groww",
+    "kind": "Index fund",
+    "terPct": 0.46,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.4,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 12.8,
+     "maxDrawdownPct": 15.1,
+     "historyYears": 1.3,
+     "nav": 9.2541,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 135853,
+    "name": "HDFC NIFTY 50 ETF",
+    "amc": "HDFC",
+    "kind": "ETF",
+    "terPct": 0.06,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.05,
+     "cagr3y": 7.56,
+     "cagr5y": 6.63,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.4,
+     "historyYears": 10.9,
+     "nav": 260.1762,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119063,
+    "name": "HDFC Nifty 50 Index Fund",
+    "amc": "HDFC",
+    "kind": "Index fund",
+    "terPct": 0.29,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.25,
+     "cagr3y": 7.33,
+     "cagr5y": 6.41,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 13.8,
+     "nav": 225.6639,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151157,
+    "name": "HSBC NIFTY 50 Index Fund",
+    "amc": "HSBC",
+    "kind": "Index fund",
+    "terPct": 0.22,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -10.12,
+     "cagr3y": 7.37,
+     "cagr5y": null,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 3.9,
+     "nav": 27.3232,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 121366,
+    "name": "ICICI Prudential Nifty 50 ETF",
+    "amc": "ICICI Prudential",
+    "kind": "ETF",
+    "terPct": 0.0369,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -10.02,
+     "cagr3y": 7.59,
+     "cagr5y": 6.66,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.4,
+     "historyYears": 12.4,
+     "nav": 261.699,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154550,
+    "name": "JioBlackRock Nifty 50 ETF",
+    "amc": "Jio BlackRock",
+    "kind": "ETF",
+    "terPct": 1.09,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 12.1,
+     "maxDrawdownPct": 8.6,
+     "historyYears": 0.2,
+     "nav": 11.8259,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153787,
+    "name": "JioBlackRock Nifty 50 Index Fund",
+    "amc": "Jio BlackRock",
+    "kind": "Index fund",
+    "terPct": 0.22,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.08,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 13.1,
+     "maxDrawdownPct": 15.1,
+     "historyYears": 1.2,
+     "nav": 9.3576,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 112351,
+    "name": "Kotak Nifty 50 ETF",
+    "amc": "Kotak Mahindra",
+    "kind": "ETF",
+    "terPct": 0.0396,
+    "terDate": "2026-10-27",
+    "metrics": {
+     "cagr1y": -9.98,
+     "cagr3y": 7.59,
+     "cagr5y": 6.61,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.4,
+     "historyYears": 16.7,
+     "nav": 256.2612,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 148978,
+    "name": "Kotak Nifty 50 Index Fund",
+    "amc": "Kotak Mahindra",
+    "kind": "Index fund",
+    "terPct": 0.1268,
+    "terDate": "2026-10-27",
+    "metrics": {
+     "cagr1y": -10.09,
+     "cagr3y": 7.33,
+     "cagr5y": 6.41,
+     "volatilityPct": 13.3,
+     "maxDrawdownPct": 15.7,
+     "historyYears": 5.3,
+     "nav": 15.339,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 135607,
+    "name": "LIC MF Nifty 50 ETF",
+    "amc": "LIC",
+    "kind": "ETF",
+    "terPct": 0.09,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -10.06,
+     "cagr3y": 7.52,
+     "cagr5y": 6.59,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.4,
+     "historyYears": 10.9,
+     "nav": 259.0409,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120307,
+    "name": "LIC MF Nifty 50 Index Fund",
+    "amc": "LIC",
+    "kind": "Index fund",
+    "terPct": 0.56,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -10.51,
+     "cagr3y": 7.18,
+     "cagr5y": 6.31,
+     "volatilityPct": 13.3,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 13.8,
+     "nav": 138.1874,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 145633,
+    "name": "Mirae Asset Nifty 50 ETF",
+    "amc": "Mirae Asset",
+    "kind": "ETF",
+    "terPct": 0.08,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -10.04,
+     "cagr3y": 7.56,
+     "cagr5y": 6.64,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.4,
+     "historyYears": 7.9,
+     "nav": 251.1436,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152972,
+    "name": "Mirae Asset Nifty 50 Index Fund",
+    "amc": "Mirae Asset",
+    "kind": "Index fund",
+    "terPct": 0.24,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -10.19,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 13.2,
+     "maxDrawdownPct": 15.1,
+     "historyYears": 2,
+     "nav": 9.626,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 113069,
+    "name": "Motilal Oswal Nifty 50 ETF",
+    "amc": "Motilal Oswal",
+    "kind": "ETF",
+    "terPct": 0.24,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.03,
+     "cagr3y": 7.56,
+     "cagr5y": 6.65,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 16.3,
+     "nav": 241.7152,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 147794,
+    "name": "Motilal Oswal Nifty 50 Index Fund",
+    "amc": "Motilal Oswal",
+    "kind": "Index fund",
+    "terPct": 0.23,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.11,
+     "cagr3y": 7.44,
+     "cagr5y": 6.5,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 6.8,
+     "nav": 20.1368,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149039,
+    "name": "Navi Nifty 50 Index Fund",
+    "amc": "Navi",
+    "kind": "Index fund",
+    "terPct": 0.1,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -10.08,
+     "cagr3y": 7.45,
+     "cagr5y": 6.49,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 5.3,
+     "nav": 15.2396,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 140084,
+    "name": "Nippon India ETF Nifty 50 BeES",
+    "amc": "Nippon India",
+    "kind": "ETF",
+    "terPct": 0.05,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.02,
+     "cagr3y": 7.57,
+     "cagr5y": 6.65,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.4,
+     "historyYears": 10,
+     "nav": 263.0385,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118741,
+    "name": "Nippon India Index Fund - Nifty 50 Plan",
+    "amc": "Nippon India",
+    "kind": "Index fund",
+    "terPct": 0.15,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.1,
+     "cagr3y": 7.43,
+     "cagr5y": 6.47,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 13.8,
+     "nav": 42.6051,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154814,
+    "name": "quant Nifty 50 Index Fund",
+    "amc": "quant",
+    "kind": "Index fund",
+    "terPct": 0.07,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": null,
+     "maxDrawdownPct": null,
+     "historyYears": 0,
+     "nav": 10.1367,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 108479,
+    "name": "Quantum Nifty 50 ETF",
+    "amc": "Quantum",
+    "kind": "ETF",
+    "terPct": 0.09,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -91.02,
+     "cagr3y": -50.09,
+     "cagr5y": -32.73,
+     "volatilityPct": 134.4,
+     "maxDrawdownPct": 91.5,
+     "historyYears": 18.3,
+     "nav": 254.1085,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 145801,
+    "name": "Tata Nifty 50 Exchange Traded Fund",
+    "amc": "Tata",
+    "kind": "ETF",
+    "terPct": 0.09,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -10.05,
+     "cagr3y": 7.53,
+     "cagr5y": 6.61,
+     "volatilityPct": 13.3,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 7.8,
+     "nav": 251.4072,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119288,
+    "name": "Tata Nifty 50 Index Fund",
+    "amc": "Tata",
+    "kind": "Index fund",
+    "terPct": 0.27,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -10.24,
+     "cagr3y": 7.29,
+     "cagr5y": 6.4,
+     "volatilityPct": 13.3,
+     "maxDrawdownPct": 15.6,
+     "historyYears": 13.8,
+     "nav": 156.9608,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118881,
+    "name": "Taurus Nifty 50 Index Fund",
+    "amc": "Taurus",
+    "kind": "Index fund",
+    "terPct": 0.86,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.75,
+     "cagr3y": 6.63,
+     "cagr5y": 5.78,
+     "volatilityPct": 13.2,
+     "maxDrawdownPct": 15.6,
+     "historyYears": 13.8,
+     "nav": 46.8524,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 135320,
+    "name": "UTI Nifty 50 ETF",
+    "amc": "UTI",
+    "kind": "ETF",
+    "terPct": 0.06,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.02,
+     "cagr3y": 7.57,
+     "cagr5y": -32.7,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.4,
+     "historyYears": 11.2,
+     "nav": 255.9799,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120716,
+    "name": "UTI Nifty 50 Index Fund",
+    "amc": "UTI",
+    "kind": "Index fund",
+    "terPct": 0.25,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.17,
+     "cagr3y": 7.39,
+     "cagr5y": 6.46,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 15.5,
+     "historyYears": 13.8,
+     "nav": 162.3751,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153905,
+    "name": "Zerodha Nifty 50 ETF",
+    "amc": "Zerodha",
+    "kind": "ETF",
+    "terPct": 0.06,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -9.9,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 13.8,
+     "maxDrawdownPct": 15,
+     "historyYears": 1,
+     "nav": 9.2744,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153906,
+    "name": "Zerodha Nifty 50 Index Fund",
+    "amc": "Zerodha",
+    "kind": "Index fund",
+    "terPct": 0.28,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.26,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 13.6,
+     "maxDrawdownPct": 15.2,
+     "historyYears": 1,
+     "nav": 9.2368,
+     "navDate": "2026-10-30"
+    }
+   }
+  ],
+  "equity": [
+   {
+    "code": 151796,
+    "name": "360 ONE Flexicap Fund",
+    "amc": "360 ONE",
+    "kind": "Fund",
+    "terPct": 0.92,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 1.77,
+     "cagr3y": 16.68,
+     "cagr5y": null,
+     "volatilityPct": 15.4,
+     "maxDrawdownPct": 18.1,
+     "historyYears": 3.3,
+     "nav": 16.3449,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154043,
+    "name": "Abakkus Flexi Cap Fund",
+    "amc": "Abakkus",
+    "kind": "Fund",
+    "terPct": 0.86,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 15.4,
+     "maxDrawdownPct": 10.7,
+     "historyYears": 0.8,
+     "nav": 10.479,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120564,
+    "name": "Aditya Birla Sun Life Flexi Cap Fund",
+    "amc": "Aditya Birla Sun Life",
+    "kind": "Fund",
+    "terPct": 0.91,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 1.06,
+     "cagr3y": 15.15,
+     "cagr5y": 10.78,
+     "volatilityPct": 13.4,
+     "maxDrawdownPct": 17,
+     "historyYears": 13.8,
+     "nav": 2119.11,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154518,
+    "name": "AlphaGrep Flexi Cap Fund",
+    "amc": "AlphaGrep",
+    "kind": "Fund",
+    "terPct": 2.8,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 10.6,
+     "maxDrawdownPct": 7.6,
+     "historyYears": 0.2,
+     "nav": 9.5858,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 141925,
+    "name": "Axis Flexi Cap Fund",
+    "amc": "Axis",
+    "kind": "Fund",
+    "terPct": 0.84,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -0.96,
+     "cagr3y": 13.45,
+     "cagr5y": 7.75,
+     "volatilityPct": 14.3,
+     "maxDrawdownPct": 18.8,
+     "historyYears": 8.9,
+     "nav": 30.08,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151895,
+    "name": "Bajaj Finserv Flexi Cap Fund",
+    "amc": "Bajaj Finserv",
+    "kind": "Fund",
+    "terPct": 1,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -0.1,
+     "cagr3y": 15.78,
+     "cagr5y": null,
+     "volatilityPct": 13.5,
+     "maxDrawdownPct": 17.5,
+     "historyYears": 3.2,
+     "nav": 15.617,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118424,
+    "name": "BANDHAN Flexi Cap Fund",
+    "amc": "Bandhan",
+    "kind": "Fund",
+    "terPct": 1.52,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -5.58,
+     "cagr3y": 10.8,
+     "cagr5y": 8.78,
+     "volatilityPct": 12.9,
+     "maxDrawdownPct": 16.9,
+     "historyYears": 13.8,
+     "nav": 222.439,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 148404,
+    "name": "BANK OF INDIA FLEXI CAP FUND",
+    "amc": "Bank of India",
+    "kind": "Fund",
+    "terPct": 0.89,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 1.91,
+     "cagr3y": 18.15,
+     "cagr5y": 15,
+     "volatilityPct": 17.8,
+     "maxDrawdownPct": 23.7,
+     "historyYears": 6.3,
+     "nav": 40.1,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 150387,
+    "name": "Baroda BNP Paribas Flexi Cap Fund",
+    "amc": "Baroda BNP Paribas",
+    "kind": "Fund",
+    "terPct": 1.29,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -4.24,
+     "cagr3y": 11.64,
+     "cagr5y": null,
+     "volatilityPct": 15.1,
+     "maxDrawdownPct": 20.4,
+     "historyYears": 4.2,
+     "nav": 15.8483,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118275,
+    "name": "Canara Robeco Flexi Cap Fund",
+    "amc": "Canara Robeco",
+    "kind": "Fund",
+    "terPct": 0.71,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -6.26,
+     "cagr3y": 11.53,
+     "cagr5y": 8.62,
+     "volatilityPct": 13.6,
+     "maxDrawdownPct": 17.5,
+     "historyYears": 13.8,
+     "nav": 371.28,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153738,
+    "name": "Capitalmind Flexi Cap Fund",
+    "amc": "Capitalmind",
+    "kind": "Fund",
+    "terPct": 1.72,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -1.31,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 12.2,
+     "maxDrawdownPct": 10.1,
+     "historyYears": 1.2,
+     "nav": 10.0215,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119076,
+    "name": "DSP Flexi Cap Fund",
+    "amc": "DSP",
+    "kind": "Fund",
+    "terPct": 0.87,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -6.3,
+     "cagr3y": 10.57,
+     "cagr5y": 8.61,
+     "volatilityPct": 14.2,
+     "maxDrawdownPct": 17.6,
+     "historyYears": 13.8,
+     "nav": 109.494,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 140353,
+    "name": "Edelweiss Flexi Cap Fund",
+    "amc": "Edelweiss",
+    "kind": "Fund",
+    "terPct": 0.76,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -5.43,
+     "cagr3y": 13.98,
+     "cagr5y": 11.54,
+     "volatilityPct": 14.7,
+     "maxDrawdownPct": 19,
+     "historyYears": 9.9,
+     "nav": 43.329,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118535,
+    "name": "Franklin India Flexi Cap Fund",
+    "amc": "Franklin Templeton",
+    "kind": "Fund",
+    "terPct": 0.98,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -8.95,
+     "cagr3y": 10.39,
+     "cagr5y": 10.05,
+     "volatilityPct": 13.5,
+     "maxDrawdownPct": 16.4,
+     "historyYears": 13.8,
+     "nav": 1706.1334,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118955,
+    "name": "HDFC Flexi Cap Fund",
+    "amc": "HDFC",
+    "kind": "Fund",
+    "terPct": 0.75,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -4.02,
+     "cagr3y": 15.75,
+     "cagr5y": 15.52,
+     "volatilityPct": 12.1,
+     "maxDrawdownPct": 13.3,
+     "historyYears": 13.8,
+     "nav": 2187.57,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152135,
+    "name": "Helios Flexi Cap Fund",
+    "amc": "Helios",
+    "kind": "Fund",
+    "terPct": 0.86,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -3.02,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 16.5,
+     "maxDrawdownPct": 18.2,
+     "historyYears": 3,
+     "nav": 15.41,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120046,
+    "name": "HSBC Flexi Cap Fund",
+    "amc": "HSBC",
+    "kind": "Fund",
+    "terPct": 1.3,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -1.57,
+     "cagr3y": 14.84,
+     "cagr5y": 11.82,
+     "volatilityPct": 15.9,
+     "maxDrawdownPct": 20.5,
+     "historyYears": 13.8,
+     "nav": 248.8011,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 148990,
+    "name": "ICICI Prudential Flexi Cap fund",
+    "amc": "ICICI Prudential",
+    "kind": "Fund",
+    "terPct": 0.88,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -0.86,
+     "cagr3y": 15.19,
+     "cagr5y": 13.88,
+     "volatilityPct": 14.4,
+     "maxDrawdownPct": 19.7,
+     "historyYears": 5.3,
+     "nav": 20.79,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149763,
+    "name": "Invesco India Flexi Cap Fund",
+    "amc": "Invesco",
+    "kind": "Fund",
+    "terPct": 0.88,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -2.73,
+     "cagr3y": 16.68,
+     "cagr5y": null,
+     "volatilityPct": 15.7,
+     "maxDrawdownPct": 19.4,
+     "historyYears": 4.7,
+     "nav": 19.97,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151379,
+    "name": "ITI Flexi Cap Fund",
+    "amc": "ITI",
+    "kind": "Fund",
+    "terPct": 0.88,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.4,
+     "cagr3y": 18.31,
+     "cagr5y": null,
+     "volatilityPct": 16.5,
+     "maxDrawdownPct": 21.4,
+     "historyYears": 3.7,
+     "nav": 20.3487,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153859,
+    "name": "JioBlackRock Flexi Cap Fund",
+    "amc": "Jio BlackRock",
+    "kind": "Fund",
+    "terPct": 1.11,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -8.49,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 14.4,
+     "maxDrawdownPct": 14.3,
+     "historyYears": 1,
+     "nav": 9.3435,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120492,
+    "name": "JM Flexi Cap Fund",
+    "amc": "JM Financial",
+    "kind": "Fund",
+    "terPct": 1.09,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -5.29,
+     "cagr3y": 13.05,
+     "cagr5y": 13.89,
+     "volatilityPct": 16,
+     "maxDrawdownPct": 22.6,
+     "historyYears": 13.8,
+     "nav": 108.0429,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120166,
+    "name": "Kotak Flexi Cap Fund",
+    "amc": "Kotak Mahindra",
+    "kind": "Fund",
+    "terPct": 0.671,
+    "terDate": "2026-10-27",
+    "metrics": {
+     "cagr1y": -6.88,
+     "cagr3y": 11.29,
+     "cagr5y": 9.58,
+     "volatilityPct": 14.6,
+     "maxDrawdownPct": 16.3,
+     "historyYears": 13.8,
+     "nav": 91.733,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120264,
+    "name": "LIC MF Flexi Cap Fund",
+    "amc": "LIC",
+    "kind": "Fund",
+    "terPct": 1.81,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -4.73,
+     "cagr3y": 10.12,
+     "cagr5y": 8.69,
+     "volatilityPct": 15.7,
+     "maxDrawdownPct": 23.2,
+     "historyYears": 13.8,
+     "nav": 109.0698,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149104,
+    "name": "Mahindra Manulife Flexi Cap Fund",
+    "amc": "Mahindra Manulife",
+    "kind": "Fund",
+    "terPct": 0.99,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -8.57,
+     "cagr3y": 9.29,
+     "cagr5y": 9.8,
+     "volatilityPct": 13.7,
+     "maxDrawdownPct": 16.9,
+     "historyYears": 5.2,
+     "nav": 16.3717,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151412,
+    "name": "Mirae Asset Flexi Cap Fund",
+    "amc": "Mirae Asset",
+    "kind": "Fund",
+    "terPct": 0.74,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -3.22,
+     "cagr3y": 12.3,
+     "cagr5y": null,
+     "volatilityPct": 14.2,
+     "maxDrawdownPct": 16.1,
+     "historyYears": 3.7,
+     "nav": 16.384,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 129046,
+    "name": "Motilal Oswal Flexi Cap Fund",
+    "amc": "Motilal Oswal",
+    "kind": "Fund",
+    "terPct": 1.18,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -3.83,
+     "cagr3y": 16.83,
+     "cagr5y": 12.45,
+     "volatilityPct": 17.1,
+     "maxDrawdownPct": 21.5,
+     "historyYears": 12.5,
+     "nav": 67.6101,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 143793,
+    "name": "Navi Flexi Cap Fund",
+    "amc": "Navi",
+    "kind": "Fund",
+    "terPct": 0.7,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 1.8,
+     "cagr3y": 10.91,
+     "cagr5y": 9.7,
+     "volatilityPct": 14.2,
+     "maxDrawdownPct": 19.3,
+     "historyYears": 8.3,
+     "nav": 27.6602,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149094,
+    "name": "Nippon India Flexi Cap Fund",
+    "amc": "Nippon India",
+    "kind": "Fund",
+    "terPct": 0.66,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -7.63,
+     "cagr3y": 9.1,
+     "cagr5y": 9.4,
+     "volatilityPct": 14.7,
+     "maxDrawdownPct": 19.8,
+     "historyYears": 5.2,
+     "nav": 16.7714,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151917,
+    "name": "NJ Flexi Cap Fund",
+    "amc": "NJ",
+    "kind": "Fund",
+    "terPct": 0.84,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -6.09,
+     "cagr3y": 8.87,
+     "cagr5y": null,
+     "volatilityPct": 14.5,
+     "maxDrawdownPct": 26.7,
+     "historyYears": 3.1,
+     "nav": 12.97,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154225,
+    "name": "Old Bridge Flexi Cap Fund",
+    "amc": "Old Bridge",
+    "kind": "Fund",
+    "terPct": 1.56,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 12.6,
+     "maxDrawdownPct": 11.5,
+     "historyYears": 0.7,
+     "nav": 10.28,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 122639,
+    "name": "Parag Parikh Flexi Cap Fund",
+    "amc": "PPFAS",
+    "kind": "Fund",
+    "terPct": 0.69,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -5.88,
+     "cagr3y": 12.47,
+     "cagr5y": 10.92,
+     "volatilityPct": 9.8,
+     "maxDrawdownPct": 11,
+     "historyYears": 13.4,
+     "nav": 89.2332,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 133839,
+    "name": "PGIM India Flexi Cap Fund",
+    "amc": "PGIM India",
+    "kind": "Fund",
+    "terPct": 0.85,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -4.62,
+     "cagr3y": 10.58,
+     "cagr5y": 7.34,
+     "volatilityPct": 13.6,
+     "maxDrawdownPct": 17.3,
+     "historyYears": 11.6,
+     "nav": 41.91,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120843,
+    "name": "Quant Flexi Cap Fund",
+    "amc": "quant",
+    "kind": "Fund",
+    "terPct": 1.13,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 2.98,
+     "cagr3y": 14.77,
+     "cagr5y": 13.47,
+     "volatilityPct": 16.9,
+     "maxDrawdownPct": 24.7,
+     "historyYears": 13.8,
+     "nav": 114.7275,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154515,
+    "name": "Quantum Flexi Cap Fund",
+    "amc": "Quantum",
+    "kind": "Fund",
+    "terPct": 3.39,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 10.4,
+     "maxDrawdownPct": 5.7,
+     "historyYears": 0.1,
+     "nav": 9.47,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119718,
+    "name": "SBI FLEXICAP FUND",
+    "amc": "SBI",
+    "kind": "Fund",
+    "terPct": 1.24,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -7.81,
+     "cagr3y": 8.02,
+     "cagr5y": 6.91,
+     "volatilityPct": 12.6,
+     "maxDrawdownPct": 16,
+     "historyYears": 13.8,
+     "nav": 116.2475,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 144905,
+    "name": "Shriram Flexi Cap Fund",
+    "amc": "Shriram",
+    "kind": "Fund",
+    "terPct": 1.06,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -8.04,
+     "cagr3y": 6.61,
+     "cagr5y": 6.33,
+     "volatilityPct": 15.9,
+     "maxDrawdownPct": 23.9,
+     "historyYears": 8.1,
+     "nav": 21.4814,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 150571,
+    "name": "Sundaram Flexicap Fund",
+    "amc": "Sundaram",
+    "kind": "Fund",
+    "terPct": 0.86,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -10.22,
+     "cagr3y": 8.49,
+     "cagr5y": null,
+     "volatilityPct": 13.3,
+     "maxDrawdownPct": 15.7,
+     "historyYears": 4.1,
+     "nav": 14.3481,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 144546,
+    "name": "Tata Flexi Cap Fund",
+    "amc": "Tata",
+    "kind": "Fund",
+    "terPct": 0.89,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -10.21,
+     "cagr3y": 9.08,
+     "cagr5y": 7.88,
+     "volatilityPct": 12.8,
+     "maxDrawdownPct": 14.6,
+     "historyYears": 8.1,
+     "nav": 25.0272,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118883,
+    "name": "Taurus Flexi Cap Fund",
+    "amc": "Taurus",
+    "kind": "Fund",
+    "terPct": 2.69,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 1.68,
+     "cagr3y": 11.31,
+     "cagr5y": 9.23,
+     "volatilityPct": 14.9,
+     "maxDrawdownPct": 20.9,
+     "historyYears": 13.8,
+     "nav": 242.62,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153872,
+    "name": "The Wealth Company Flexi Cap Fund",
+    "amc": "The Wealth Company",
+    "kind": "Fund",
+    "terPct": 1.88,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -8.1,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 15.5,
+     "maxDrawdownPct": 16.1,
+     "historyYears": 1,
+     "nav": 9.2185,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152584,
+    "name": "TRUSTMF Flexi Cap Fund",
+    "amc": "Trust",
+    "kind": "Fund",
+    "terPct": 1.74,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 3.61,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 16,
+     "maxDrawdownPct": 18.9,
+     "historyYears": 2.5,
+     "nav": 12.34,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153543,
+    "name": "UNIFI FLEXI CAP FUND",
+    "amc": "Unifi",
+    "kind": "Fund",
+    "terPct": 1.42,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 1.8,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 12.9,
+     "maxDrawdownPct": 13.2,
+     "historyYears": 1.4,
+     "nav": 10.5554,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119292,
+    "name": "Union Flexi Cap Fund",
+    "amc": "Union",
+    "kind": "Fund",
+    "terPct": 1.5,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -3.33,
+     "cagr3y": 10.74,
+     "cagr5y": 9.2,
+     "volatilityPct": 14.2,
+     "maxDrawdownPct": 17.3,
+     "historyYears": 13.8,
+     "nav": 56.71,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120662,
+    "name": "UTI - Flexi Cap Fund.",
+    "amc": "UTI",
+    "kind": "Fund",
+    "terPct": 1.16,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -5.65,
+     "cagr3y": 8.5,
+     "cagr5y": 3.93,
+     "volatilityPct": 13,
+     "maxDrawdownPct": 20.1,
+     "historyYears": 13.8,
+     "nav": 336.2532,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 150346,
+    "name": "WhiteOak Capital Flexi Cap Fund",
+    "amc": "WhiteOak Capital",
+    "kind": "Fund",
+    "terPct": 0.84,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -2.61,
+     "cagr3y": 13.99,
+     "cagr5y": null,
+     "volatilityPct": 13.8,
+     "maxDrawdownPct": 15.6,
+     "historyYears": 4.2,
+     "nav": 18.245,
+     "navDate": "2026-10-30"
+    }
+   }
+  ],
+  "hybrid": [
+   {
+    "code": 131670,
+    "name": "Aditya Birla Sun Life Balanced Advantage Fund",
+    "amc": "Aditya Birla Sun Life",
+    "kind": "Fund",
+    "terPct": 0.89,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 2.18,
+     "cagr3y": 11.6,
+     "cagr5y": 9.67,
+     "volatilityPct": 8.4,
+     "maxDrawdownPct": 8.7,
+     "historyYears": 12,
+     "nav": 126.86,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 141642,
+    "name": "Axis Balanced Advantage Fund",
+    "amc": "Axis",
+    "kind": "Fund",
+    "terPct": 1,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -1.42,
+     "cagr3y": 11.5,
+     "cagr5y": 9.11,
+     "volatilityPct": 8.1,
+     "maxDrawdownPct": 7.8,
+     "historyYears": 9.2,
+     "nav": 23.69,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152194,
+    "name": "Bajaj Finserv Balanced Advantage Fund",
+    "amc": "Bajaj Finserv",
+    "kind": "Fund",
+    "terPct": 1.05,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -1.79,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 9.9,
+     "maxDrawdownPct": 12.5,
+     "historyYears": 2.9,
+     "nav": 11.781,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 131355,
+    "name": "BANDHAN Balanced Advantage Fund",
+    "amc": "Bandhan",
+    "kind": "Fund",
+    "terPct": 1.07,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 0.64,
+     "cagr3y": 9.42,
+     "cagr5y": 7.66,
+     "volatilityPct": 7.5,
+     "maxDrawdownPct": 8.3,
+     "historyYears": 12,
+     "nav": 28.911,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 127850,
+    "name": "BANK OF INDIA BALANCED ADVANTAGE FUND",
+    "amc": "Bank of India",
+    "kind": "Fund",
+    "terPct": 1.39,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -0.59,
+     "cagr3y": 9.2,
+     "cagr5y": 9.88,
+     "volatilityPct": 9.9,
+     "maxDrawdownPct": 12.8,
+     "historyYears": 12.6,
+     "nav": 27.6151,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 145396,
+    "name": "Baroda BNP Paribas Balanced Advantage Fund",
+    "amc": "Baroda BNP Paribas",
+    "kind": "Fund",
+    "terPct": 0.92,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -0.62,
+     "cagr3y": 11.52,
+     "cagr5y": 9.95,
+     "volatilityPct": 10.7,
+     "maxDrawdownPct": 11.5,
+     "historyYears": 7.9,
+     "nav": 27.2769,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152688,
+    "name": "Canara Robeco Balanced Advantage Fund",
+    "amc": "Canara Robeco",
+    "kind": "Fund",
+    "terPct": 1.04,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -5.04,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 9.2,
+     "maxDrawdownPct": 11,
+     "historyYears": 2.2,
+     "nav": 10.19,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 126393,
+    "name": "DSP Dynamic Asset Allocation Fund",
+    "amc": "DSP",
+    "kind": "Fund",
+    "terPct": 1.04,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 0.25,
+     "cagr3y": 10.26,
+     "cagr5y": 8.32,
+     "volatilityPct": 5.9,
+     "maxDrawdownPct": 5.5,
+     "historyYears": 12.7,
+     "nav": 32.529,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118615,
+    "name": "Edelweiss Balanced Advantage Fund",
+    "amc": "Edelweiss",
+    "kind": "Fund",
+    "terPct": 0.81,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 0.5,
+     "cagr3y": 10.56,
+     "cagr5y": 8.93,
+     "volatilityPct": 9.3,
+     "maxDrawdownPct": 11.1,
+     "historyYears": 13.8,
+     "nav": 59.87,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 150481,
+    "name": "Franklin India Balanced Advantage Fund",
+    "amc": "Franklin Templeton",
+    "kind": "Fund",
+    "terPct": 0.8,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -4.37,
+     "cagr3y": 8.9,
+     "cagr5y": null,
+     "volatilityPct": 7.4,
+     "maxDrawdownPct": 8.1,
+     "historyYears": 4.1,
+     "nav": 14.7531,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118968,
+    "name": "HDFC Balanced Advantage Fund",
+    "amc": "HDFC",
+    "kind": "Fund",
+    "terPct": 0.77,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -5.25,
+     "cagr3y": 10.53,
+     "cagr5y": 13.02,
+     "volatilityPct": 9.9,
+     "maxDrawdownPct": 10.2,
+     "historyYears": 13.8,
+     "nav": 546.24,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151129,
+    "name": "HSBC Balanced Advantage Fund",
+    "amc": "HSBC",
+    "kind": "Fund",
+    "terPct": 1.15,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -1.58,
+     "cagr3y": 9.1,
+     "cagr5y": null,
+     "volatilityPct": 7.2,
+     "maxDrawdownPct": 8.7,
+     "historyYears": 3.9,
+     "nav": 50.4058,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120377,
+    "name": "ICICI Prudential Balanced Advantage Fund",
+    "amc": "ICICI Prudential",
+    "kind": "Fund",
+    "terPct": 1.03,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 0.3,
+     "cagr3y": 10.54,
+     "cagr5y": 9.89,
+     "volatilityPct": 7.2,
+     "maxDrawdownPct": 8.2,
+     "historyYears": 13.8,
+     "nav": 85.81,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120333,
+    "name": "Invesco India Balanced Advantage Fund",
+    "amc": "Invesco",
+    "kind": "Fund",
+    "terPct": 1.19,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -4,
+     "cagr3y": 9.18,
+     "cagr5y": 8.52,
+     "volatilityPct": 8.5,
+     "maxDrawdownPct": 10.5,
+     "historyYears": 13.8,
+     "nav": 62.68,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 147789,
+    "name": "ITI Balanced Advantage Fund",
+    "amc": "ITI",
+    "kind": "Fund",
+    "terPct": 1.59,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -6.89,
+     "cagr3y": 7.67,
+     "cagr5y": 6.17,
+     "volatilityPct": 9.4,
+     "maxDrawdownPct": 9.7,
+     "historyYears": 6.8,
+     "nav": 15.439,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154701,
+    "name": "JioBlackRock Balanced Advantage Fund",
+    "amc": "Jio BlackRock",
+    "kind": "Fund",
+    "terPct": 0.56,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": null,
+     "maxDrawdownPct": null,
+     "historyYears": 0.1,
+     "nav": 10.1076,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 144335,
+    "name": "Kotak Balanced Advantage Fund",
+    "amc": "Kotak Mahindra",
+    "kind": "Fund",
+    "terPct": 0.8157,
+    "terDate": "2026-10-27",
+    "metrics": {
+     "cagr1y": -1.56,
+     "cagr3y": 9.18,
+     "cagr5y": 8.43,
+     "volatilityPct": 8,
+     "maxDrawdownPct": 9.1,
+     "historyYears": 8.2,
+     "nav": 22.453,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149261,
+    "name": "LIC MF Balanced Advantage Fund",
+    "amc": "LIC",
+    "kind": "Fund",
+    "terPct": 1.44,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -3.59,
+     "cagr3y": 7.58,
+     "cagr5y": null,
+     "volatilityPct": 9,
+     "maxDrawdownPct": 9.4,
+     "historyYears": 5,
+     "nav": 14.2707,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149406,
+    "name": "Mahindra Manulife Balanced Advantage Fund",
+    "amc": "Mahindra Manulife",
+    "kind": "Fund",
+    "terPct": 0.83,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -0.7,
+     "cagr3y": 10.92,
+     "cagr5y": null,
+     "volatilityPct": 10.3,
+     "maxDrawdownPct": 9.8,
+     "historyYears": 4.8,
+     "nav": 15.6886,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 150470,
+    "name": "Mirae Asset Balanced Advantage Fund",
+    "amc": "Mirae Asset",
+    "kind": "Fund",
+    "terPct": 0.98,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 0.72,
+     "cagr3y": 10.12,
+     "cagr5y": null,
+     "volatilityPct": 7.6,
+     "maxDrawdownPct": 7.5,
+     "historyYears": 4.2,
+     "nav": 15.203,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 139872,
+    "name": "Motilal Oswal Balanced Advantage Fund",
+    "amc": "Motilal Oswal",
+    "kind": "Fund",
+    "terPct": 1.55,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -4.37,
+     "cagr3y": 2.71,
+     "cagr5y": 5.58,
+     "volatilityPct": 12.4,
+     "maxDrawdownPct": 26.5,
+     "historyYears": 10.1,
+     "nav": 21.7417,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118736,
+    "name": "Nippon India Balanced Advantage Fund",
+    "amc": "Nippon India",
+    "kind": "Fund",
+    "terPct": 0.89,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -1.36,
+     "cagr3y": 10.07,
+     "cagr5y": 9.07,
+     "volatilityPct": 8.1,
+     "maxDrawdownPct": 8.6,
+     "historyYears": 13.8,
+     "nav": 203.4025,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149264,
+    "name": "NJ Balanced Advantage Fund",
+    "amc": "NJ",
+    "kind": "Fund",
+    "terPct": 1.1,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -1.53,
+     "cagr3y": 7.67,
+     "cagr5y": 7.15,
+     "volatilityPct": 8.4,
+     "maxDrawdownPct": 14.7,
+     "historyYears": 5,
+     "nav": 14.13,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152469,
+    "name": "Parag Parikh Dynamic Asset Allocation Fund",
+    "amc": "PPFAS",
+    "kind": "Fund",
+    "terPct": 0.41,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -4,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 3.7,
+     "maxDrawdownPct": 5.9,
+     "historyYears": 2.7,
+     "nav": 10.1134,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 148658,
+    "name": "PGIM India Balanced Advantage Fund",
+    "amc": "PGIM India",
+    "kind": "Fund",
+    "terPct": 0.9,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -6.2,
+     "cagr3y": 7.11,
+     "cagr5y": 6.77,
+     "volatilityPct": 9.3,
+     "maxDrawdownPct": 10.7,
+     "historyYears": 5.7,
+     "nav": 15.9,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151713,
+    "name": "quant Dynamic Asset Allocation Fund",
+    "amc": "quant",
+    "kind": "Fund",
+    "terPct": 1.55,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -5.8,
+     "cagr3y": 12.82,
+     "cagr5y": null,
+     "volatilityPct": 14.2,
+     "maxDrawdownPct": 18.4,
+     "historyYears": 3.5,
+     "nav": 16.4961,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152188,
+    "name": "Samco Dynamic Asset Allocation Fund",
+    "amc": "Samco",
+    "kind": "Fund",
+    "terPct": 1.95,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -4.06,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 11.2,
+     "maxDrawdownPct": 15.3,
+     "historyYears": 2.8,
+     "nav": 10.41,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149134,
+    "name": "SBI Balanced Advantage Fund",
+    "amc": "SBI",
+    "kind": "Fund",
+    "terPct": 0.86,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": -3.13,
+     "cagr3y": 9.33,
+     "cagr5y": 9.41,
+     "volatilityPct": 6.8,
+     "maxDrawdownPct": 7.4,
+     "historyYears": 5.1,
+     "nav": 16.0014,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 147406,
+    "name": "Shriram Balanced Advantage Fund",
+    "amc": "Shriram",
+    "kind": "Fund",
+    "terPct": 0.9,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -4.97,
+     "cagr3y": 6.02,
+     "cagr5y": 6.03,
+     "volatilityPct": 10.2,
+     "maxDrawdownPct": 13.7,
+     "historyYears": 7.3,
+     "nav": 18.3188,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149717,
+    "name": "Sundaram Dynamic Asset Allocation Fund (Formerly Known as Sundaram Balanced Advantage Fund)",
+    "amc": "Sundaram",
+    "kind": "Fund",
+    "terPct": 1.11,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -4.99,
+     "cagr3y": 7.83,
+     "cagr5y": null,
+     "volatilityPct": 8.5,
+     "maxDrawdownPct": 9.7,
+     "historyYears": 4.8,
+     "nav": 40.3287,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 146010,
+    "name": "Tata Balanced Advantage Fund",
+    "amc": "Tata",
+    "kind": "Fund",
+    "terPct": 0.68,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -4.29,
+     "cagr3y": 7.38,
+     "cagr5y": 7.87,
+     "volatilityPct": 7.6,
+     "maxDrawdownPct": 8.5,
+     "historyYears": 7.8,
+     "nav": 22.2678,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154185,
+    "name": "The Wealth Company Balanced Advantage Fund",
+    "amc": "The Wealth Company",
+    "kind": "Fund",
+    "terPct": 1.26,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 10.4,
+     "maxDrawdownPct": 9.1,
+     "historyYears": 0.7,
+     "nav": 9.5121,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153376,
+    "name": "UNIFI DYNAMIC ASSET ALLOCATION FUND",
+    "amc": "Unifi",
+    "kind": "Fund",
+    "terPct": 1.4,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 8.41,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 0.8,
+     "maxDrawdownPct": 0.2,
+     "historyYears": 1.6,
+     "nav": 11.3944,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 142038,
+    "name": "Union Balanced Advantage Fund",
+    "amc": "Union",
+    "kind": "Fund",
+    "terPct": 1.47,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -3.39,
+     "cagr3y": 7.79,
+     "cagr5y": 6.94,
+     "volatilityPct": 8.7,
+     "maxDrawdownPct": 8.9,
+     "historyYears": 8.8,
+     "nav": 21.67,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120784,
+    "name": "UTI - Unit Linked Insurance Plan",
+    "amc": "UTI",
+    "kind": "Fund",
+    "terPct": 1.09,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -0.53,
+     "cagr3y": 7.84,
+     "cagr5y": 5.72,
+     "volatilityPct": 5.7,
+     "maxDrawdownPct": 8.2,
+     "historyYears": 13.8,
+     "nav": 45.9136,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151885,
+    "name": "UTI Balanced Advantage Fund",
+    "amc": "UTI",
+    "kind": "Fund",
+    "terPct": 0.91,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -4.25,
+     "cagr3y": 8.5,
+     "cagr5y": null,
+     "volatilityPct": 7.8,
+     "maxDrawdownPct": 10.5,
+     "historyYears": 3.2,
+     "nav": 12.801,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151267,
+    "name": "WhiteOak Capital Balanced Advantage Fund",
+    "amc": "WhiteOak Capital",
+    "kind": "Fund",
+    "terPct": 0.84,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -0.57,
+     "cagr3y": 11.37,
+     "cagr5y": null,
+     "volatilityPct": 8.4,
+     "maxDrawdownPct": 9.6,
+     "historyYears": 3.7,
+     "nav": 15.211,
+     "navDate": "2026-10-30"
+    }
+   }
+  ],
+  "debt": [
+   {
+    "code": 119533,
+    "name": "Aditya Birla Sun Life Corporate Bond Fund",
+    "amc": "Aditya Birla Sun Life",
+    "kind": "Fund",
+    "terPct": 0.34,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 3.27,
+     "cagr3y": 6.75,
+     "cagr5y": 6.19,
+     "volatilityPct": 1.4,
+     "maxDrawdownPct": 1.3,
+     "historyYears": 13.8,
+     "nav": 120.9677,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 141588,
+    "name": "AXIS Corporate Bond Fund",
+    "amc": "Axis",
+    "kind": "Fund",
+    "terPct": 0.36,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 4.31,
+     "cagr3y": 7.44,
+     "cagr5y": 6.67,
+     "volatilityPct": 1.1,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 9.3,
+     "nav": 19.3295,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 135916,
+    "name": "BANDHAN Corporate Bond Fund",
+    "amc": "Bandhan",
+    "kind": "Fund",
+    "terPct": 0.36,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 4.87,
+     "cagr3y": 7,
+     "cagr5y": 6.09,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 10.8,
+     "nav": 21.2011,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 150229,
+    "name": "BARODA BNP PARIBAS CORPORATE BOND FUND",
+    "amc": "Baroda BNP Paribas",
+    "kind": "Fund",
+    "terPct": 0.21,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 4.5,
+     "cagr3y": 7.31,
+     "cagr5y": null,
+     "volatilityPct": 1.1,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 4.6,
+     "nav": 34.0651,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 126685,
+    "name": "Canara Robeco Corporate Bond Fund",
+    "amc": "Canara Robeco",
+    "kind": "Fund",
+    "terPct": 0.36,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 3.72,
+     "cagr3y": 6.5,
+     "cagr5y": 5.79,
+     "volatilityPct": 0.9,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 12.7,
+     "nav": 24.6116,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 144646,
+    "name": "DSP Corporate Bond Fund",
+    "amc": "DSP",
+    "kind": "Fund",
+    "terPct": 0.29,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 5.72,
+     "cagr3y": 7.4,
+     "cagr5y": 6.07,
+     "volatilityPct": 0.6,
+     "maxDrawdownPct": 0.2,
+     "historyYears": 8.1,
+     "nav": 17.5764,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118569,
+    "name": "Franklin India Corporate Bond Fund",
+    "amc": "Franklin Templeton",
+    "kind": "Fund",
+    "terPct": 0.26,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 5.32,
+     "cagr3y": 7.8,
+     "cagr5y": 6.71,
+     "volatilityPct": 1.2,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.8,
+     "nav": 116.3738,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118987,
+    "name": "HDFC Corporate Bond Fund",
+    "amc": "HDFC",
+    "kind": "Fund",
+    "terPct": 0.38,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 2.83,
+     "cagr3y": 6.6,
+     "cagr5y": 6.02,
+     "volatilityPct": 1.3,
+     "maxDrawdownPct": 1.5,
+     "historyYears": 13.8,
+     "nav": 34.9313,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 150996,
+    "name": "HSBC Corporate Bond Fund",
+    "amc": "HSBC",
+    "kind": "Fund",
+    "terPct": 0.33,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 4.02,
+     "cagr3y": 7.17,
+     "cagr5y": null,
+     "volatilityPct": 1.1,
+     "maxDrawdownPct": 0.7,
+     "historyYears": 3.9,
+     "nav": 83.0575,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120692,
+    "name": "ICICI Prudential Corporate Bond Fund",
+    "amc": "ICICI Prudential",
+    "kind": "Fund",
+    "terPct": 0.37,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 4.18,
+     "cagr3y": 7,
+     "cagr5y": 6.56,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 1,
+     "historyYears": 13.8,
+     "nav": 33.3514,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120497,
+    "name": "Invesco India Corporate Bond Fund",
+    "amc": "Invesco",
+    "kind": "Fund",
+    "terPct": 0.29,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 3.3,
+     "cagr3y": 6.83,
+     "cagr5y": 5.99,
+     "volatilityPct": 1.2,
+     "maxDrawdownPct": 1.2,
+     "historyYears": 13.8,
+     "nav": 3598.8401,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 133791,
+    "name": "Kotak Corporate Bond Fund",
+    "amc": "Kotak Mahindra",
+    "kind": "Fund",
+    "terPct": 0.3625,
+    "terDate": "2026-10-27",
+    "metrics": {
+     "cagr1y": 3.85,
+     "cagr3y": 7.1,
+     "cagr5y": 6.31,
+     "volatilityPct": 1.1,
+     "maxDrawdownPct": 0.7,
+     "historyYears": 11.7,
+     "nav": 4190.3907,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 148755,
+    "name": "Mirae Asset Corporate Bond Fund",
+    "amc": "Mirae Asset",
+    "kind": "Fund",
+    "terPct": 0.28,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 3.91,
+     "cagr3y": 6.92,
+     "cagr5y": 5.97,
+     "volatilityPct": 1.2,
+     "maxDrawdownPct": 0.8,
+     "historyYears": 5.6,
+     "nav": 13.8082,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118814,
+    "name": "Nippon India Corporate Bond Fund",
+    "amc": "Nippon India",
+    "kind": "Fund",
+    "terPct": 0.37,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 4.02,
+     "cagr3y": 7.27,
+     "cagr5y": 6.65,
+     "volatilityPct": 1.2,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.8,
+     "nav": 67.0292,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 138330,
+    "name": "PGIM India Corporate Bond Fund",
+    "amc": "PGIM India",
+    "kind": "Fund",
+    "terPct": 0.36,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 3.49,
+     "cagr3y": 6.86,
+     "cagr5y": 6.18,
+     "volatilityPct": 1.2,
+     "maxDrawdownPct": 0.7,
+     "historyYears": 10.6,
+     "nav": 50.9567,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 146215,
+    "name": "SBI Corporate Bond Fund",
+    "amc": "SBI",
+    "kind": "Fund",
+    "terPct": 0.37,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 3.84,
+     "cagr3y": 6.99,
+     "cagr5y": 6.19,
+     "volatilityPct": 1.1,
+     "maxDrawdownPct": 0.8,
+     "historyYears": 7.7,
+     "nav": 16.982,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119621,
+    "name": "Sundaram Corporate Bond Fund",
+    "amc": "Sundaram",
+    "kind": "Fund",
+    "terPct": 0.33,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 3.65,
+     "cagr3y": 6.82,
+     "cagr5y": 5.98,
+     "volatilityPct": 1.1,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.5,
+     "nav": 44.0277,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149361,
+    "name": "Tata Corporate Bond Fund",
+    "amc": "Tata",
+    "kind": "Fund",
+    "terPct": 0.32,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 3.93,
+     "cagr3y": 7.02,
+     "cagr5y": null,
+     "volatilityPct": 1.2,
+     "maxDrawdownPct": 0.8,
+     "historyYears": 4.9,
+     "nav": 13.402,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151320,
+    "name": "TRUSTMF CORPORATE BOND FUND",
+    "amc": "Trust",
+    "kind": "Fund",
+    "terPct": 0.26,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 3.98,
+     "cagr3y": 6.65,
+     "cagr5y": null,
+     "volatilityPct": 1.3,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 3.8,
+     "nav": 1275.8597,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 143241,
+    "name": "Union Corporate Bond Fund",
+    "amc": "Union",
+    "kind": "Fund",
+    "terPct": 0.41,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 2.87,
+     "cagr3y": 6.63,
+     "cagr5y": 5.68,
+     "volatilityPct": 1.2,
+     "maxDrawdownPct": 1.1,
+     "historyYears": 8.4,
+     "nav": 16.4409,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 144339,
+    "name": "UTI - Corporate Bond Fund",
+    "amc": "UTI",
+    "kind": "Fund",
+    "terPct": 0.3,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 4.07,
+     "cagr3y": 7.06,
+     "cagr5y": 6.23,
+     "volatilityPct": 1.1,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 8.2,
+     "nav": 17.8486,
+     "navDate": "2026-10-30"
+    }
+   }
+  ],
+  "short_debt": [
+   {
+    "code": 119498,
+    "name": "Aditya Birla Sun Life Short Term Fund",
+    "amc": "Aditya Birla Sun Life",
+    "kind": "Fund",
+    "terPct": 0.36,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 4.58,
+     "cagr3y": 7.42,
+     "cagr5y": 6.76,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.5,
+     "historyYears": 13.8,
+     "nav": 55.1768,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120510,
+    "name": "Axis Short Term Fund",
+    "amc": "Axis",
+    "kind": "Fund",
+    "terPct": 0.4,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 4.82,
+     "cagr3y": 7.58,
+     "cagr5y": 6.71,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.5,
+     "historyYears": 13.8,
+     "nav": 36.2658,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118407,
+    "name": "Bandhan Short Term Fund",
+    "amc": "Bandhan",
+    "kind": "Fund",
+    "terPct": 0.39,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 5.55,
+     "cagr3y": 7.63,
+     "cagr5y": 6.47,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.8,
+     "nav": 65.9497,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119382,
+    "name": "BANK OF INDIA SHORT TERM FUND",
+    "amc": "Bank of India",
+    "kind": "Fund",
+    "terPct": 0.54,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 4.34,
+     "cagr3y": 7.48,
+     "cagr5y": 10.74,
+     "volatilityPct": 1.5,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.8,
+     "nav": 31.0242,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118320,
+    "name": "Canara Robeco Short Term Fund",
+    "amc": "Canara Robeco",
+    "kind": "Fund",
+    "terPct": 0.36,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 4.51,
+     "cagr3y": 6.85,
+     "cagr5y": 6.01,
+     "volatilityPct": 0.8,
+     "maxDrawdownPct": 0.4,
+     "historyYears": 13.8,
+     "nav": 29.5844,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119226,
+    "name": "DSP Short Term Fund",
+    "amc": "DSP",
+    "kind": "Fund",
+    "terPct": 0.37,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 4.1,
+     "cagr3y": 7,
+     "cagr5y": 6.18,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.7,
+     "historyYears": 13.8,
+     "nav": 53.8799,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154541,
+    "name": "Franklin India Short Term Fund",
+    "amc": "Franklin Templeton",
+    "kind": "Fund",
+    "terPct": 0.34,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 0.7,
+     "maxDrawdownPct": 0.2,
+     "historyYears": 0.2,
+     "nav": 10.0605,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 123704,
+    "name": "Groww Short Term Fund",
+    "amc": "Groww",
+    "kind": "Fund",
+    "terPct": 0.32,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 4.93,
+     "cagr3y": 7.4,
+     "cagr5y": 6.17,
+     "volatilityPct": 0.9,
+     "maxDrawdownPct": 0.4,
+     "historyYears": 13.1,
+     "nav": 2566.8143,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119016,
+    "name": "HDFC Short Term Fund",
+    "amc": "HDFC",
+    "kind": "Fund",
+    "terPct": 0.39,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 4.27,
+     "cagr3y": 7.21,
+     "cagr5y": 6.46,
+     "volatilityPct": 0.9,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.8,
+     "nav": 35.3019,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151063,
+    "name": "HSBC Short Term Fund",
+    "amc": "HSBC",
+    "kind": "Fund",
+    "terPct": 0.32,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -0.13,
+     "cagr3y": -0.05,
+     "cagr5y": null,
+     "volatilityPct": 2.5,
+     "maxDrawdownPct": 2.2,
+     "historyYears": 3.9,
+     "nav": 11.0343,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120754,
+    "name": "ICICI Prudential Short Term Fund",
+    "amc": "ICICI Prudential",
+    "kind": "Fund",
+    "terPct": 0.45,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 4.92,
+     "cagr3y": 7.47,
+     "cagr5y": 6.99,
+     "volatilityPct": 0.9,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.8,
+     "nav": 70.5746,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120560,
+    "name": "Invesco India Short Term Fund",
+    "amc": "Invesco",
+    "kind": "Fund",
+    "terPct": 0.39,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 3.89,
+     "cagr3y": 7.02,
+     "cagr5y": 6.11,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.8,
+     "nav": 4187.4052,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154079,
+    "name": "JioBlackRock Short Term Fund",
+    "amc": "Jio BlackRock",
+    "kind": "Fund",
+    "terPct": 0.35,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.3,
+     "historyYears": 0.8,
+     "nav": 1038.8858,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 150545,
+    "name": "JM Short Term Fund",
+    "amc": "JM Financial",
+    "kind": "Fund",
+    "terPct": 0.39,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 4.34,
+     "cagr3y": 6.96,
+     "cagr5y": null,
+     "volatilityPct": 0.9,
+     "maxDrawdownPct": 0.5,
+     "historyYears": 4.2,
+     "nav": 13.1369,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119739,
+    "name": "Kotak Short Term Fund",
+    "amc": "Kotak Mahindra",
+    "kind": "Fund",
+    "terPct": 0.3827,
+    "terDate": "2026-10-27",
+    "metrics": {
+     "cagr1y": 4.35,
+     "cagr3y": 7.23,
+     "cagr5y": 6.35,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.5,
+     "historyYears": 13.8,
+     "nav": 61.2595,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 145954,
+    "name": "LIC MF Short Term Fund",
+    "amc": "LIC",
+    "kind": "Fund",
+    "terPct": 0.36,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 4.52,
+     "cagr3y": 7.28,
+     "cagr5y": 6.23,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.8,
+     "historyYears": 7.7,
+     "nav": 16.6426,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 148729,
+    "name": "Mahindra Manulife Short Term Fund",
+    "amc": "Mahindra Manulife",
+    "kind": "Fund",
+    "terPct": 0.33,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 4.79,
+     "cagr3y": 7.48,
+     "cagr5y": 6.52,
+     "volatilityPct": 0.9,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 5.7,
+     "nav": 14.2471,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 142641,
+    "name": "Mirae Asset Short Term Fund",
+    "amc": "Mirae Asset",
+    "kind": "Fund",
+    "terPct": 0.25,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 3.82,
+     "cagr3y": 7.08,
+     "cagr5y": 6.29,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.9,
+     "historyYears": 8.6,
+     "nav": 17.7459,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118796,
+    "name": "Nippon India Short Term Fund",
+    "amc": "Nippon India",
+    "kind": "Fund",
+    "terPct": 0.4,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 4.43,
+     "cagr3y": 7.43,
+     "cagr5y": 6.59,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.8,
+     "nav": 61.4398,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119816,
+    "name": "SBI SHORT TERM FUND",
+    "amc": "SBI",
+    "kind": "Fund",
+    "terPct": 0.42,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 4.06,
+     "cagr3y": 7.06,
+     "cagr5y": 6.3,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.5,
+     "historyYears": 13.8,
+     "nav": 36.3831,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149587,
+    "name": "Sundaram Short Term Fund (Formerly Known as Sundaram Short Duration Fund)",
+    "amc": "Sundaram",
+    "kind": "Fund",
+    "terPct": 0.28,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 4.68,
+     "cagr3y": 7.28,
+     "cagr5y": null,
+     "volatilityPct": 0.9,
+     "maxDrawdownPct": 0.4,
+     "historyYears": 4.8,
+     "nav": 51.2896,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119949,
+    "name": "Tata Short Term Fund",
+    "amc": "Tata",
+    "kind": "Fund",
+    "terPct": 0.37,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 4.24,
+     "cagr3y": 6.99,
+     "cagr5y": 6.26,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.8,
+     "nav": 56.3663,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 149076,
+    "name": "TRUSTMF Short Term Fund",
+    "amc": "Trust",
+    "kind": "Fund",
+    "terPct": 0.27,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 4.56,
+     "cagr3y": 6.99,
+     "cagr5y": 6.19,
+     "volatilityPct": 0.9,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 5.2,
+     "nav": 1364.6051,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120718,
+    "name": "UTI Short Term Fund",
+    "amc": "UTI",
+    "kind": "Fund",
+    "terPct": 0.41,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 4.24,
+     "cagr3y": 7.09,
+     "cagr5y": 6.43,
+     "volatilityPct": 0.9,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.8,
+     "nav": 35.9915,
+     "navDate": "2026-10-30"
+    }
+   }
+  ],
+  "liquid": [
+   {
+    "code": 125345,
+    "name": "360 ONE Liquid Fund",
+    "amc": "360 ONE",
+    "kind": "Fund",
+    "terPct": 0.23,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 6.24,
+     "cagr3y": 6.7,
+     "cagr5y": 6.23,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13,
+     "nav": 2189.0276,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154051,
+    "name": "Abakkus Liquid Fund",
+    "amc": "Abakkus",
+    "kind": "Fund",
+    "terPct": 0.21,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 0.1,
+     "maxDrawdownPct": 0,
+     "historyYears": 0.9,
+     "nav": 105.2288,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 119568,
+    "name": "Aditya Birla Sun Life Liquid Fund",
+    "amc": "Aditya Birla Sun Life",
+    "kind": "Fund",
+    "terPct": 0.21,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 6.52,
+     "cagr3y": 6.95,
+     "cagr5y": 6.47,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 462.3853,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154589,
+    "name": "ASK Liquid Fund",
+    "amc": "ASK MUTUAL FUND",
+    "kind": "Fund",
+    "terPct": 0.13,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 0.2,
+     "nav": 1010.1397,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 112713,
+    "name": "Axis Liquid Fund",
+    "amc": "Axis",
+    "kind": "Fund",
+    "terPct": 0.13,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 5.92,
+     "cagr3y": 6.33,
+     "cagr5y": 5.85,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 16.7,
+     "nav": 2868.9016,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151833,
+    "name": "Bajaj Finserv Liquid Fund",
+    "amc": "Bajaj Finserv",
+    "kind": "Fund",
+    "terPct": 0.08,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 6.48,
+     "cagr3y": 6.92,
+     "cagr5y": null,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 3.3,
+     "nav": 1249.1202,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118364,
+    "name": "BANDHAN LIQUID Fund",
+    "amc": "Bandhan",
+    "kind": "Fund",
+    "terPct": 0.07,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 6.44,
+     "cagr3y": 6.88,
+     "cagr5y": 6.4,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 3454.5975,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119369,
+    "name": "BANK OF INDIA LIQUID FUND",
+    "amc": "Bank of India",
+    "kind": "Fund",
+    "terPct": 0.09,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.49,
+     "cagr3y": 6.92,
+     "cagr5y": 6.45,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 3296.362,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 101408,
+    "name": "BARODA BNP PARIBAS LIQUID FUND",
+    "amc": "Baroda BNP Paribas",
+    "kind": "Fund",
+    "terPct": 0.08,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 6.32,
+     "cagr3y": 6.75,
+     "cagr5y": 6.31,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 20.6,
+     "nav": 4787.2772,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154011,
+    "name": "Capitalmind Liquid Fund",
+    "amc": "Capitalmind",
+    "kind": "Fund",
+    "terPct": 0.11,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 0.9,
+     "nav": 1060.8964,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154782,
+    "name": "Carnelian Liquid Fund",
+    "amc": "Carnelian",
+    "kind": "Fund",
+    "terPct": 0.14,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": null,
+     "maxDrawdownPct": null,
+     "historyYears": 0,
+     "nav": 1002.8729,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 119125,
+    "name": "DSP Liquid Fund",
+    "amc": "DSP",
+    "kind": "Fund",
+    "terPct": 0.14,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.51,
+     "cagr3y": 6.93,
+     "cagr5y": 6.43,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 4093.2825,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 140196,
+    "name": "Edelweiss Liquid Fund",
+    "amc": "Edelweiss",
+    "kind": "Fund",
+    "terPct": 0.11,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.51,
+     "cagr3y": 6.96,
+     "cagr5y": 6.45,
+     "volatilityPct": 0.1,
+     "maxDrawdownPct": 0,
+     "historyYears": 9.9,
+     "nav": 3700.5674,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 118577,
+    "name": "Franklin India Liquid Fund",
+    "amc": "Franklin Templeton",
+    "kind": "Fund",
+    "terPct": 0.14,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 6.52,
+     "cagr3y": 6.95,
+     "cagr5y": 6.43,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 4303.7775,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119135,
+    "name": "Groww Liquid Fund",
+    "amc": "Groww",
+    "kind": "Fund",
+    "terPct": 0.11,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 6.5,
+     "cagr3y": 6.94,
+     "cagr5y": 6.33,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 2775.3236,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 119091,
+    "name": "HDFC Liquid Fund",
+    "amc": "HDFC",
+    "kind": "Fund",
+    "terPct": 0.2,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 6.45,
+     "cagr3y": 6.88,
+     "cagr5y": 6.39,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 5618.3495,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120197,
+    "name": "ICICI Prudential Liquid Fund -",
+    "amc": "ICICI Prudential",
+    "kind": "Fund",
+    "terPct": 0.2,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 6.43,
+     "cagr3y": 6.89,
+     "cagr5y": 6.39,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 423.3766,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120537,
+    "name": "Invesco India Liquid Fund",
+    "amc": "Invesco",
+    "kind": "Fund",
+    "terPct": 0.15,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.46,
+     "cagr3y": 6.89,
+     "cagr5y": 6.4,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 3928.1832,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 147157,
+    "name": "ITI Liquid Fund",
+    "amc": "ITI",
+    "kind": "Fund",
+    "terPct": 0.16,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.09,
+     "cagr3y": 6.64,
+     "cagr5y": 6.18,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 7.5,
+     "nav": 1483.6884,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153651,
+    "name": "JioBlackRock Liquid Fund",
+    "amc": "Jio BlackRock",
+    "kind": "Fund",
+    "terPct": 0.1,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 6.53,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 1.3,
+     "nav": 1085.3562,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120406,
+    "name": "JM Liquid Fund",
+    "amc": "JM Financial",
+    "kind": "Fund",
+    "terPct": 0.16,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.36,
+     "cagr3y": 6.81,
+     "cagr5y": 6.37,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 78.0636,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 119766,
+    "name": "Kotak Liquid Fund",
+    "amc": "Kotak Mahindra",
+    "kind": "Fund",
+    "terPct": 0.1509,
+    "terDate": "2026-10-27",
+    "metrics": {
+     "cagr1y": 6.44,
+     "cagr3y": 6.89,
+     "cagr5y": 6.4,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 5780.4748,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120249,
+    "name": "LIC MF Liquid Fund",
+    "amc": "LIC",
+    "kind": "Fund",
+    "terPct": 0.13,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.45,
+     "cagr3y": 6.89,
+     "cagr5y": 6.4,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 5193.9873,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 139538,
+    "name": "Mahindra Manulife Liquid Fund",
+    "amc": "Mahindra Manulife",
+    "kind": "Fund",
+    "terPct": 0.15,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.49,
+     "cagr3y": 6.93,
+     "cagr5y": 6.46,
+     "volatilityPct": 0.3,
+     "maxDrawdownPct": 0,
+     "historyYears": 10.3,
+     "nav": 1864.3242,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118859,
+    "name": "Mirae Asset Liquid Fund",
+    "amc": "Mirae Asset",
+    "kind": "Fund",
+    "terPct": 0.09,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.38,
+     "cagr3y": 6.88,
+     "cagr5y": 6.41,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 3020.893,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 145834,
+    "name": "Motilal Oswal Liquid Fund",
+    "amc": "Motilal Oswal",
+    "kind": "Fund",
+    "terPct": 0.2,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 6.05,
+     "cagr3y": 6.5,
+     "cagr5y": 6.03,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 7.9,
+     "nav": 15.051,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119164,
+    "name": "Navi Liquid Fund",
+    "amc": "Navi",
+    "kind": "Fund",
+    "terPct": 0.26,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 5.76,
+     "cagr3y": 6.36,
+     "cagr5y": -57.76,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 30.8474,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 118701,
+    "name": "Nippon India Liquid Fund",
+    "amc": "Nippon India",
+    "kind": "Fund",
+    "terPct": 0.2,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 6.51,
+     "cagr3y": 6.93,
+     "cagr5y": 6.44,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 7007.0209,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 143269,
+    "name": "Parag Parikh Liquid Fund",
+    "amc": "PPFAS",
+    "kind": "Fund",
+    "terPct": 0.11,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 6.41,
+     "cagr3y": 6.65,
+     "cagr5y": 6.14,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 8.5,
+     "nav": 1582.1733,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 138299,
+    "name": "PGIM India Liquid Fund",
+    "amc": "PGIM India",
+    "kind": "Fund",
+    "terPct": 0.11,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.52,
+     "cagr3y": 6.94,
+     "cagr5y": 6.45,
+     "volatilityPct": 0.1,
+     "maxDrawdownPct": 0,
+     "historyYears": 10.6,
+     "nav": 373.5749,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 120837,
+    "name": "Quant Liquid Fund",
+    "amc": "quant",
+    "kind": "Fund",
+    "terPct": 0.31,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 6.03,
+     "cagr3y": 6.7,
+     "cagr5y": 6.32,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 45.7931,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 103734,
+    "name": "Quantum Liquid Fund",
+    "amc": "Quantum",
+    "kind": "Fund",
+    "terPct": 0.15,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 5.9,
+     "cagr3y": 6.47,
+     "cagr5y": 6.07,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 20.6,
+     "nav": 38.0003,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 153035,
+    "name": "Shriram Liquid Fund",
+    "amc": "Shriram",
+    "kind": "Fund",
+    "terPct": 0.16,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.32,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 1.9,
+     "nav": 1129.8194,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 149664,
+    "name": "Sundaram Liquid Fund (Formerly Known as Principal Cash Management Fund)",
+    "amc": "Sundaram",
+    "kind": "Fund",
+    "terPct": 0.14,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 6.53,
+     "cagr3y": 6.95,
+     "cagr5y": null,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 4.8,
+     "nav": 2530.1379,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119861,
+    "name": "Tata Liquid Fund",
+    "amc": "Tata",
+    "kind": "Fund",
+    "terPct": 0.18,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.47,
+     "cagr3y": 6.92,
+     "cagr5y": 6.42,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 4517.0143,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153883,
+    "name": "The Wealth Company Liquid Fund",
+    "amc": "The Wealth Company",
+    "kind": "Fund",
+    "terPct": 0.1,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.53,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 1,
+     "nav": 1068.6607,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 148841,
+    "name": "TRUSTMF Liquid Fund",
+    "amc": "Trust",
+    "kind": "Fund",
+    "terPct": 0.1,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.42,
+     "cagr3y": 6.84,
+     "cagr5y": 6.37,
+     "volatilityPct": 0.4,
+     "maxDrawdownPct": 0.5,
+     "historyYears": 5.5,
+     "nav": 1385.2777,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 153570,
+    "name": "UNIFI LIQUID FUND",
+    "amc": "Unifi",
+    "kind": "Fund",
+    "terPct": 0.09,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 5.81,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 1.4,
+     "nav": 1082.7606,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119303,
+    "name": "Union Liquid Fund",
+    "amc": "Union",
+    "kind": "Fund",
+    "terPct": 0.07,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 6.47,
+     "cagr3y": 6.92,
+     "cagr5y": 6.44,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 13.8,
+     "nav": 2760.2568,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120304,
+    "name": "UTI - Liquid Fund",
+    "amc": "UTI",
+    "kind": "Fund",
+    "terPct": 0.15,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -89.37,
+     "cagr3y": -50.37,
+     "cagr5y": -32.85,
+     "volatilityPct": 116.5,
+     "maxDrawdownPct": 90,
+     "historyYears": 13.8,
+     "nav": 469.3357,
+     "navDate": "2026-10-31"
+    }
+   },
+   {
+    "code": 145971,
+    "name": "WhiteOak Capital Liquid Fund",
+    "amc": "WhiteOak Capital",
+    "kind": "Fund",
+    "terPct": 0.14,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 6.37,
+     "cagr3y": 6.8,
+     "cagr5y": 6.24,
+     "volatilityPct": 0.2,
+     "maxDrawdownPct": 0,
+     "historyYears": 7.8,
+     "nav": 1531.1753,
+     "navDate": "2026-10-30"
+    }
+   }
+  ],
+  "bonds": [
+   {
+    "code": 119550,
+    "name": "Aditya Birla Sun Life Banking & PSU Debt Fund",
+    "amc": "Aditya Birla Sun Life",
+    "kind": "Fund",
+    "terPct": 0.41,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 3.49,
+     "cagr3y": 6.75,
+     "cagr5y": 6.12,
+     "volatilityPct": 1.1,
+     "maxDrawdownPct": 0.7,
+     "historyYears": 13.8,
+     "nav": 402.7738,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120438,
+    "name": "Axis Banking and PSU Debt Fund",
+    "amc": "Axis",
+    "kind": "Fund",
+    "terPct": 0.36,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 3.91,
+     "cagr3y": 6.71,
+     "cagr5y": 6.06,
+     "volatilityPct": 0.9,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.8,
+     "nav": 2887.8469,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152162,
+    "name": "Bajaj Finserv Banking and PSU Debt Fund",
+    "amc": "Bajaj Finserv",
+    "kind": "Fund",
+    "terPct": 0.35,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 3.85,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 1.2,
+     "maxDrawdownPct": 0.8,
+     "historyYears": 3,
+     "nav": 12.2291,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 121279,
+    "name": "Bandhan Banking and PSU Debt Fund",
+    "amc": "Bandhan",
+    "kind": "Fund",
+    "terPct": 0.39,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 5.08,
+     "cagr3y": 7,
+     "cagr5y": 6.24,
+     "volatilityPct": 0.9,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.6,
+     "nav": 27.1602,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 150505,
+    "name": "Canara Robeco Banking and PSU Debt Fund",
+    "amc": "Canara Robeco",
+    "kind": "Fund",
+    "terPct": 0.42,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 3.24,
+     "cagr3y": 6.31,
+     "cagr5y": null,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 1,
+     "historyYears": 4.2,
+     "nav": 12.8301,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 124175,
+    "name": "DSP Banking and PSU Debt Fund",
+    "amc": "DSP",
+    "kind": "Fund",
+    "terPct": 0.34,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 2.97,
+     "cagr3y": 6.6,
+     "cagr5y": 5.87,
+     "volatilityPct": 1.4,
+     "maxDrawdownPct": 1.2,
+     "historyYears": 13.1,
+     "nav": 26.1729,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 140286,
+    "name": "Edelweiss Banking and PSU Debt Fund",
+    "amc": "Edelweiss",
+    "kind": "Fund",
+    "terPct": 0.4,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 4.03,
+     "cagr3y": 7,
+     "cagr5y": 6.02,
+     "volatilityPct": 1.3,
+     "maxDrawdownPct": 0.7,
+     "historyYears": 9.9,
+     "nav": 27.1116,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 129008,
+    "name": "Franklin India Banking & PSU Debt Fund",
+    "amc": "Franklin Templeton",
+    "kind": "Fund",
+    "terPct": 0.23,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 5.4,
+     "cagr3y": 7.31,
+     "cagr5y": 6.41,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 12.5,
+     "nav": 25.3176,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 128629,
+    "name": "HDFC Banking and PSU Debt Fund",
+    "amc": "HDFC",
+    "kind": "Fund",
+    "terPct": 0.35,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 3.44,
+     "cagr3y": 6.75,
+     "cagr5y": 6.09,
+     "volatilityPct": 1.2,
+     "maxDrawdownPct": 1,
+     "historyYears": 12.6,
+     "nav": 25.3486,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151107,
+    "name": "HSBC Banking and PSU Debt Fund",
+    "amc": "HSBC",
+    "kind": "Fund",
+    "terPct": 0.28,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 3.82,
+     "cagr3y": 6.7,
+     "cagr5y": null,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 3.9,
+     "nav": 27.1403,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120256,
+    "name": "ICICI Prudential Banking and PSU Debt Fund",
+    "amc": "ICICI Prudential",
+    "kind": "Fund",
+    "terPct": 0.4,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 4.13,
+     "cagr3y": 6.87,
+     "cagr5y": 6.45,
+     "volatilityPct": 1.1,
+     "maxDrawdownPct": 0.9,
+     "historyYears": 13.6,
+     "nav": 36.333,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120444,
+    "name": "Invesco India Banking and PSU Debt Fund",
+    "amc": "Invesco",
+    "kind": "Fund",
+    "terPct": 0.26,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 3.72,
+     "cagr3y": 6.88,
+     "cagr5y": 5.57,
+     "volatilityPct": 1.2,
+     "maxDrawdownPct": 0.9,
+     "historyYears": 13.8,
+     "nav": 2568.4635,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 148534,
+    "name": "ITI Banking & PSU Debt Fund",
+    "amc": "ITI",
+    "kind": "Fund",
+    "terPct": 0.23,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 4.1,
+     "cagr3y": 6.79,
+     "cagr5y": 6.27,
+     "volatilityPct": 0.8,
+     "maxDrawdownPct": 0.4,
+     "historyYears": 6,
+     "nav": 14.2112,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 123693,
+    "name": "Kotak Banking and PSU Debt Fund",
+    "amc": "Kotak Mahindra",
+    "kind": "Fund",
+    "terPct": 0.4022,
+    "terDate": "2026-10-27",
+    "metrics": {
+     "cagr1y": 4.03,
+     "cagr3y": 7.01,
+     "cagr5y": 6.27,
+     "volatilityPct": 1.2,
+     "maxDrawdownPct": 0.8,
+     "historyYears": 13.2,
+     "nav": 72.4913,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120338,
+    "name": "LIC MF Banking & PSU Debt Fund",
+    "amc": "LIC",
+    "kind": "Fund",
+    "terPct": 0.28,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 4.26,
+     "cagr3y": 7.11,
+     "cagr5y": 6.22,
+     "volatilityPct": 1.1,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 13.8,
+     "nav": 40.0195,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 148419,
+    "name": "Mirae Asset Banking and PSU Debt Fund",
+    "amc": "Mirae Asset",
+    "kind": "Fund",
+    "terPct": 0.37,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 3.46,
+     "cagr3y": 6.66,
+     "cagr5y": 5.83,
+     "volatilityPct": 1.1,
+     "maxDrawdownPct": 0.7,
+     "historyYears": 6.3,
+     "nav": 13.9857,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 134547,
+    "name": "Nippon India Banking and PSU Debt Fund",
+    "amc": "Nippon India",
+    "kind": "Fund",
+    "terPct": 0.39,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 3.76,
+     "cagr3y": 6.88,
+     "cagr5y": 6.12,
+     "volatilityPct": 1.2,
+     "maxDrawdownPct": 0.7,
+     "historyYears": 11.5,
+     "nav": 22.8423,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 125503,
+    "name": "SBI BANKING & PSU DEBT FUND",
+    "amc": "SBI",
+    "kind": "Fund",
+    "terPct": 0.41,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 4.41,
+     "cagr3y": 7.06,
+     "cagr5y": 6.14,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.6,
+     "historyYears": 12.9,
+     "nav": 3539.2004,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119625,
+    "name": "Sundaram Banking and PSU Debt Fund (Formerly Known as Sundaram Banking and PSU Fund)",
+    "amc": "Sundaram",
+    "kind": "Fund",
+    "terPct": 0.27,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 3.96,
+     "cagr3y": 6.83,
+     "cagr5y": 5.94,
+     "volatilityPct": 1,
+     "maxDrawdownPct": 0.5,
+     "historyYears": 13.8,
+     "nav": 46.4113,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 126940,
+    "name": "UTI Banking & PSU Debt Fund",
+    "amc": "UTI",
+    "kind": "Fund",
+    "terPct": 0.24,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 5.74,
+     "cagr3y": 7.47,
+     "cagr5y": 7.78,
+     "volatilityPct": 0.8,
+     "maxDrawdownPct": 0.4,
+     "historyYears": 12.7,
+     "nav": 24.1464,
+     "navDate": "2026-10-30"
+    }
+   }
+  ],
+  "gsec": [
+   {
+    "code": 119605,
+    "name": "Aditya Birla Sun Life Gilt Fund",
+    "amc": "Aditya Birla Sun Life",
+    "kind": "Fund",
+    "terPct": 0.5,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 0.92,
+     "cagr3y": 5.41,
+     "cagr5y": 4.93,
+     "volatilityPct": 3.7,
+     "maxDrawdownPct": 5.4,
+     "historyYears": 13.8,
+     "nav": 87.3947,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120447,
+    "name": "Axis Gilt Fund",
+    "amc": "Axis",
+    "kind": "Fund",
+    "terPct": 0.46,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 3.08,
+     "cagr3y": 6.94,
+     "cagr5y": 5.86,
+     "volatilityPct": 3,
+     "maxDrawdownPct": 3,
+     "historyYears": 13.8,
+     "nav": 28.2449,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153206,
+    "name": "Bajaj Finserv Gilt Fund",
+    "amc": "Bajaj Finserv",
+    "kind": "Fund",
+    "terPct": 0.47,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 4.22,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 3.3,
+     "maxDrawdownPct": 3.9,
+     "historyYears": 1.8,
+     "nav": 1077.262,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118464,
+    "name": "Bandhan Gilt   Fund",
+    "amc": "Bandhan",
+    "kind": "Fund",
+    "terPct": 0.57,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 7.51,
+     "cagr3y": 8.37,
+     "cagr5y": 6.46,
+     "volatilityPct": 3.5,
+     "maxDrawdownPct": 4.1,
+     "historyYears": 13.8,
+     "nav": 40.9785,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119341,
+    "name": "BARODA BNP PARIBAS GILT FUND",
+    "amc": "Baroda BNP Paribas",
+    "kind": "Fund",
+    "terPct": 0.17,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 2.06,
+     "cagr3y": 6.44,
+     "cagr5y": 5.5,
+     "volatilityPct": 2.5,
+     "maxDrawdownPct": 2.6,
+     "historyYears": 13.8,
+     "nav": 47.9762,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118299,
+    "name": "Canara Robeco Gilt Fund",
+    "amc": "Canara Robeco",
+    "kind": "Fund",
+    "terPct": 0.43,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 1.84,
+     "cagr3y": 5.81,
+     "cagr5y": 5.16,
+     "volatilityPct": 2.9,
+     "maxDrawdownPct": 3.6,
+     "historyYears": 13.8,
+     "nav": 82.6325,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119099,
+    "name": "DSP Gilt Fund",
+    "amc": "DSP",
+    "kind": "Fund",
+    "terPct": 0.59,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 1.93,
+     "cagr3y": 6.41,
+     "cagr5y": 5.66,
+     "volatilityPct": 3.8,
+     "maxDrawdownPct": 4.2,
+     "historyYears": 13.8,
+     "nav": 104.2478,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 140298,
+    "name": "Edelweiss Gilt Fund",
+    "amc": "Edelweiss",
+    "kind": "Fund",
+    "terPct": 0.51,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 0.91,
+     "cagr3y": 5.81,
+     "cagr5y": 5.11,
+     "volatilityPct": 3.2,
+     "maxDrawdownPct": 3.3,
+     "historyYears": 9.9,
+     "nav": 26.2898,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118498,
+    "name": "Franklin India Gilt Fund",
+    "amc": "Franklin Templeton",
+    "kind": "Fund",
+    "terPct": 0.64,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 4.02,
+     "cagr3y": 6.17,
+     "cagr5y": 5.27,
+     "volatilityPct": 2.2,
+     "maxDrawdownPct": 3.2,
+     "historyYears": 13.8,
+     "nav": 67.3443,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153477,
+    "name": "Groww Gilt Fund",
+    "amc": "Groww",
+    "kind": "Fund",
+    "terPct": 0.57,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 1.53,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 3.3,
+     "maxDrawdownPct": 3.9,
+     "historyYears": 1.5,
+     "nav": 10.0174,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119116,
+    "name": "HDFC Gilt Fund",
+    "amc": "HDFC",
+    "kind": "Fund",
+    "terPct": 0.46,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 1.97,
+     "cagr3y": 6.1,
+     "cagr5y": 5.27,
+     "volatilityPct": 2.7,
+     "maxDrawdownPct": 3,
+     "historyYears": 13.8,
+     "nav": 59.7835,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151014,
+    "name": "HSBC Gilt Fund",
+    "amc": "HSBC",
+    "kind": "Fund",
+    "terPct": 0.5,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 1.57,
+     "cagr3y": 5.82,
+     "cagr5y": null,
+     "volatilityPct": 3.1,
+     "maxDrawdownPct": 3.6,
+     "historyYears": 3.9,
+     "nav": 76.841,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120590,
+    "name": "ICICI Prudential Gilt Fund",
+    "amc": "ICICI Prudential",
+    "kind": "Fund",
+    "terPct": 0.58,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 1.91,
+     "cagr3y": 6.23,
+     "cagr5y": 6.08,
+     "volatilityPct": 2.4,
+     "maxDrawdownPct": 3.7,
+     "historyYears": 13.8,
+     "nav": 114.4203,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120520,
+    "name": "Invesco India Gilt Fund",
+    "amc": "Invesco",
+    "kind": "Fund",
+    "terPct": 0.48,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 1.24,
+     "cagr3y": 6.1,
+     "cagr5y": 5.44,
+     "volatilityPct": 3.7,
+     "maxDrawdownPct": 4.2,
+     "historyYears": 13.8,
+     "nav": 3173.247,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119757,
+    "name": "Kotak Gilt Fund",
+    "amc": "Kotak Mahindra",
+    "kind": "Fund",
+    "terPct": 0.4844,
+    "terDate": "2026-10-27",
+    "metrics": {
+     "cagr1y": 1.78,
+     "cagr3y": 5.49,
+     "cagr5y": 5.21,
+     "volatilityPct": 3.4,
+     "maxDrawdownPct": 4.7,
+     "historyYears": 13.8,
+     "nav": 112.9452,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 100319,
+    "name": "LIC MF Gilt Fund",
+    "amc": "LIC",
+    "kind": "Fund",
+    "terPct": 0.7,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 1.7,
+     "cagr3y": 4.72,
+     "cagr5y": 4.14,
+     "volatilityPct": 3.5,
+     "maxDrawdownPct": 6.2,
+     "historyYears": 20.6,
+     "nav": 34.5884,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118672,
+    "name": "Nippon India Gilt Fund",
+    "amc": "Nippon India",
+    "kind": "Fund",
+    "terPct": 0.52,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 2.5,
+     "cagr3y": 6.2,
+     "cagr5y": 5.44,
+     "volatilityPct": 3,
+     "maxDrawdownPct": 3.7,
+     "historyYears": 13.8,
+     "nav": 43.9452,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 138472,
+    "name": "PGIM India Gilt Fund",
+    "amc": "PGIM India",
+    "kind": "Fund",
+    "terPct": 0.53,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 1.14,
+     "cagr3y": 5.93,
+     "cagr5y": 5.32,
+     "volatilityPct": 3,
+     "maxDrawdownPct": 3.2,
+     "historyYears": 10.6,
+     "nav": 33.1658,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151228,
+    "name": "quant Gilt Fund",
+    "amc": "quant",
+    "kind": "Fund",
+    "terPct": 0.4,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 2.2,
+     "cagr3y": 5.62,
+     "cagr5y": null,
+     "volatilityPct": 2.1,
+     "maxDrawdownPct": 2.2,
+     "historyYears": 3.9,
+     "nav": 12.4267,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119707,
+    "name": "SBI GILT FUND",
+    "amc": "SBI",
+    "kind": "Fund",
+    "terPct": 0.49,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 3.28,
+     "cagr3y": 6.5,
+     "cagr5y": 6.2,
+     "volatilityPct": 2.7,
+     "maxDrawdownPct": 3.2,
+     "historyYears": 13.8,
+     "nav": 72.5839,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119953,
+    "name": "Tata Gilt Fund",
+    "amc": "Tata",
+    "kind": "Fund",
+    "terPct": 0.3,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 1.32,
+     "cagr3y": 6.15,
+     "cagr5y": 5.59,
+     "volatilityPct": 3.4,
+     "maxDrawdownPct": 4.2,
+     "historyYears": 13.8,
+     "nav": 88.8835,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 150407,
+    "name": "Union Gilt Fund",
+    "amc": "Union",
+    "kind": "Fund",
+    "terPct": 0.65,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -0.46,
+     "cagr3y": 4.58,
+     "cagr5y": null,
+     "volatilityPct": 4.1,
+     "maxDrawdownPct": 6.5,
+     "historyYears": 4.2,
+     "nav": 12.2131,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120792,
+    "name": "UTI - Gilt Fund",
+    "amc": "UTI",
+    "kind": "Fund",
+    "terPct": 0.47,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 3.11,
+     "cagr3y": 6.31,
+     "cagr5y": 5.41,
+     "volatilityPct": 2.7,
+     "maxDrawdownPct": 3.2,
+     "historyYears": 13.8,
+     "nav": 67.3244,
+     "navDate": "2026-10-30"
+    }
+   }
+  ],
+  "gold": [
+   {
+    "code": 153357,
+    "name": "360 ONE Gold ETF",
+    "amc": "360 ONE",
+    "kind": "ETF",
+    "terPct": 0.47,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 15.56,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 23.6,
+     "maxDrawdownPct": 22,
+     "historyYears": 1.6,
+     "nav": 135.9809,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120546,
+    "name": "Aditya Birla Sun Life Gold Fund",
+    "amc": "Aditya Birla Sun Life",
+    "kind": "Fund of funds",
+    "terPct": 0.21,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 16.93,
+     "cagr3y": 30.58,
+     "cagr5y": 22.64,
+     "volatilityPct": 22.5,
+     "maxDrawdownPct": 23.2,
+     "historyYears": 13.8,
+     "nav": 41.9933,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153826,
+    "name": "ANGEL ONE GOLD ETF",
+    "amc": "Angel One",
+    "kind": "ETF",
+    "terPct": 0.35,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.74,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 26.2,
+     "maxDrawdownPct": 22,
+     "historyYears": 1.1,
+     "nav": 13.0152,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153827,
+    "name": "ANGEL ONE GOLD ETF FOF",
+    "amc": "Angel One",
+    "kind": "Fund of funds",
+    "terPct": 0.2,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.48,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 30.3,
+     "maxDrawdownPct": 24.5,
+     "historyYears": 1.1,
+     "nav": 12.6984,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 113434,
+    "name": "Axis Gold ETF",
+    "amc": "Axis",
+    "kind": "ETF",
+    "terPct": 0.52,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 15.55,
+     "cagr3y": 30.3,
+     "cagr5y": 22.84,
+     "volatilityPct": 19.5,
+     "maxDrawdownPct": 22.3,
+     "historyYears": 16,
+     "nav": 115.9454,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120473,
+    "name": "Axis Gold Fund",
+    "amc": "Axis",
+    "kind": "Fund of funds",
+    "terPct": 0.31,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 15.68,
+     "cagr3y": 30.11,
+     "cagr5y": 22.59,
+     "volatilityPct": 24.2,
+     "maxDrawdownPct": 25.8,
+     "historyYears": 13.8,
+     "nav": 43.8739,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153795,
+    "name": "Baroda BNP Paribas Gold ETF Fund of Fund",
+    "amc": "Baroda BNP Paribas",
+    "kind": "Fund of funds",
+    "terPct": 0.12,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 14.69,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 33.5,
+     "maxDrawdownPct": 26,
+     "historyYears": 1.2,
+     "nav": 13.8865,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153933,
+    "name": "Choice Gold ETF",
+    "amc": "Choice",
+    "kind": "ETF",
+    "terPct": 0.51,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 27,
+     "maxDrawdownPct": 22.1,
+     "historyYears": 1,
+     "nav": 138.2485,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151737,
+    "name": "DSP Gold ETF",
+    "amc": "DSP",
+    "kind": "ETF",
+    "terPct": 0.45,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -88.43,
+     "cagr3y": -39.43,
+     "cagr5y": null,
+     "volatilityPct": 135,
+     "maxDrawdownPct": 92,
+     "historyYears": 3.5,
+     "nav": 13.5302,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152183,
+    "name": "DSP Gold ETF Fund of Fund",
+    "amc": "DSP",
+    "kind": "Fund of funds",
+    "terPct": 0.64,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.56,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 22.2,
+     "maxDrawdownPct": 25.2,
+     "historyYears": 2.9,
+     "nav": 21.9216,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152193,
+    "name": "Edelweiss Gold ETF",
+    "amc": "Edelweiss",
+    "kind": "ETF",
+    "terPct": 0.5,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.68,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 19.2,
+     "maxDrawdownPct": 22.1,
+     "historyYears": 3,
+     "nav": 139.1733,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154208,
+    "name": "Edelweiss Gold ETF Fund of Fund",
+    "amc": "Edelweiss",
+    "kind": "Fund of funds",
+    "terPct": 0.12,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 23.5,
+     "maxDrawdownPct": 16,
+     "historyYears": 0.7,
+     "nav": 8.6448,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152957,
+    "name": "Groww Gold ETF",
+    "amc": "Groww",
+    "kind": "ETF",
+    "terPct": 0.71,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": -88.47,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 165.1,
+     "maxDrawdownPct": 92.2,
+     "historyYears": 2,
+     "nav": 13.5995,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152980,
+    "name": "Groww Gold ETF FOF",
+    "amc": "Groww",
+    "kind": "Fund of funds",
+    "terPct": 0.14,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 14.77,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 25.1,
+     "maxDrawdownPct": 24.9,
+     "historyYears": 2,
+     "nav": 17.091,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 113049,
+    "name": "HDFC Gold ETF",
+    "amc": "HDFC",
+    "kind": "ETF",
+    "terPct": 0.59,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.71,
+     "cagr3y": 30.22,
+     "cagr5y": 22.8,
+     "volatilityPct": 19.8,
+     "maxDrawdownPct": 22.3,
+     "historyYears": 16.2,
+     "nav": 118.893,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119132,
+    "name": "HDFC Gold ETF Fund of Fund",
+    "amc": "HDFC",
+    "kind": "Fund of funds",
+    "terPct": 0.2,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.71,
+     "cagr3y": 30.29,
+     "cagr5y": 22.66,
+     "volatilityPct": 22.1,
+     "maxDrawdownPct": 24.8,
+     "historyYears": 13.8,
+     "nav": 43.4533,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154294,
+    "name": "HSBC Gold ETF",
+    "amc": "HSBC",
+    "kind": "ETF",
+    "terPct": 0.62,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 19.1,
+     "maxDrawdownPct": 13.2,
+     "historyYears": 0.6,
+     "nav": 121.232,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154295,
+    "name": "HSBC Gold ETF Fund of Fund",
+    "amc": "HSBC",
+    "kind": "Fund of funds",
+    "terPct": 0.07,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 19.5,
+     "maxDrawdownPct": 13,
+     "historyYears": 0.6,
+     "nav": 9.5899,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 113076,
+    "name": "ICICI Prudential Gold ETF",
+    "amc": "ICICI Prudential",
+    "kind": "ETF",
+    "terPct": 0.49,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 15.82,
+     "cagr3y": 30.63,
+     "cagr5y": 22.91,
+     "volatilityPct": 19.5,
+     "maxDrawdownPct": 22.2,
+     "historyYears": 16.2,
+     "nav": 119.2261,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120685,
+    "name": "ICICI Prudential Gold ETF FOF",
+    "amc": "ICICI Prudential",
+    "kind": "Fund of funds",
+    "terPct": 0.14,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 16.07,
+     "cagr3y": 30.51,
+     "cagr5y": 22.63,
+     "volatilityPct": 22.5,
+     "maxDrawdownPct": 25.8,
+     "historyYears": 13.8,
+     "nav": 44.5409,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 120531,
+    "name": "Invesco India Gold ETF Fund of Fund",
+    "amc": "Invesco",
+    "kind": "Fund of funds",
+    "terPct": 0.12,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 16.67,
+     "cagr3y": 30.27,
+     "cagr5y": 22.51,
+     "volatilityPct": 25.6,
+     "maxDrawdownPct": 24.4,
+     "historyYears": 13.8,
+     "nav": 40.6723,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 106193,
+    "name": "KOTAK GOLD ETF",
+    "amc": "Kotak Mahindra",
+    "kind": "ETF",
+    "terPct": 0.52,
+    "terDate": "2026-10-27",
+    "metrics": {
+     "cagr1y": 15.78,
+     "cagr3y": 30.52,
+     "cagr5y": 22.83,
+     "volatilityPct": 19.5,
+     "maxDrawdownPct": 22.3,
+     "historyYears": 19.3,
+     "nav": 116.169,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119781,
+    "name": "Kotak Gold Fund",
+    "amc": "Kotak Mahindra",
+    "kind": "Fund of funds",
+    "terPct": 0.1504,
+    "terDate": "2026-10-27",
+    "metrics": {
+     "cagr1y": 15.62,
+     "cagr3y": 30.27,
+     "cagr5y": 22.4,
+     "volatilityPct": 21.9,
+     "maxDrawdownPct": 24.1,
+     "historyYears": 13.8,
+     "nav": 56.2635,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151974,
+    "name": "LIC MF Gold ETF Fund of Fund",
+    "amc": "LIC",
+    "kind": "Fund of funds",
+    "terPct": 0.35,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 15.11,
+     "cagr3y": 30.08,
+     "cagr5y": null,
+     "volatilityPct": 24.4,
+     "maxDrawdownPct": 24.5,
+     "historyYears": 3.2,
+     "nav": 37.9044,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 151961,
+    "name": "LIC MF Gold Exchange Traded Fund",
+    "amc": "LIC",
+    "kind": "ETF",
+    "terPct": 0.45,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": -98.85,
+     "cagr3y": -71.85,
+     "cagr5y": null,
+     "volatilityPct": 270.7,
+     "maxDrawdownPct": 99.2,
+     "historyYears": 3.2,
+     "nav": 125.4765,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153780,
+    "name": "Motilal Oswal Gold ETF",
+    "amc": "Motilal Oswal",
+    "kind": "ETF",
+    "terPct": 0.59,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.49,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 25.4,
+     "maxDrawdownPct": 22.1,
+     "historyYears": 1.2,
+     "nav": 137.743,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 140088,
+    "name": "Nippon India ETF Gold BeES",
+    "amc": "Nippon India",
+    "kind": "ETF",
+    "terPct": 0.81,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.47,
+     "cagr3y": 30.29,
+     "cagr5y": 22.58,
+     "volatilityPct": 19.5,
+     "maxDrawdownPct": 22.3,
+     "historyYears": 10,
+     "nav": 115.0248,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 118663,
+    "name": "Nippon India Gold Savings Fund",
+    "amc": "Nippon India",
+    "kind": "Fund of funds",
+    "terPct": 0.06,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.47,
+     "cagr3y": 30.17,
+     "cagr5y": 22.48,
+     "volatilityPct": 20.8,
+     "maxDrawdownPct": 24.4,
+     "historyYears": 13.8,
+     "nav": 55.528,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 107693,
+    "name": "Quantum Gold ETF",
+    "amc": "Quantum",
+    "kind": "ETF",
+    "terPct": 0.61,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 16.59,
+     "cagr3y": 30.39,
+     "cagr5y": -43.81,
+     "volatilityPct": 19.7,
+     "maxDrawdownPct": 22.3,
+     "historyYears": 18.7,
+     "nav": 115.3028,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 115132,
+    "name": "Quantum Gold ETF FOF",
+    "amc": "Quantum",
+    "kind": "Fund of funds",
+    "terPct": 0.06,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.92,
+     "cagr3y": 30.63,
+     "cagr5y": 22.76,
+     "volatilityPct": 21.7,
+     "maxDrawdownPct": 24.5,
+     "historyYears": 15.4,
+     "nav": 53.4126,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 119788,
+    "name": "SBI GOLD FUND",
+    "amc": "SBI",
+    "kind": "Fund of funds",
+    "terPct": 0.25,
+    "terDate": "2026-10-29",
+    "metrics": {
+     "cagr1y": 15.79,
+     "cagr3y": 30.42,
+     "cagr5y": 22.73,
+     "volatilityPct": 21.6,
+     "maxDrawdownPct": 24.7,
+     "historyYears": 13.8,
+     "nav": 42.4998,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152287,
+    "name": "Tata Gold ETF Fund of Fund",
+    "amc": "Tata",
+    "kind": "Fund of funds",
+    "terPct": 0.24,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 15.1,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 22.2,
+     "maxDrawdownPct": 24.3,
+     "historyYears": 2.8,
+     "nav": 21.4196,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152284,
+    "name": "Tata Gold Exchange Traded Fund",
+    "amc": "Tata",
+    "kind": "ETF",
+    "terPct": 0.39,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 15.99,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 20.2,
+     "maxDrawdownPct": 21.9,
+     "historyYears": 2.8,
+     "nav": 13.5389,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 154131,
+    "name": "The Wealth Company Gold ETF FOF",
+    "amc": "The Wealth Company",
+    "kind": "Fund of funds",
+    "terPct": 0.23,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": null,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 23.2,
+     "maxDrawdownPct": 19.4,
+     "historyYears": 0.7,
+     "nav": 8.8701,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153337,
+    "name": "Union Gold ETF",
+    "amc": "Union",
+    "kind": "ETF",
+    "terPct": 0.49,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 15.62,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 23.3,
+     "maxDrawdownPct": 22.2,
+     "historyYears": 1.7,
+     "nav": 136.3604,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153340,
+    "name": "Union Gold ETF Fund of Fund",
+    "amc": "Union",
+    "kind": "Fund of funds",
+    "terPct": 0.32,
+    "terDate": "2026-10-31",
+    "metrics": {
+     "cagr1y": 15.41,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 29.9,
+     "maxDrawdownPct": 24.6,
+     "historyYears": 1.7,
+     "nav": 15.9338,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 105463,
+    "name": "UTI - Gold Exchange Traded Fund",
+    "amc": "UTI",
+    "kind": "ETF",
+    "terPct": 0.59,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.73,
+     "cagr3y": 30.71,
+     "cagr5y": 23.01,
+     "volatilityPct": 20.1,
+     "maxDrawdownPct": 21.2,
+     "historyYears": 19.5,
+     "nav": 117.0952,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 150714,
+    "name": "UTI Gold ETF Fund of Fund",
+    "amc": "UTI",
+    "kind": "Fund of funds",
+    "terPct": 0.07,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.52,
+     "cagr3y": 30.78,
+     "cagr5y": null,
+     "volatilityPct": 21,
+     "maxDrawdownPct": 23.6,
+     "historyYears": 4,
+     "nav": 26.7954,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 152476,
+    "name": "Zerodha Gold ETF",
+    "amc": "Zerodha",
+    "kind": "ETF",
+    "terPct": 0.35,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.79,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 21.5,
+     "maxDrawdownPct": 22.5,
+     "historyYears": 2.7,
+     "nav": 21.8983,
+     "navDate": "2026-10-30"
+    }
+   },
+   {
+    "code": 153011,
+    "name": "Zerodha Gold ETF FoF",
+    "amc": "Zerodha",
+    "kind": "Fund of funds",
+    "terPct": 0.28,
+    "terDate": "2026-10-30",
+    "metrics": {
+     "cagr1y": 15.72,
+     "cagr3y": null,
+     "cagr5y": null,
+     "volatilityPct": 25.3,
+     "maxDrawdownPct": 24.3,
+     "historyYears": 1.9,
+     "nav": 18.2045,
+     "navDate": "2026-10-30"
+    }
+   }
+  ]
+ }
+}

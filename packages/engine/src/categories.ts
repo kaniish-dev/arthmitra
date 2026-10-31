@@ -10,6 +10,7 @@ const SEEDS: Seed[] = [
   { id: "travel", name: "Travel", icon: "directions_car", discretionary: true, system: false },
   { id: "shopping", name: "Shopping", icon: "shopping_bag", discretionary: true, system: false },
   { id: "bills", name: "Bills", icon: "receipt_long", discretionary: false, system: false },
+  { id: "subscriptions", name: "Subscriptions", icon: "subscriptions", discretionary: false, system: false },
   { id: "emi", name: "EMI", icon: "account_balance", discretionary: false, system: false },
   { id: "education", name: "Education", icon: "school", discretionary: false, system: false },
   { id: "health", name: "Health", icon: "medical_services", discretionary: false, system: false },

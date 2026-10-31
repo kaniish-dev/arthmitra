@@ -4,7 +4,7 @@ import { useAppData } from "@/lib/store";
 import { Card, CardTitle, Icon, PageHeader } from "@/components/ui";
 
 const STEPS = [
-  { icon: "account_balance", text: "Link your bank through an Account Aggregator with consent, upload a CSV if your bank isn't on the network yet, or add cash spends yourself." },
+  { icon: "account_balance", text: "Link your bank through an Account Aggregator with consent, upload a statement (CSV, Excel or PDF) if your bank isn't on the network yet, or add cash spends yourself." },
   { icon: "auto_awesome", text: "Each payment is sorted into a category. Unclear ones wait in your inbox with three suggestions." },
   { icon: "flag", text: "Your income, fixed costs and spending become one number: what you can save each month for your goal." },
   { icon: "savings", text: "You invest in your own bank or app. When the debit arrives, ArthMitra confirms it and moves your goal forward." },

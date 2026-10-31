@@ -1,13 +1,6 @@
-import type { Metadata } from "next";
-import { Ready } from "@/components/ready";
-import { GoalScreen } from "@/screens/goal";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = { title: "Goal" };
-
-export default function Page() {
-  return (
-    <Ready>
-      <GoalScreen />
-    </Ready>
-  );
+/** The single-goal page became Plan (Explore → timeline and risk → investment plan). */
+export default function GoalPage() {
+  redirect("/plan");
 }

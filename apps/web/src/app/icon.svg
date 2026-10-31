@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a73e8"/>
+      <stop offset="1" stop-color="#0842a0"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#bg)"/>
+  <!-- Rupee sign -->
+  <g fill="none" stroke="#fff" stroke-width="36" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M160 146H336"/>
+    <path d="M160 212H336"/>
+    <path d="M196 146h38c52 0 80 30 80 66s-28 66-80 66h-38l118 112"/>
+  </g>
+  <!-- Growth: a small rising arrow -->
+  <g fill="none" stroke="#6dd58c" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M350 376l46-46"/>
+    <path d="M366 330h30v30"/>
+  </g>
+</svg>

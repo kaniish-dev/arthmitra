@@ -97,7 +97,7 @@ export function LinkBankScreen() {
       <p className="mt-6 text-center text-sm text-on-surface-variant">
         Bank not on the AA network yet?{" "}
         <LinkButton href="/import" variant="text" className="px-2 py-1">
-          Upload a CSV statement
+          Upload a statement
         </LinkButton>
       </p>
       {data.accounts.some((a) => a.status === "active") && (

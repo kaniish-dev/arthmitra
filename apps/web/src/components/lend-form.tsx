@@ -6,7 +6,8 @@ import type { Transaction } from "@arthmitra/schema";
 import { addLoan } from "@/lib/actions";
 import { amountText, merchantLabel } from "@/lib/format";
 import { useAppData } from "@/lib/store";
-import { AmountInput, Button, Select, TextInput } from "./ui";
+import { demoValues } from "@/lib/demo";
+import { AmountInput, AutofillButton, Button, Select, TextInput } from "./ui";
 
 /** Debits from the last 60 days that could be money lent. */
 function lendablePayments(txns: Transaction[], today: string) {
@@ -37,6 +38,19 @@ export function LendForm({ txn, onDone }: { txn?: Transaction; onDone: () => voi
         onDone();
       }}
     >
+      {!txn && (
+        <AutofillButton
+          onClick={() => {
+            const v = demoValues().loan;
+            setPerson(v.person);
+            setAmount(v.amountPaise);
+            setDate(addDays(today, -7));
+            setDue(addDays(today, 7));
+            setNote(v.note);
+            setFrom("cash");
+          }}
+        />
+      )}
       <TextInput label="Who did you lend to?" value={person} maxLength={40} onChange={(e) => setPerson(e.target.value)} placeholder="e.g. Ramesh Kumar" />
       {!txn && (
         <Select

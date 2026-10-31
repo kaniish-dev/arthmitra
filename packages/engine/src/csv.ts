@@ -121,3 +121,13 @@ export function statementRows(rows: string[][], map: ColumnMap): { rows: Stateme
   }
   return { rows: out, skipped };
 }
+
+/**
+ * Any statement laid out as a table (CSV, Excel sheet or rows rebuilt from a PDF): finds the
+ * header row, then reads the rows below it. Null when no header row is recognised.
+ */
+export function readStatementTable(table: string[][]): { rows: StatementRow[]; skipped: number } | null {
+  const headerIndex = table.findIndex((r) => detectColumns(r) !== null);
+  if (headerIndex === -1) return null;
+  return statementRows(table.slice(headerIndex + 1), detectColumns(table[headerIndex]!)!);
+}

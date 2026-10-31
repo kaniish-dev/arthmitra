@@ -5,6 +5,7 @@ import type { Transaction } from "@arthmitra/schema";
 import { useState } from "react";
 import { answerTransfer } from "@/lib/actions";
 import { useAppData } from "@/lib/store";
+import { DemoPayments } from "@/components/demo-payments";
 import { CategoryPicker, SuggestionChips, amountText, merchantLabel } from "@/components/transactions";
 import { Avatar, Badge, Button, Card, CardTitle, EmptyState, LinkButton, PageHeader } from "@/components/ui";
 
@@ -28,6 +29,8 @@ export function InboxScreen() {
           ) : undefined
         }
       />
+
+      {data.accounts.some((a) => a.status === "active" && a.source === "simulated") && <DemoPayments />}
 
       {transfers.length > 0 && (
         <Card className="mb-6">

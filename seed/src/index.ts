@@ -30,13 +30,13 @@ export const DEFAULT_SETTINGS: AppData["settings"] = {
   emergencyMode: false,
 };
 
-export const DEFAULT_PARTNERS: PartnerLink[] = [
-  { id: "mfcentral", name: "MF Central (mutual funds)", url: "https://www.mfcentral.com/" },
-];
+/** No investing platform is named; the partner app comes from apps/web/src/config/partner.ts. */
+export const DEFAULT_PARTNERS: PartnerLink[] = [];
 
 /** A blank account for "Start fresh". */
 export function emptyData(): AppData {
   return {
+    registration: null,
     profile: null,
     accounts: [],
     transactions: [],
@@ -51,6 +51,8 @@ export function emptyData(): AppData {
     splits: [],
     aaConsents: [],
     loans: [],
+    investmentAccounts: [],
+    holdings: [],
     merchantCache: {},
     settings: DEFAULT_SETTINGS,
   };
@@ -310,12 +312,18 @@ export interface ScriptedPayment {
   amountPaise: number;
 }
 
-/** Buttons on the demo panel. Swiggy sorts itself; RK Traders lands in the inbox. */
+/**
+ * Buttons on the demo panel. Swiggy sorts itself; RK Traders lands in the inbox. Once RK Traders
+ * is sorted, Shree RK Traders is sorted by the smart-sorting model; the ₹6,500 dinner raises an
+ * unusual-payment alert.
+ */
 export const SCRIPTED_PAYMENTS: ScriptedPayment[] = [
   { id: "swiggy", label: "Swiggy order ₹450", merchantRaw: "UPI/SWIGGY*ORDER7781/swiggy@icici", amountPaise: R(-450) },
   { id: "rk-traders", label: "RK Traders ₹1,200", merchantRaw: "UPI-RK TRADERS-rktraders@okaxis", amountPaise: R(-1_200) },
   { id: "uber", label: "Uber ride ₹320", merchantRaw: "UPI/UBER INDIA/uber@axis", amountPaise: R(-320) },
   { id: "friend", label: "Money from a friend ₹800", merchantRaw: "UPI-RAMESH KUMAR-ramesh@oksbi", amountPaise: R(800) },
+  { id: "rk-traders-again", label: "Shree RK Traders ₹350", merchantRaw: "UPI-SHREE RK TRADERS-shreerk@okaxis", amountPaise: R(-350) },
+  { id: "big-dinner", label: "Spice Route ₹6,500", merchantRaw: "POS RESTAURANT SPICE ROUTE", amountPaise: R(-6_500) },
 ];
 
 /** Name shown for the simulated Account Aggregator. */
@@ -350,3 +358,5 @@ export function demoFiData(
     },
   };
 }
+
+export * from "./personas";
