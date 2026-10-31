@@ -5,7 +5,7 @@ import { DISCLAIMER as SHARED_DISCLAIMER } from "@arthmitra/schema";
  * "Udhaar Khata") is a one-line change.
  */
 export const FEATURES = {
-  coach: { name: "Coach", tagline: "Your AI money buddy", href: "/coach", icon: "forum" },
+  coach: { name: "Mitra", tagline: "Your AI money buddy", href: "/coach", icon: "forum" },
   crisisCushion: { name: "Crisis Cushion", tagline: "Emergency fund for bad days", href: "/cushion", icon: "health_and_safety" },
   lend: { name: "Lend", tagline: "Who owes you, and when", href: "/lent", icon: "handshake" },
   financeFirstClass: { name: "Finance First Class", tagline: "Money lessons in 3 minutes", href: "/learn", icon: "school" },
@@ -15,6 +15,9 @@ export const FEATURES = {
 } as const;
 
 export const APP_NAME = "ArthMitra";
+
+/** Name of the add-ons group in the sidebar, Home and More. */
+export const ADD_ONS_LABEL = "Arsenal";
 
 /** The one disclaimer shown on plans, suggestions, projections, portfolio returns, Coach and articles. */
 export const DISCLAIMER = SHARED_DISCLAIMER;

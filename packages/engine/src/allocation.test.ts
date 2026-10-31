@@ -4,6 +4,7 @@ import {
   allocate,
   blendedReturnPct,
   buildPlan,
+  practicalSplit,
   equityPct,
   passiveIncomeMonthly,
   sipFutureValue,
@@ -128,5 +129,31 @@ describe("buildPlan", () => {
     expect(p.monthlyPaise).toBe(R(15_000));
     expect(p.onTrack).toBe(false);
     expect(p.shortfallPaise).toBe(p.requiredPaise - R(15_000));
+  });
+});
+
+describe("practical monthly split", () => {
+  const mix = [
+    { type: "rd" as const, pct: 50 },
+    { type: "gsec" as const, pct: 20 },
+    { type: "tbill" as const, pct: 10 },
+    { type: "bonds" as const, pct: 10 },
+    { type: "gold" as const, pct: 10 },
+  ];
+  it("keeps every line when each gets at least ₹500", () => {
+    const s = practicalSplit(mix, R(10_000));
+    expect(s.map((l) => l.type)).toEqual(["rd", "gsec", "tbill", "bonds", "gold"]);
+    expect(s.reduce((a, l) => a + l.paise, 0)).toBe(R(10_000));
+  });
+
+  it("folds ₹150 slices into the bigger lines for a small monthly amount", () => {
+    const s = practicalSplit(mix, R(1_500));
+    expect(s.every((l) => l.paise >= R(500))).toBe(true);
+    expect(s.reduce((a, l) => a + l.paise, 0)).toBe(R(1_500));
+    expect(s.reduce((a, l) => a + l.pct, 0)).toBe(100);
+  });
+
+  it("puts a tiny amount all in one line", () => {
+    expect(practicalSplit(mix, R(400))).toEqual([{ type: "rd", pct: 100, paise: R(400) }]);
   });
 });

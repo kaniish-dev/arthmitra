@@ -419,7 +419,20 @@ export function ExploreScreen() {
               </Badge>
             </div>
             <div className="mt-4">
-              <AmountInput label="Monthly SIP / deposit" valuePaise={plan.monthlyPaise} onChange={setMonthly} hint={TERMS.SIP} />
+              <AmountInput
+                label="Monthly SIP / deposit"
+                valuePaise={plan.monthlyPaise}
+                onChange={setMonthly}
+                hint={
+                  plan.monthlyPaise > Math.max(monthlyEquivalent(funding), affordable) ? (
+                    <span className="font-medium text-error">
+                      More than you can realistically save ({formatINR(Math.max(monthlyEquivalent(funding), affordable))}/month). Lower it, or move the date out.
+                    </span>
+                  ) : (
+                    TERMS.SIP
+                  )
+                }
+              />
             </div>
             <p className="mt-3 text-sm">
               Projected value by {formatDate(targetDate)}: <strong className="tabular-nums">{formatINR(plan.projectedPaise)}</strong> at an assumed {plan.expectedReturnPct}% a year.

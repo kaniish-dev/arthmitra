@@ -182,6 +182,33 @@ export function passiveIncomeMonthly(valuePaise: number, withdrawalPct = SAFE_WI
 
 // ---------- A full plan ----------
 
+// ---------- Practical monthly split ----------
+
+/** Smallest monthly amount worth a separate investment (most SIPs and RDs start around here). */
+export const MIN_LINE_PAISE = 50_000;
+
+/**
+ * Rupees per line each month, rounded to ₹100. Lines that would get less than the minimum are
+ * folded into the rest (smallest first), so a low monthly amount isn't spread into ₹150 slices
+ * nobody can actually invest; with very little, it all goes into the biggest line.
+ */
+export function practicalSplit(allocation: AllocationLine[], monthlyPaise: number, minPaise = MIN_LINE_PAISE): Array<AllocationLine & { paise: number }> {
+  let lines = [...allocation].filter((l) => l.pct > 0).sort((a, b) => b.pct - a.pct);
+  while (lines.length > 1) {
+    const total = lines.reduce((s, l) => s + l.pct, 0);
+    const smallest = lines[lines.length - 1]!;
+    if ((monthlyPaise * smallest.pct) / total >= minPaise) break;
+    lines = lines.slice(0, -1);
+  }
+  const total = lines.reduce((s, l) => s + l.pct, 0) || 1;
+  const split = lines.map((l) => ({ type: l.type, pct: Math.round((l.pct / total) * 100), paise: Math.round((monthlyPaise * l.pct) / total / 10_000) * 10_000 }));
+  if (split.length) {
+    split[0]!.paise += monthlyPaise - split.reduce((s, l) => s + l.paise, 0);
+    split[0]!.pct += 100 - split.reduce((s, l) => s + l.pct, 0);
+  }
+  return split;
+}
+
 export interface PlanInput {
   targetPaise: number;
   savedPaise: number;
@@ -215,8 +242,7 @@ export function buildPlan(input: PlanInput, cfg: AllocationConfig = DEFAULT_ALLO
   const projectedPaise = sipFutureValue(monthlyPaise, input.monthsLeft, expectedReturnPct, input.savedPaise);
   const onTrack = projectedPaise >= input.targetPaise;
   // Rupees per line: rounded to ₹100, with the rounding left on the biggest line.
-  const split = allocation.map((l) => ({ ...l, paise: Math.round((monthlyPaise * l.pct) / 100 / 10_000) * 10_000 }));
-  if (split.length) split[0]!.paise += monthlyPaise - split.reduce((s, l) => s + l.paise, 0);
+  const split = practicalSplit(allocation, monthlyPaise);
   return {
     allocation,
     expectedReturnPct,

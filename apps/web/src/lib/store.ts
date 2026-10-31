@@ -40,7 +40,16 @@ function normalize(stored: Partial<AppData>): AppData {
     : base.categories;
   const reg = stored.registration as Partial<NonNullable<AppData["registration"]>> | null | undefined;
   const registration = reg && reg.dob && reg.kycStatus ? stored.registration! : null;
-  return { ...base, ...stored, registration, categories, partners: [], settings: { ...base.settings, ...stored.settings } };
+  // Plans saved before monthly plans dropped FDs: a fixed deposit can't take money every month, so its share moves to an RD.
+  const goals = (stored.goals ?? base.goals).map((g) => {
+    const fd = g.plan?.allocation.find((l) => l.type === "fd");
+    if (!g.plan || !fd) return g;
+    const rest = g.plan.allocation.filter((l) => l.type !== "fd");
+    const rd = rest.find((l) => l.type === "rd");
+    const allocation = rd ? rest.map((l) => (l.type === "rd" ? { ...l, pct: l.pct + fd.pct } : l)) : [...rest, { type: "rd" as const, pct: fd.pct }];
+    return { ...g, plan: { ...g.plan, allocation: allocation.sort((a, b) => b.pct - a.pct) } };
+  });
+  return { ...base, ...stored, registration, goals, categories, partners: [], settings: { ...base.settings, ...stored.settings } };
 }
 
 function read(): AppData {

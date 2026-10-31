@@ -10,10 +10,12 @@ scripts:
   runCommand: npm run start -w web
 
 env:
-  # Firebase web config: public by design (Firestore rules protect the data). Needed at build
-  # time because Next.js puts NEXT_PUBLIC_ values into the browser code.
+  # Firebase web config. Needed at build time because Next.js puts NEXT_PUBLIC_ values into the
+  # browser code; Firestore rules protect the data. The API key comes from Secret Manager so it
+  # isn't in git (set it once: firebase apphosting:secrets:set firebaseApiKey), and it is
+  # restricted to this app's domains and Firebase APIs in Google Cloud → Credentials.
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
-    value: "AIzaSyD1y-jS1GBRZnGg97Fkkj1Tc87-M0V8H5s"
+    secret: firebaseApiKey
     availability: [BUILD, RUNTIME]
   - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
     value: "arthmitra-d4a22.firebaseapp.com"

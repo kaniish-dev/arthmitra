@@ -37,7 +37,7 @@ const COPY: Record<Mode, { title: string; text: string }> = {
 const HIGHLIGHTS = [
   { icon: "insights", title: "Know your real saving", text: "Reads your past spends and sets a monthly saving you can actually hit." },
   { icon: "flag", title: "Plan a Big Day or build wealth", text: "Car, wedding, dream trip — or passive income that pays your bills." },
-  { icon: "forum", title: "A Coach that knows your numbers", text: "Ask anything, in English or हिंदी." },
+  { icon: "forum", title: "Mitra, an AI coach that knows your numbers", text: "Ask anything, in English or हिंदी." },
 ];
 
 const MOBILE = /^[6-9]\d{9}$/;
@@ -412,9 +412,9 @@ function BrandPanel() {
       </Link>
       <div className="relative my-auto max-w-md">
         <h2 className="text-4xl leading-tight font-semibold tracking-tight">
-          Har kharch ka hisaab,
+          Har Kharch Ka Hisaab,
           <br />
-          har sapne ka plan.
+          Har Sapne Ka Plan.
         </h2>
         <ul className="mt-10 flex flex-col gap-6">
           {HIGHLIGHTS.map((h) => (

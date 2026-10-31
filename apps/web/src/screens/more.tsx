@@ -1,7 +1,7 @@
 "use client";
 
 import { MOBILE_NAV, SIDEBAR_HREFS } from "@/components/app-shell";
-import { FEATURES } from "@/lib/constants";
+import { ADD_ONS_LABEL, FEATURES } from "@/lib/constants";
 import { useAppData } from "@/lib/store";
 import { ListRow, ListSection, PageHeader } from "@/components/ui";
 
@@ -27,7 +27,7 @@ export function MoreScreen() {
   const inbox = data.transactions.filter((t) => t.status === "uncategorised").length;
   const sections: Array<{ title: string; rows: Row[] }> = [
     {
-      title: "Add-ons",
+      title: ADD_ONS_LABEL,
       rows: [FEATURES.coach, FEATURES.crisisCushion, FEATURES.lend, FEATURES.financeFirstClass, FEATURES.befikarMode].map((f) => ({
         href: f.href,
         icon: f.icon,

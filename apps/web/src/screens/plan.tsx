@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { INSTRUMENTS, INSTRUMENT_LABEL, formatDate, formatINR, sipFutureValue, todayIso } from "@arthmitra/engine";
+import { INSTRUMENTS, INSTRUMENT_LABEL, formatDate, formatINR, sipFutureValue, todayIso, practicalSplit } from "@arthmitra/engine";
 import type { AppData, Goal } from "@arthmitra/schema";
 import { AllocationDonut, ProjectionLine } from "@/components/charts";
 import { GoalOdds } from "@/components/goal-odds";
@@ -14,16 +14,17 @@ import { SavingsRecommendationCard } from "@/components/savings-recommendation";
 import { fundingOf, savingsFor } from "@/lib/plan/savings";
 import { CHECKLIST } from "@/lib/plan/best-fit";
 import { RISK_COPY, TIMELINE_COPY } from "@/config/plan";
-import { deleteGoal } from "@/lib/actions";
+import { deleteGoal, savePlannedGoal } from "@/lib/actions";
+import { buildPlan, timelineFor } from "@/lib/plan/allocation";
 import { COMPLIANCE, FEATURES } from "@/lib/constants";
-import { goalProgress, planGoals } from "@/lib/insights";
+import { goalProgress, planGoals, savingsInsight } from "@/lib/insights";
 import { assumedReturnPct } from "@/lib/plan/allocation";
 import { useAppData } from "@/lib/store";
 import { Badge, Button, Card, DemoBadge, Disclaimer, EmptyState, Icon, LinkButton, Note, PageHeader, ProgressBar, SectionTitle } from "@/components/ui";
 
 const ICON: Record<string, string> = { car: "directions_car", wedding: "favorite", trip: "flight", education: "school", home: "home", emergency: "health_and_safety", custom: "flag" };
 const goalIcon = (g: Goal) => (g.path === "wealth" ? "trending_up" : (ICON[g.kind] ?? "flag"));
-const pathLabel = (g: Goal) => (g.path === "wealth" ? FEATURES.wealth.name : g.path === "custom" ? "From Coach" : FEATURES.bigDay.name);
+const pathLabel = (g: Goal) => (g.path === "wealth" ? FEATURES.wealth.name : g.path === "custom" ? `From ${FEATURES.coach.name}` : FEATURES.bigDay.name);
 
 /** Plan tab: every goal and its plan, plus "Plan something". */
 export function PlansScreen() {
@@ -119,6 +120,27 @@ export function PlanViewScreen() {
   const plan = goal.plan;
   // How to hold the money: from the goal's funding answers, with what's already invested counted as saved.
   const reco = savingsFor(data, { targetPaise: goal.targetPaise, targetDate: goal.targetDate, existingPaise: p.valuePaise, isEmergency: false }, fundingOf(goal), today);
+  // What this person can realistically put in each month: what's free after their other plans, plus this plan's own amount.
+  const affordablePaise = Math.max(0, savingsInsight(data, today).freePaise + (plan?.monthlyPaise ?? 0));
+  const tooMuch = plan ? plan.monthlyPaise > affordablePaise : false;
+  const lines = plan ? practicalSplit(plan.allocation, plan.monthlyPaise) : [];
+  const fitToSaving = () => {
+    if (!plan) return;
+    const fitted = buildPlan({ targetPaise: goal.targetPaise, savedPaise: p.valuePaise, monthsLeft: Math.max(1, p.monthsLeft), risk: goal.risk, timeline: goal.timeline ?? timelineFor(p.monthsLeft), affordablePaise, monthlyPaise: affordablePaise });
+    savePlannedGoal({
+      id: goal.id,
+      name: goal.name,
+      kind: goal.kind,
+      path: goal.path ?? "bigDay",
+      targetPaise: goal.targetPaise,
+      targetDate: goal.targetDate,
+      risk: goal.risk,
+      timeline: goal.timeline ?? timelineFor(p.monthsLeft),
+      monthlyExpensesPaise: goal.monthlyExpensesPaise,
+      funding: { ...fundingOf(goal), recurringPaise: affordablePaise, frequency: "monthly" },
+      plan: { ...plan, allocation: fitted.allocation, monthlyPaise: fitted.monthlyPaise, requiredPaise: fitted.requiredPaise, projectedPaise: fitted.projectedPaise, expectedReturnPct: fitted.expectedReturnPct },
+    });
+  };
 
   return (
     <div className="mx-auto flex max-w-3xl flex-col">
@@ -169,6 +191,23 @@ export function PlanViewScreen() {
             <Disclaimer className="mt-3" />
           </Card>
 
+          {tooMuch && (
+            <section role="alert" className="flex flex-col gap-3 rounded-3xl border border-warning/30 bg-warning-container/50 p-4 sm:flex-row sm:items-center sm:p-5">
+              <Icon name="account_balance_wallet" className="text-3xl text-on-warning-container" />
+              <div className="min-w-0 flex-1 text-sm">
+                <p className="font-semibold">
+                  {formatINR(plan.monthlyPaise)}/month is more than you can realistically save ({formatINR(affordablePaise)}/month)
+                </p>
+                <p className="text-on-surface-variant">
+                  That&apos;s what your income leaves after spending and your other plans. Fitting the plan keeps it doable; the goal may then need a later date — the card below shows the gap.
+                </p>
+              </div>
+              <Button icon="tune" onClick={fitToSaving} className="shrink-0">
+                Fit to {formatINR(affordablePaise)}/month
+              </Button>
+            </section>
+          )}
+
           <SavingsRecommendationCard reco={reco} goalName={goal.name} onRevise={() => router.push(`/explore?edit=${goal.id}`)} />
 
           <div className="grid grid-cols-1 items-stretch gap-5 lg:grid-cols-2">
@@ -192,9 +231,9 @@ export function PlanViewScreen() {
               </p>
             </div>
             <ul className="mt-4 flex flex-col gap-3">
-              {plan.allocation.map((l) => {
+              {lines.map((l) => {
                 const info = INSTRUMENTS[l.type];
-                const paise = Math.round((plan.monthlyPaise * l.pct) / 100);
+                const paise = l.paise;
                 return (
                   <li key={l.type} className="rounded-2xl border border-outline-variant/60 p-4">
                     <div className="flex flex-wrap items-start justify-between gap-2">

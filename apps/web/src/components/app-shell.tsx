@@ -7,7 +7,7 @@ import { markNotificationsRead } from "@/lib/actions";
 import { authEnabled, logOut, useAuth } from "@/lib/auth";
 import { useAppData } from "@/lib/store";
 import { useAaAutoSync } from "@/lib/aa-sync";
-import { DEMO_BADGE, FEATURES } from "@/lib/constants";
+import { ADD_ONS_LABEL, DEMO_BADGE, FEATURES } from "@/lib/constants";
 import { Avatar, Icon, Loading, cx } from "./ui";
 import { UnusualAnswer } from "./unusual-answer";
 
@@ -22,7 +22,7 @@ const NAV_GROUPS: Array<{ label: string | null; items: Array<{ href: string; lab
     ],
   },
   {
-    label: "Add-ons",
+    label: ADD_ONS_LABEL,
     items: [
       { href: FEATURES.crisisCushion.href, label: FEATURES.crisisCushion.name, icon: FEATURES.crisisCushion.icon },
       { href: FEATURES.lend.href, label: FEATURES.lend.name, icon: FEATURES.lend.icon },

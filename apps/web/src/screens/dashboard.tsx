@@ -8,7 +8,7 @@ import { AaStatus } from "@/components/aa-status";
 import { CHART_COLORS, CategoryDonut, MonthBars } from "@/components/charts";
 import { TransactionList } from "@/components/transactions";
 import { BEFIKAR_SAMPLE } from "@/config/befikar";
-import { FEATURES } from "@/lib/constants";
+import { ADD_ONS_LABEL, FEATURES } from "@/lib/constants";
 import { goalProgress, planGoals, savingsInsight, wealthSummary, type SavingsInsight } from "@/lib/insights";
 import { agoLabel, useNow } from "@/lib/aa-sync";
 import { useAppData } from "@/lib/store";
@@ -119,8 +119,8 @@ export function DashboardScreen() {
 
       <BefikarTeaser />
 
-      <nav aria-label="Add-ons">
-        <h2 className="mb-3 text-base font-semibold">Add-ons</h2>
+      <nav aria-label={ADD_ONS_LABEL}>
+        <h2 className="mb-3 text-base font-semibold">{ADD_ONS_LABEL}</h2>
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {ADD_ONS.map((f) => (
             <li key={f.href}>
